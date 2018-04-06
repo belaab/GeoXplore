@@ -8,20 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		2BC0CC3220778D0C001033B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC0CC3120778D0C001033B0 /* AppDelegate.swift */; };
-		2BC0CC3420778D0C001033B0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC0CC3320778D0C001033B0 /* ViewController.swift */; };
-		2BC0CC3720778D0C001033B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BC0CC3520778D0C001033B0 /* Main.storyboard */; };
 		2BC0CC3920778D0C001033B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BC0CC3820778D0C001033B0 /* Assets.xcassets */; };
 		2BC0CC3C20778D0C001033B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BC0CC3A20778D0C001033B0 /* LaunchScreen.storyboard */; };
+		2BC0CC482077BE66001033B0 /* ChooseSignUpInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC0CC472077BE66001033B0 /* ChooseSignUpInViewController.swift */; };
+		2BC0CC4A2077BE9B001033B0 /* ChooseSignUpIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BC0CC492077BE9B001033B0 /* ChooseSignUpIn.storyboard */; };
+		2BC0CC4C20781C81001033B0 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BC0CC4B20781C81001033B0 /* Login.storyboard */; };
+		514D49B39D49978513EA0016 /* Pods_GeoXplore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C62D332798919C75732A4D6 /* Pods_GeoXplore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C62D332798919C75732A4D6 /* Pods_GeoXplore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoXplore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BC0CC2E20778D0C001033B0 /* GeoXplore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoXplore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BC0CC3120778D0C001033B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2BC0CC3320778D0C001033B0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2BC0CC3620778D0C001033B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2BC0CC3820778D0C001033B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2BC0CC3B20778D0C001033B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2BC0CC3D20778D0C001033B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2BC0CC472077BE66001033B0 /* ChooseSignUpInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseSignUpInViewController.swift; sourceTree = "<group>"; };
+		2BC0CC492077BE9B001033B0 /* ChooseSignUpIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChooseSignUpIn.storyboard; sourceTree = "<group>"; };
+		2BC0CC4B20781C81001033B0 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		B2EF8CD55388AEB04B96C030 /* Pods-GeoXplore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoXplore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoXplore/Pods-GeoXplore.debug.xcconfig"; sourceTree = "<group>"; };
+		D9CEC8B3CA0ED479C07F28F2 /* Pods-GeoXplore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoXplore.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeoXplore/Pods-GeoXplore.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +35,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				514D49B39D49978513EA0016 /* Pods_GeoXplore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03AE32E3D93D0037002695C0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0C62D332798919C75732A4D6 /* Pods_GeoXplore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2BC0CC2520778D0C001033B0 = {
 			isa = PBXGroup;
 			children = (
 				2BC0CC3020778D0C001033B0 /* GeoXplore */,
 				2BC0CC2F20778D0C001033B0 /* Products */,
+				E72F4648A7B2298B1C06F5B0 /* Pods */,
+				03AE32E3D93D0037002695C0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +71,33 @@
 		2BC0CC3020778D0C001033B0 /* GeoXplore */ = {
 			isa = PBXGroup;
 			children = (
+				2BC0CC462077BCB5001033B0 /* LoginRegister */,
 				2BC0CC3120778D0C001033B0 /* AppDelegate.swift */,
-				2BC0CC3320778D0C001033B0 /* ViewController.swift */,
-				2BC0CC3520778D0C001033B0 /* Main.storyboard */,
 				2BC0CC3820778D0C001033B0 /* Assets.xcassets */,
 				2BC0CC3A20778D0C001033B0 /* LaunchScreen.storyboard */,
 				2BC0CC3D20778D0C001033B0 /* Info.plist */,
 			);
 			path = GeoXplore;
+			sourceTree = "<group>";
+		};
+		2BC0CC462077BCB5001033B0 /* LoginRegister */ = {
+			isa = PBXGroup;
+			children = (
+				2BC0CC472077BE66001033B0 /* ChooseSignUpInViewController.swift */,
+				2BC0CC492077BE9B001033B0 /* ChooseSignUpIn.storyboard */,
+				2BC0CC4B20781C81001033B0 /* Login.storyboard */,
+			);
+			name = LoginRegister;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		E72F4648A7B2298B1C06F5B0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B2EF8CD55388AEB04B96C030 /* Pods-GeoXplore.debug.xcconfig */,
+				D9CEC8B3CA0ED479C07F28F2 /* Pods-GeoXplore.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +107,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2BC0CC4020778D0C001033B0 /* Build configuration list for PBXNativeTarget "GeoXplore" */;
 			buildPhases = (
+				1DA15730C98F1B3D42A546D8 /* [CP] Check Pods Manifest.lock */,
 				2BC0CC2A20778D0C001033B0 /* Sources */,
 				2BC0CC2B20778D0C001033B0 /* Frameworks */,
 				2BC0CC2C20778D0C001033B0 /* Resources */,
+				B5C3A62FB56CD4775AC28855 /* [CP] Embed Pods Frameworks */,
+				9422FB470CC6CE08432E67AE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -123,20 +162,75 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BC0CC4C20781C81001033B0 /* Login.storyboard in Resources */,
 				2BC0CC3C20778D0C001033B0 /* LaunchScreen.storyboard in Resources */,
 				2BC0CC3920778D0C001033B0 /* Assets.xcassets in Resources */,
-				2BC0CC3720778D0C001033B0 /* Main.storyboard in Resources */,
+				2BC0CC4A2077BE9B001033B0 /* ChooseSignUpIn.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1DA15730C98F1B3D42A546D8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GeoXplore-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9422FB470CC6CE08432E67AE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GeoXplore/Pods-GeoXplore-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B5C3A62FB56CD4775AC28855 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GeoXplore/Pods-GeoXplore-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GeoXplore/Pods-GeoXplore-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2BC0CC2A20778D0C001033B0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BC0CC3420778D0C001033B0 /* ViewController.swift in Sources */,
+				2BC0CC482077BE66001033B0 /* ChooseSignUpInViewController.swift in Sources */,
 				2BC0CC3220778D0C001033B0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -144,14 +238,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		2BC0CC3520778D0C001033B0 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2BC0CC3620778D0C001033B0 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2BC0CC3A20778D0C001033B0 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -272,6 +358,7 @@
 		};
 		2BC0CC4120778D0C001033B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2EF8CD55388AEB04B96C030 /* Pods-GeoXplore.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -287,6 +374,7 @@
 		};
 		2BC0CC4220778D0C001033B0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9CEC8B3CA0ED479C07F28F2 /* Pods-GeoXplore.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
