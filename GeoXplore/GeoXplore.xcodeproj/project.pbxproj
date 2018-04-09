@@ -14,6 +14,9 @@
 		2BC0CC5C20784386001033B0 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BC0CC5920784386001033B0 /* Login.storyboard */; };
 		2BC0CC5D20784386001033B0 /* ChooseSignUpInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC0CC5A20784386001033B0 /* ChooseSignUpInViewController.swift */; };
 		2BC0CC60207AAC03001033B0 /* StoryboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC0CC5F207AAC03001033B0 /* StoryboardManager.swift */; };
+		2BC0CC62207B736D001033B0 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BC0CC61207B736D001033B0 /* Register.storyboard */; };
+		2BC0CC64207B7CE3001033B0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC0CC63207B7CE3001033B0 /* RegisterViewController.swift */; };
+		2BC0CC66207B7D80001033B0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC0CC65207B7D80001033B0 /* LoginViewController.swift */; };
 		514D49B39D49978513EA0016 /* Pods_GeoXplore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C62D332798919C75732A4D6 /* Pods_GeoXplore.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +31,9 @@
 		2BC0CC5920784386001033B0 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		2BC0CC5A20784386001033B0 /* ChooseSignUpInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseSignUpInViewController.swift; sourceTree = "<group>"; };
 		2BC0CC5F207AAC03001033B0 /* StoryboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardManager.swift; sourceTree = "<group>"; };
+		2BC0CC61207B736D001033B0 /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
+		2BC0CC63207B7CE3001033B0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		2BC0CC65207B7D80001033B0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B2EF8CD55388AEB04B96C030 /* Pods-GeoXplore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoXplore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoXplore/Pods-GeoXplore.debug.xcconfig"; sourceTree = "<group>"; };
 		D9CEC8B3CA0ED479C07F28F2 /* Pods-GeoXplore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoXplore.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeoXplore/Pods-GeoXplore.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,6 +95,9 @@
 				2BC0CC5820784385001033B0 /* ChooseSignUpIn.storyboard */,
 				2BC0CC5A20784386001033B0 /* ChooseSignUpInViewController.swift */,
 				2BC0CC5920784386001033B0 /* Login.storyboard */,
+				2BC0CC61207B736D001033B0 /* Register.storyboard */,
+				2BC0CC63207B7CE3001033B0 /* RegisterViewController.swift */,
+				2BC0CC65207B7D80001033B0 /* LoginViewController.swift */,
 			);
 			path = LoginRegister;
 			sourceTree = "<group>";
@@ -176,6 +185,7 @@
 				2BC0CC5C20784386001033B0 /* Login.storyboard in Resources */,
 				2BC0CC3920778D0C001033B0 /* Assets.xcassets in Resources */,
 				2BC0CC5B20784386001033B0 /* ChooseSignUpIn.storyboard in Resources */,
+				2BC0CC62207B736D001033B0 /* Register.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +253,8 @@
 				2BC0CC5D20784386001033B0 /* ChooseSignUpInViewController.swift in Sources */,
 				2BC0CC3220778D0C001033B0 /* AppDelegate.swift in Sources */,
 				2BC0CC60207AAC03001033B0 /* StoryboardManager.swift in Sources */,
+				2BC0CC66207B7D80001033B0 /* LoginViewController.swift in Sources */,
+				2BC0CC64207B7CE3001033B0 /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

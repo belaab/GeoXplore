@@ -61,6 +61,9 @@
                                                 <integer key="value" value="8"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="loginButtonPressed:" destination="Pa6-Pi-ASF" eventType="touchUpInside" id="eb8-x8-09u"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nVl-m4-t0S">
                                         <rect key="frame" x="0.0" y="70" width="374" height="50"/>
@@ -76,6 +79,9 @@
                                                 <integer key="value" value="8"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="registerButtonPressed:" destination="Pa6-Pi-ASF" eventType="touchUpInside" id="pZg-Yy-e5d"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
