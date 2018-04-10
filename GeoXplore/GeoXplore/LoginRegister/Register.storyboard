@@ -166,7 +166,7 @@
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sXa-K1-ksz">
                                         <rect key="frame" x="0.0" y="210" width="374" height="50"/>
-                                        <color key="backgroundColor" red="0.4043503752" green="0.78128498130000001" blue="0.66670346110000001" alpha="0.32537411970000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.4043503752" green="0.78128498130000001" blue="0.66670346110000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="u5O-Vk-Mlz"/>
                                         </constraints>
