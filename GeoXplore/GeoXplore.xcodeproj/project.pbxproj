@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B32D14020834DC700642738 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B32D13F20834DC700642738 /* RequestManager.swift */; };
+		2B32D1442083523600642738 /* APIRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B32D1432083523600642738 /* APIRegister.swift */; };
 		2BC0CC3220778D0C001033B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC0CC3120778D0C001033B0 /* AppDelegate.swift */; };
 		2BC0CC3920778D0C001033B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BC0CC3820778D0C001033B0 /* Assets.xcassets */; };
 		2BC0CC3C20778D0C001033B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BC0CC3A20778D0C001033B0 /* LaunchScreen.storyboard */; };
@@ -24,6 +26,8 @@
 
 /* Begin PBXFileReference section */
 		0C62D332798919C75732A4D6 /* Pods_GeoXplore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoXplore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B32D13F20834DC700642738 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
+		2B32D1432083523600642738 /* APIRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRegister.swift; sourceTree = "<group>"; };
 		2BC0CC2E20778D0C001033B0 /* GeoXplore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoXplore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BC0CC3120778D0C001033B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BC0CC3820778D0C001033B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -62,6 +66,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2B32D14120834FA400642738 /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				2B32D1422083521B00642738 /* Models */,
+				2B32D13F20834DC700642738 /* RequestManager.swift */,
+			);
+			path = APIManager;
+			sourceTree = "<group>";
+		};
+		2B32D1422083521B00642738 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2B32D1432083523600642738 /* APIRegister.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		2BC0CC2520778D0C001033B0 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +104,7 @@
 		2BC0CC3020778D0C001033B0 /* GeoXplore */ = {
 			isa = PBXGroup;
 			children = (
+				2B32D14120834FA400642738 /* APIManager */,
 				2BC0CC5E207AAB2E001033B0 /* Utilities */,
 				2BC0CC4D20782544001033B0 /* LoginRegister */,
 				2BC0CC3120778D0C001033B0 /* AppDelegate.swift */,
@@ -239,10 +261,16 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-GeoXplore/Pods-GeoXplore-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -256,6 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B32D14020834DC700642738 /* RequestManager.swift in Sources */,
 				2BC0CC5D20784386001033B0 /* ChooseSignUpInViewController.swift in Sources */,
 				2BD97C78207D41090033AA26 /* TargetType.swift in Sources */,
 				2BC0CC3220778D0C001033B0 /* AppDelegate.swift in Sources */,
@@ -263,6 +292,7 @@
 				2BC0CC66207B7D80001033B0 /* LoginViewController.swift in Sources */,
 				2BD97C7A207D41B60033AA26 /* UrlBuilder.swift in Sources */,
 				2BC0CC64207B7CE3001033B0 /* RegisterViewController.swift in Sources */,
+				2B32D1442083523600642738 /* APIRegister.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

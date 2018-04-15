@@ -9,7 +9,25 @@
 import UIKit
 
 class RegisterViewController: UIViewController {
-
+    
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var repeatPasswordTextField: UITextField!
+    
+    func registerButtonPressed(){
+        guard let username = usernameTextField.text, let email = emailTextField.text, let password = passwordTextField.text else { print("dupa"); return }
+    
+        RequestManager.sharedInstance.registerUser(username: username, password: password, email: email)
+        
+    }
+    
+    @IBAction func registerButtnon(_ sender: UIButton) {
+        registerButtonPressed()
+    }
+    
+    
+    
     @IBAction func dismissRegisterView(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }

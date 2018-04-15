@@ -18,9 +18,9 @@ extension RequestType: TargetType {
     var url: URL {
         switch self {
         case .login:
-            return URL(string: "todologin/endpoint")!
+            return URL(string: "https://geoxplore-api.herokuapp.com/login")!
         case .register:
-            return URL(string: "todoregister/endpoint")!
+            return URL(string: "https://geoxplore-api.herokuapp.com/user-management/create-user")!
         }
     }
 }
