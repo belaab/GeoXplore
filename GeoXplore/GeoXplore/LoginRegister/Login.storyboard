@@ -33,7 +33,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="sNU-nR-qXB"/>
                                                 </constraints>
-                                                <color key="textColor" red="0.98690687479999994" green="1" blue="0.97939718330000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="0.58823529411764708" green="0.58039215686274503" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <userDefinedRuntimeAttributes>
@@ -63,7 +63,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="leD-Kt-lV7"/>
                                                 </constraints>
-                                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="0.58823529411764708" green="0.58039215686274503" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
@@ -94,6 +94,9 @@
                                                 <integer key="value" value="8"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="loginButton:" destination="NXy-2k-lnb" eventType="touchUpInside" id="mL8-bh-MBe"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -189,6 +192,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bX1-xQ-aq9"/>
                     </view>
+                    <connections>
+                        <outlet property="loginTextField" destination="05E-mf-1is" id="Cj4-Jo-7XP"/>
+                        <outlet property="passwordTextField" destination="hDg-rT-qgB" id="Fp9-9m-qOu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cvH-zS-zOC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

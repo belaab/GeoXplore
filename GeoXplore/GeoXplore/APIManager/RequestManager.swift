@@ -9,55 +9,80 @@
 import Foundation
 import ObjectMapper
 import Alamofire
+import SwiftKeychainWrapper
 
 class RequestManager {
     
     static let sharedInstance = RequestManager()
 
-    
-//    
-//    func register(email: String, name: String, password: String, completion: @escaping (_ result: [String]) -> Void) {
-//        let data = APIRegister(email: email, name: name, password: password)
-//        let jsonData = data.toJSON()
-//        
-//        requestBuilder.POSTRequest(withURL: urlBuilder.registerUrl, withData: jsonData as! [String : String], authToken: nil){ (result: Result<[String: Any]>) in
-//            switch result {
-//            case .Error(error: let error):
-//                DispatchQueue.main.async {
-//                    completion(Result.Error(error: error))
-//                }
-//            case .Success(result: let registerResponse):
-//                let token = registerResponse["token"] as! String
-//                DispatchQueue.main.async {
-//                    completion(Result.Success(result: token))
-//                }
-//            }
-//            
-//        }
-//        
-//    }
-    
-   // func login(username: String, password: )
-    
-    func registerUser(username: String, password: String, email: String) {
+    func login(username: String, password: String, completion: @escaping(Bool, String?, Error?) -> Void) {
         
-        let model = APIRegister()
-        model.email = email
-        model.password = password
-        model.username = username
+        let loginString = ["username" : username, "password" : password] as [String: String]
         
-        let jsonData = model.toJSON()
-    
-       
-        Alamofire.request(RequestType.register.url, method: .post, parameters: jsonData, encoding: JSONEncoding.default, headers: nil).responseJSON { (response: DataResponse<Any>) in
+        Alamofire.request(RequestType.login.url, method: .post, parameters: loginString, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
             switch(response.result) {
             case .success(_):
-                 print(response.result)
+                if let json = response.result.value {
+                    guard let response = json as? [String : AnyObject], let token = response["token"] as? String
+                        else {return}
+                    print("Access token: \(token)")
+                    completion(true, token, nil)
+                }
+            case .failure(_):
+                if let error = response.result.error {
+                    completion(false, nil, error)
+                }
+            }
+        }
+    }
+    
+    func registerUser(username: String, password: String, email: String, completion: @escaping(_ result: String) -> Void) {
+        
+        let model = APIRegister(username: username, password: password, email: email)
+        let jsonData = model.toJSON()
+
+        Alamofire.request(RequestType.register.url, method: .post, parameters: jsonData, encoding: JSONEncoding.default, headers: nil).responseJSON(completionHandler: { (response:DataResponse<Any>) in
+            switch(response.result) {
+            case .success(_):
+                if let json = response.result.value {
+                    print(json)
+                }
             case .failure(_):
                 print(response.result.error)
             }
-        }
-
+        })
     }
+    
+    func postLocation(longitude: Double, latitude: Double, completion: @escaping(Bool, Error?) -> Void) {
+        
+        let model = APILocation(longitude: longitude, latitude: latitude)
+        let jsonData = model.toJSON()
+        
+        
+        //let retrievedString: String? = KeychainWrapper.standard.string(forKey: "myKey")
+        let getToken =  KeychainWrapper.standard.string(forKey: "accessToken")
+        let headers: HTTPHeaders = ["Authorization": getToken!]
+        
+        Alamofire.request(RequestType.postLocation.url, method: .post, parameters: jsonData, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
+            switch(response.result) {
+            case .success(_):
+                    print("SUCCESS")
+                    completion(true, nil)
+            case .failure(_):
+                if let error = response.result.error {
+                    completion(false, error)
+                }
+            }
+        }
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    
     
 }

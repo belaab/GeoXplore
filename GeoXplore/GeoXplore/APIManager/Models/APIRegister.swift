@@ -9,18 +9,19 @@
 import Foundation
 import ObjectMapper
 
-class APIRegister: Mappable{
+class APIRegister: Mappable {
     
     var username: String?
     var password: String?
     var email: String?
     
-    init() {
-        
+    init(username: String?, password: String?, email: String?) {
+        self.username = username
+        self.password = password
+        self.email = email
     }
     
     required init?(map: Map) {
-        
     }
    
     func mapping(map: Map) {

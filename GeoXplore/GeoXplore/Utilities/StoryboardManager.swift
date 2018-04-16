@@ -22,16 +22,19 @@ struct StoryboardManager {
     struct ViewControllerTypes {
         let register = RegisterViewController.self
         let login = LoginViewController.self
+        let setLocation = SetLocationViewController.self
     }
     
     enum StoryboardNames: String {
         case Login
         case Register
+        case SetLocation
     }
     
     enum ViewControllerIdentifiers: String {
         case loginViewController
         case registerViewController
+        case setLocationViewController
     }
     
     static func loginViewController() -> LoginViewController {
@@ -42,6 +45,11 @@ struct StoryboardManager {
     static func registerViewController() -> RegisterViewController {
         let registerVC = self.viewController(ViewControllerTypes().register, withIdentifier: ViewControllerIdentifiers.registerViewController.rawValue, fromStoryboard: StoryboardNames.Register.rawValue)
         return registerVC
+    }
+    
+    static func setLocationViewController() -> SetLocationViewController {
+        let setLocationVC = self.viewController(ViewControllerTypes().setLocation, withIdentifier: ViewControllerIdentifiers.setLocationViewController.rawValue, fromStoryboard: StoryboardNames.SetLocation.rawValue)
+        return setLocationVC
     }
 
     
