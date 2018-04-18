@@ -30,9 +30,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fOH-dI-Yci" customClass="GradientView" customModule="GeoXplore" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="232"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="243"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="232" id="qdJ-D7-nBo"/>
+                                            <constraint firstAttribute="height" constant="243" id="qdJ-D7-nBo"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sCJ-Mt-Id6">
@@ -40,7 +40,7 @@
                                         <attributedString key="attributedText">
                                             <fragment content="Boxes will be provided based on chosen location.">
                                                 <attributes>
-                                                    <color key="NSColor" red="0.58823529409999997" green="0.58039215690000001" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="NSColor" red="0.85882352941176465" green="0.84705882352941175" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <font key="NSFont" metaFont="system" size="17"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
@@ -54,18 +54,18 @@
                                             <constraint firstAttribute="height" constant="35" id="E6g-Gk-mNP"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="32"/>
-                                        <color key="textColor" red="0.21052173864053869" green="0.15133592388927206" blue="0.36631296641791045" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.25791470909999997" green="1" blue="0.76331214749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ux8-Af-yW9">
-                                        <rect key="frame" x="39" y="154" width="296" height="50"/>
-                                        <color key="backgroundColor" red="0.25791470909999997" green="1" blue="0.76331214749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="39" y="149" width="296" height="55"/>
+                                        <color key="backgroundColor" red="0.47697807343719434" green="0.88994869402985077" blue="0.64453864449610609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="296" id="S79-fE-X08"/>
-                                            <constraint firstAttribute="height" constant="50" id="pkc-87-zzL"/>
+                                            <constraint firstAttribute="height" constant="55" id="pkc-87-zzL"/>
                                         </constraints>
                                         <state key="normal" title="OK, READY TO PLAY">
-                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="1" green="0.99061489392644264" blue="0.91803278688524592" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -84,7 +84,7 @@
                                     <constraint firstAttribute="height" constant="667" id="3gt-Jn-qX1"/>
                                     <constraint firstItem="fOH-dI-Yci" firstAttribute="leading" secondItem="LEv-4b-Uax" secondAttribute="leading" id="6Rc-Y2-7Ad"/>
                                     <constraint firstItem="9ZZ-2u-W4R" firstAttribute="top" secondItem="LEv-4b-Uax" secondAttribute="top" constant="40" id="6kM-gP-Kgw"/>
-                                    <constraint firstItem="ux8-Af-yW9" firstAttribute="bottom" secondItem="fOH-dI-Yci" secondAttribute="bottom" constant="-28" id="7EO-xA-gte"/>
+                                    <constraint firstItem="ux8-Af-yW9" firstAttribute="bottom" secondItem="fOH-dI-Yci" secondAttribute="bottom" constant="-39" id="7EO-xA-gte"/>
                                     <constraint firstItem="sCJ-Mt-Id6" firstAttribute="top" secondItem="9ZZ-2u-W4R" secondAttribute="bottom" constant="5" id="7kw-XW-khv"/>
                                     <constraint firstItem="ux8-Af-yW9" firstAttribute="centerX" secondItem="LEv-4b-Uax" secondAttribute="centerX" id="DoP-ao-OTH"/>
                                     <constraint firstItem="fOH-dI-Yci" firstAttribute="top" secondItem="LEv-4b-Uax" secondAttribute="top" id="JTq-jY-Xf2"/>
@@ -92,7 +92,7 @@
                                     <constraint firstItem="9ZZ-2u-W4R" firstAttribute="centerX" secondItem="LEv-4b-Uax" secondAttribute="centerX" id="hRa-cl-6GY"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="styleURL__" value="mapbox://styles/belaab/cjg2qao9z0l6s2rn6h8zg61up"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="styleURL__" value="mapbox://styles/belaab/cjg4bq8vq1ir42rnyljaz229s"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="delegate" destination="kwc-OV-TAB" id="ddV-Uc-IUp"/>

@@ -74,9 +74,30 @@ class RequestManager {
                 }
             }
         }
+    }
+    
+    
+    func getBoxesPositions(completion: @escaping(Bool, [AnyObject], Error?) -> Void) {
+        let getToken =  KeychainWrapper.standard.string(forKey: "accessToken")
+        let headers: HTTPHeaders = ["Authorization": getToken!]
         
-        
-        
+        Alamofire.request(RequestType.getBoxes.url, method: .get, encoding: JSONEncoding.default, headers: headers).responseJSON(completionHandler: { (response:DataResponse<Any>) in
+            switch(response.result) {
+            case .success(_):
+                if let json = response.result.value {
+                    //print(json)
+                    guard let data = json as? AnyObject else {return}
+                    //print(data)
+                    completion(true, data as! [AnyObject], nil)
+                }
+            case .failure(_):
+                if let error = response.result.error {
+                    print("ERROR")
+
+                    completion(false, ([""] as AnyObject) as! [AnyObject], error)
+                }
+            }
+        })
     }
     
     
@@ -86,3 +107,12 @@ class RequestManager {
     
     
 }
+
+
+
+
+
+
+
+
+

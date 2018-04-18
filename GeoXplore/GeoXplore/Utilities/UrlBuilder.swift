@@ -12,6 +12,7 @@ enum RequestType {
     case login
     case register
     case postLocation
+    case getBoxes
 }
 
 extension RequestType: TargetType {
@@ -24,6 +25,8 @@ extension RequestType: TargetType {
             return URL(string: "https://geoxplore-api.herokuapp.com/user-management/create-user")!
         case .postLocation:
             return URL(string: "https://geoxplore-api.herokuapp.com/user-management/set-home")!
+        case .getBoxes:
+            return URL(string: "https://geoxplore-api.herokuapp.com/user-management/chests")!
         }
     }
 }

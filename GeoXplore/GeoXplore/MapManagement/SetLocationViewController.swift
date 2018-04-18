@@ -20,11 +20,8 @@ class SetLocationViewController: UIViewController, MGLMapViewDelegate, UIGesture
             if success {
                 print("longitude: \(doubleLongitude), latitude: \(doubleLatitude)")
                 print("Coordenates sent.")
-//                let saveAccessToken: Bool = KeychainWrapper.standard.set(token!, forKey: "accessToken")
-//                print("Acces token save result: \(saveAccessToken)")
-//
-//                let setLocationViewController = StoryboardManager.setLocationViewController()
-//                self.present(setLocationViewController, animated: true, completion: nil)
+                let boxExplorerViewController = StoryboardManager.boxExplorerViewController()
+                self.present(boxExplorerViewController, animated: true, completion: nil)
             }
         }
         
@@ -48,14 +45,6 @@ class SetLocationViewController: UIViewController, MGLMapViewDelegate, UIGesture
         
     }
     
-//    private func chceckingAnnotationAmount() -> Bool {
-//        if (mapView.annotations!.count > 0) {
-//            mapView.removeAnnotations([annotation])
-//            return false
-//        }
-//        return true
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -78,7 +67,7 @@ class SetLocationViewController: UIViewController, MGLMapViewDelegate, UIGesture
 extension SetLocationViewController {
     
     func mapView(_ mapView: MGLMapView, imageFor annotation: MGLAnnotation) -> MGLAnnotationImage? {
-        // Try to reuse the existing ‘pisa’ annotation image, if it exists.
+    
         var annotationImage = mapView.dequeueReusableAnnotationImage(withIdentifier: "box")
         
         if annotationImage == nil {
