@@ -106,6 +106,10 @@ class BoxExplorerViewController: UIViewController, MGLMapViewDelegate {
         view.addSubview(mapView)
         mapView.showsUserLocation = true
         getPositions()
+//        let span = MKCoordinateSpanMake(0.05, 0.05)
+//        let region = MKCoordinateRegion(center: , span: span)
+//        mapView.setRegion(region, animated: true)
+       // mapView.setCen
     }
     
     func determineMyCurrentLocation() {

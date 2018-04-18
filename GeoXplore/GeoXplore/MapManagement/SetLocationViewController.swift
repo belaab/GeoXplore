@@ -26,6 +26,8 @@ class SetLocationViewController: UIViewController, MGLMapViewDelegate, UIGesture
         }
         
     }
+    
+    
     @IBOutlet weak var mapView: MGLMapView!
     private let annotation = MGLPointAnnotation()
     
