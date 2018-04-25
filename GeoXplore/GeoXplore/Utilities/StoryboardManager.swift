@@ -20,16 +20,53 @@ struct StoryboardManager {
     }
     
     struct ViewControllerTypes {
-        
+        let register = RegisterViewController.self
+        let login = LoginViewController.self
+        let setLocation = SetLocationViewController.self
+        let boxExplorer = BoxExplorerViewController.self
+        let congrats = CongratsViewController.self
     }
     
     enum StoryboardNames: String {
-        case y
+        case Login
+        case Register
+        case SetLocation
+        case BoxExplorer
+        case Congrats
     }
     
     enum ViewControllerIdentifiers: String {
-        case x
+        case loginViewController
+        case registerViewController
+        case setLocationViewController
+        case boxExplorerViewController
+        case congratsViewController
     }
     
+    static func loginViewController() -> LoginViewController {
+        let loginVC = self.viewController(ViewControllerTypes().login, withIdentifier: ViewControllerIdentifiers.loginViewController.rawValue, fromStoryboard: StoryboardNames.Login.rawValue)
+        return loginVC
+    }
+    
+    static func registerViewController() -> RegisterViewController {
+        let registerVC = self.viewController(ViewControllerTypes().register, withIdentifier: ViewControllerIdentifiers.registerViewController.rawValue, fromStoryboard: StoryboardNames.Register.rawValue)
+        return registerVC
+    }
+    
+    static func setLocationViewController() -> SetLocationViewController {
+        let setLocationVC = self.viewController(ViewControllerTypes().setLocation, withIdentifier: ViewControllerIdentifiers.setLocationViewController.rawValue, fromStoryboard: StoryboardNames.SetLocation.rawValue)
+        return setLocationVC
+    }
+    
+    static func boxExplorerViewController() -> BoxExplorerViewController {
+        let boxExplorerVC = self.viewController(ViewControllerTypes().boxExplorer, withIdentifier: ViewControllerIdentifiers.boxExplorerViewController.rawValue, fromStoryboard: StoryboardNames.BoxExplorer.rawValue)
+        return boxExplorerVC
+    }
+    
+    static func congratsViewController() -> CongratsViewController {
+        let congratsVC = self.viewController(ViewControllerTypes().congrats, withIdentifier: ViewControllerIdentifiers.congratsViewController.rawValue, fromStoryboard: StoryboardNames.Congrats.rawValue)
+        return congratsVC
+    }
+
 }
 

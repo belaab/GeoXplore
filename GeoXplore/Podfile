@@ -7,5 +7,7 @@ target 'GeoXplore' do
   use_frameworks!
   # Pods for GeoXplore
    pod 'Alamofire', '~> 4.7'
-
+   pod 'Mapbox-iOS-SDK', '~> 3.7'
+   pod 'ObjectMapper', '~> 3.1'
+   pod 'SwiftKeychainWrapper'
 end
