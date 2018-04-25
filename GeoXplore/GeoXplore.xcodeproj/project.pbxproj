@@ -87,9 +87,8 @@
 		2B32D14120834FA400642738 /* APIManager */ = {
 			isa = PBXGroup;
 			children = (
-				2B32D1422083521B00642738 /* Models */,
 				2B32D13F20834DC700642738 /* RequestManager.swift */,
-				2BED38AB208653C600D734D7 /* BoxModel.swift */,
+				2B32D1422083521B00642738 /* Models */,
 			);
 			path = APIManager;
 			sourceTree = "<group>";
@@ -99,8 +98,22 @@
 			children = (
 				2B32D1432083523600642738 /* APIRegister.swift */,
 				2BED38A52085586600D734D7 /* APILocation.swift */,
+				2BED38AB208653C600D734D7 /* BoxModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		2B487E7C2090C1D800B81492 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				2BF567BA2084F3AA00F8E6CF /* SetLocation.storyboard */,
+				2BED38A72086085B00D734D7 /* BoxExplorer.storyboard */,
+				2BED38AF2086B16700D734D7 /* Congrats.storyboard */,
+				2BC0CC5820784385001033B0 /* ChooseSignUpIn.storyboard */,
+				2BC0CC61207B736D001033B0 /* Register.storyboard */,
+				2BC0CC5920784386001033B0 /* Login.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		2BC0CC2520778D0C001033B0 = {
@@ -125,6 +138,7 @@
 		2BC0CC3020778D0C001033B0 /* GeoXplore */ = {
 			isa = PBXGroup;
 			children = (
+				2B487E7C2090C1D800B81492 /* Storyboards */,
 				2BF567B92084F38000F8E6CF /* MapManagement */,
 				2B32D14120834FA400642738 /* APIManager */,
 				2BC0CC5E207AAB2E001033B0 /* Utilities */,
@@ -142,9 +156,6 @@
 				2BC0CC5A20784386001033B0 /* ChooseSignUpInViewController.swift */,
 				2BC0CC63207B7CE3001033B0 /* RegisterViewController.swift */,
 				2BC0CC65207B7D80001033B0 /* LoginViewController.swift */,
-				2BC0CC5820784385001033B0 /* ChooseSignUpIn.storyboard */,
-				2BC0CC61207B736D001033B0 /* Register.storyboard */,
-				2BC0CC5920784386001033B0 /* Login.storyboard */,
 			);
 			path = LoginRegister;
 			sourceTree = "<group>";
@@ -152,6 +163,7 @@
 		2BC0CC5E207AAB2E001033B0 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				2BED38A120853A1500D734D7 /* GradientView.swift */,
 				2BC0CC5F207AAC03001033B0 /* StoryboardManager.swift */,
 				2BD97C77207D41090033AA26 /* TargetType.swift */,
 				2BD97C79207D41B60033AA26 /* UrlBuilder.swift */,
@@ -162,13 +174,9 @@
 		2BF567B92084F38000F8E6CF /* MapManagement */ = {
 			isa = PBXGroup;
 			children = (
-				2BF567BA2084F3AA00F8E6CF /* SetLocation.storyboard */,
 				2BF567BC2084F60E00F8E6CF /* SetLocationViewController.swift */,
-				2BED38A120853A1500D734D7 /* GradientView.swift */,
-				2BED38A72086085B00D734D7 /* BoxExplorer.storyboard */,
 				2BED38A920864E1700D734D7 /* BoxExplorerViewController.swift */,
 				2BED38AD2086B13E00D734D7 /* CongratsViewController.swift */,
-				2BED38AF2086B16700D734D7 /* Congrats.storyboard */,
 			);
 			path = MapManagement;
 			sourceTree = "<group>";

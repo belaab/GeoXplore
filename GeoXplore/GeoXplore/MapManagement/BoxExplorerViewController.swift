@@ -8,113 +8,91 @@
 
 import UIKit
 import Mapbox
+//TODO: TODO: validating distance
+//TODO: TODO: better handlimg errors
 
 class BoxExplorerViewController: UIViewController, MGLMapViewDelegate {
     
-
-    @IBAction func checkLocation(_ sender: UIButton) {
-       // if checkingUserPosition() {
-            checkingUserPosition()
-            let congratsViewController = StoryboardManager.congratsViewController()
-            self.present(congratsViewController, animated: true, completion: nil)
-   //     }
-    }
-    @IBOutlet weak var mapView: MGLMapView!
-    var locationManager:CLLocationManager!
     var boxes = [Box]()
     var userLocation = CLLocation()
-    //var distanceInMeters = CLLocationDistance()
-
-    func getPositions(){
-        RequestManager.sharedInstance.getBoxesPositions { (success, data, error) in
-            if success {
-                if let array = data as? NSArray {
-                    for obj in array {
-                        if let dict = obj as? NSDictionary {
-                            let long = dict.value(forKey: "longitude") as! Double
-                            let lat = dict.value(forKey: "latitude") as! Double
-                            let opened = dict.value(forKey: "opened") as! Bool
-                            print(long, lat, opened)
-                            //self.boxes.append(Box(longitude: long, latitude: lat, opened: opened))
-                            var newBox = Box(longitude: long, latitude: lat, opened: opened)
-                            self.boxes.append(newBox)
-                            var annotation = MGLPointAnnotation()
-                            var coordinates = CLLocationCoordinate2D()
-                            coordinates.latitude = newBox.latitude
-                            coordinates.longitude = newBox.longitude
-                            annotation.coordinate = coordinates
-                            switch opened {
-                            case false:
-                                annotation.title = "opened"
-                            case true:
-                                annotation.title = "closed"
-                            }
-                           // annotation.setValue(opened, forKey: "isOpened")
-                            //annotation.title = String(opened)
-                            self.mapView.addAnnotation(annotation)
-                        }
-                    }
-                }
-            } else {
-                print(error)
-            }
-        }
-
+    var locationManager = CLLocationManager()
+    @IBOutlet weak var mapView: MGLMapView!
+    
+    @IBAction func checkLocation(_ sender: UIButton) {
+        checkingUserPosition()
+        let congratsViewController = StoryboardManager.congratsViewController()
+        self.present(congratsViewController, animated: true, completion: nil)
     }
     
-    //let distanceInMeters = coordinate₀.distance(from: coordinate₁) // result is in meters
-
     
-    func checkingUserPosition() {
+    override func viewDidLoad(){
+        super.viewDidLoad()
+        viewSetup()
+        getPositions()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        determineMyCurrentLocation()
+    }
+    
+    private func getPositions(){
+        RequestManager.sharedInstance.getBoxesPositions { (success, boxesArray, error) in
+            if success {
+                self.boxes = boxesArray
+                boxesArray.forEach({ box in
+                    let annotation = MGLPointAnnotation()
+                    print(box.latitude,box.longitude)
+                    annotation.coordinate = CLLocationCoordinate2DMake(box.latitude, box.longitude)
+                    switch box.opened {
+                    case false:
+                        annotation.title = "opened"
+                    case true:
+                        annotation.title = "closed"
+                    }
+                    self.mapView.addAnnotation(annotation)
+                })
+            } else {
+                print("Error while initilizing box positions")
+            }
+        }
+    }
+    
+    
+    private func checkingUserPosition() {
         let pins = mapView.annotations
+        
         for pin in pins! {
-            //var distanceInMeters = (pin.coordinate).distance(from: userLocation.coordinate)
             let coordinate = CLLocation(latitude: pin.coordinate.latitude, longitude: pin.coordinate.longitude)
             let userCoordinate = CLLocation(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
-            let distanceInMeters = coordinate.distance(from: userCoordinate)
-   //         if distanceInMeters > 300 {
-                print(distanceInMeters)
-               // mapView.dequeueReusableAnnotationImage(withIdentifier: "box")
-                //mapView.removeAnnotation(pin)
-                let newPin = MGLPointAnnotation()
-                newPin.coordinate = pin.coordinate
+            let distanceInMeters: CLLocationDistance = coordinate.distance(from: userCoordinate)
+            print(distanceInMeters)
+            
+            let newPin = MGLPointAnnotation()
+            newPin.coordinate = pin.coordinate
+            
             switch (pin.title!)! {
             case "opened":
                 newPin.title = "opened"
             case "closed":
                 newPin.title = "opened"
             default:
-                newPin.title = "opened"
-                
+                newPin.title = "closed"
             }
-               // newPin.title = "closed"
-                mapView.removeAnnotation(pin)
-                mapView.addAnnotation(newPin)
-//                return true
-//            } else {
-//                return false
-//            }
-    //    }
-//return true
-    }
+            mapView.removeAnnotation(pin)
+            mapView.addAnnotation(newPin)
+        }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    private func viewSetup(){
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.delegate = self
         view.addSubview(mapView)
         mapView.showsUserLocation = true
-        getPositions()
-//        let span = MKCoordinateSpanMake(0.05, 0.05)
-//        let region = MKCoordinateRegion(center: , span: span)
-//        mapView.setRegion(region, animated: true)
-       // mapView.setCen
     }
     
-    func determineMyCurrentLocation() {
-        locationManager = CLLocationManager()
-        //locationManager.delegate = self as! CLLocationManagerDelegate
+    private func determineMyCurrentLocation() {
+        locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         
@@ -123,32 +101,21 @@ class BoxExplorerViewController: UIViewController, MGLMapViewDelegate {
             //locationManager.startUpdatingHeading()
         }
     }
+}
+
+
+extension BoxExplorerViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         userLocation = locations[0] as CLLocation
-        
-        // Call stopUpdatingLocation() to stop listening for location updates,
-        // other wise this function will be called every time when user location changes.
-        
-        // manager.stopUpdatingLocation()
-        
         print("user latitude = \(userLocation.coordinate.latitude)")
         print("user longitude = \(userLocation.coordinate.longitude)")
     }
     
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
-    {
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Error \(error)")
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        determineMyCurrentLocation()
-    }
-}
-
-
-extension BoxExplorerViewController {
-
+    
     func mapView(_ mapView: MGLMapView, didSelect annotation: MGLAnnotation) {
         let camera = MGLMapCamera(lookingAtCenter: annotation.coordinate, fromDistance: 4000, pitch: 0, heading: 0)
         mapView.fly(to: camera, completionHandler: nil)

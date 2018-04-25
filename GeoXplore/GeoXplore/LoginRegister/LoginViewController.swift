@@ -35,13 +35,12 @@ class LoginViewController: UIViewController {
                 
                 let setLocationViewController = StoryboardManager.setLocationViewController()
                 self.present(setLocationViewController, animated: true, completion: nil)
+            } else {
+                //TODO: TODO
             }
         }
     }
         
-    
-    
-    
     @IBAction func loginButton(_ sender: UIButton) {
         loginButtonPressed()
     }
