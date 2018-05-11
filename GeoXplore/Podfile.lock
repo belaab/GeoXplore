@@ -1,12 +1,21 @@
 PODS:
   - Alamofire (4.7.0)
+  - Mapbox-iOS-SDK (3.7.5)
+  - ObjectMapper (3.1.0)
+  - SwiftKeychainWrapper (3.0.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
+  - Mapbox-iOS-SDK (~> 3.7)
+  - ObjectMapper (~> 3.1)
+  - SwiftKeychainWrapper
 
 SPEC CHECKSUMS:
   Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
+  Mapbox-iOS-SDK: 107e331a7ae02e6be902c1557d3454c54e18ce5b
+  ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
+  SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
 
-PODFILE CHECKSUM: 65cfd3f77cdab75d6a9136727ae822ad7fe7daed
+PODFILE CHECKSUM: e1187b9da355804a1b9306b3af19633c1c659ee5
 
 COCOAPODS: 1.4.0
