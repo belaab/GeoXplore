@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2B32D14020834DC700642738 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B32D13F20834DC700642738 /* RequestManager.swift */; };
 		2B32D1442083523600642738 /* APIRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B32D1432083523600642738 /* APIRegister.swift */; };
+		2B3A03DA20A728EB00CF13A3 /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3A03D920A728EB00CF13A3 /* HideKeyboard.swift */; };
+		2B3A03DC20A72C0300CF13A3 /* ValidatingInputs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3A03DB20A72C0300CF13A3 /* ValidatingInputs.swift */; };
 		2BC0CC3220778D0C001033B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC0CC3120778D0C001033B0 /* AppDelegate.swift */; };
 		2BC0CC3C20778D0C001033B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BC0CC3A20778D0C001033B0 /* LaunchScreen.storyboard */; };
 		2BC0CC5B20784386001033B0 /* ChooseSignUpIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BC0CC5820784385001033B0 /* ChooseSignUpIn.storyboard */; };
@@ -37,6 +39,8 @@
 		0C62D332798919C75732A4D6 /* Pods_GeoXplore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoXplore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B32D13F20834DC700642738 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		2B32D1432083523600642738 /* APIRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRegister.swift; sourceTree = "<group>"; };
+		2B3A03D920A728EB00CF13A3 /* HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
+		2B3A03DB20A72C0300CF13A3 /* ValidatingInputs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatingInputs.swift; sourceTree = "<group>"; };
 		2BC0CC2E20778D0C001033B0 /* GeoXplore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoXplore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BC0CC3120778D0C001033B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BC0CC3B20778D0C001033B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -88,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				2B32D13F20834DC700642738 /* RequestManager.swift */,
+				2BD97C79207D41B60033AA26 /* UrlBuilder.swift */,
 				2B32D1422083521B00642738 /* Models */,
 			);
 			path = APIManager;
@@ -101,6 +106,15 @@
 				2BED38AB208653C600D734D7 /* BoxModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		2B3A03D820A728CA00CF13A3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2B3A03D920A728EB00CF13A3 /* HideKeyboard.swift */,
+				2B3A03DB20A72C0300CF13A3 /* ValidatingInputs.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		2B487E7C2090C1D800B81492 /* Storyboards */ = {
@@ -138,6 +152,7 @@
 		2BC0CC3020778D0C001033B0 /* GeoXplore */ = {
 			isa = PBXGroup;
 			children = (
+				2B3A03D820A728CA00CF13A3 /* Extensions */,
 				2B487E7C2090C1D800B81492 /* Storyboards */,
 				2BF567B92084F38000F8E6CF /* MapManagement */,
 				2B32D14120834FA400642738 /* APIManager */,
@@ -166,7 +181,6 @@
 				2BED38A120853A1500D734D7 /* GradientView.swift */,
 				2BC0CC5F207AAC03001033B0 /* StoryboardManager.swift */,
 				2BD97C77207D41090033AA26 /* TargetType.swift */,
-				2BD97C79207D41B60033AA26 /* UrlBuilder.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -309,6 +323,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 			);
@@ -317,6 +332,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
 				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 			);
@@ -340,9 +356,11 @@
 				2BED38A62085586600D734D7 /* APILocation.swift in Sources */,
 				2BD97C78207D41090033AA26 /* TargetType.swift in Sources */,
 				2BC0CC3220778D0C001033B0 /* AppDelegate.swift in Sources */,
+				2B3A03DA20A728EB00CF13A3 /* HideKeyboard.swift in Sources */,
 				2BC0CC60207AAC03001033B0 /* StoryboardManager.swift in Sources */,
 				2BC0CC66207B7D80001033B0 /* LoginViewController.swift in Sources */,
 				2BD97C7A207D41B60033AA26 /* UrlBuilder.swift in Sources */,
+				2B3A03DC20A72C0300CF13A3 /* ValidatingInputs.swift in Sources */,
 				2BC0CC64207B7CE3001033B0 /* RegisterViewController.swift in Sources */,
 				2BF567BD2084F60E00F8E6CF /* SetLocationViewController.swift in Sources */,
 				2B32D1442083523600642738 /* APIRegister.swift in Sources */,

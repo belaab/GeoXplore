@@ -14,13 +14,24 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var repeatPasswordTextField: UITextField!
+    @IBOutlet weak var registerButton: UIButton!
     
-    func registerButtonPressed(){
-        guard let username = usernameTextField.text, let email = emailTextField.text, let password = passwordTextField.text
-            else { print("invalid data"); return }
-    
-        RequestManager.sharedInstance.registerUser(username: username, password: password, email: email) { (result) in
-            print(result)
+
+    private func registerButtonPressed() {
+        
+        guard let username = usernameTextField.text, let email = emailTextField.text, let password = passwordTextField.text,
+            let repeatedPassword = repeatPasswordTextField.text else { return }
+        
+        if (username.matchesRegex(regex: Regex.username.rawValue)
+            && password.matchesRegex(regex: Regex.password.rawValue)
+            && email.matchesRegex(regex: Regex.email.rawValue)
+            && password.matchesRegex(regex: Regex.password.rawValue)
+            /*&& password == repeatedPassword*/ ) {
+            registerButton.isEnabled = true
+            registerButton.alpha = 1.0
+            RequestManager.sharedInstance.registerUser(username: username, password: password, email: email) { (result) in
+                print(result)
+            }
         }
     }
         
@@ -29,13 +40,13 @@ class RegisterViewController: UIViewController {
         registerButtonPressed()
     }
 
-
-
     @IBAction func dismissRegisterView(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        registerButton.isEnabled = false
+        registerButton.alpha = 0.5
 
     }
 
