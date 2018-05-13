@@ -10,11 +10,12 @@ import UIKit
 import SwiftKeychainWrapper
 import NVActivityIndicatorView
 
-class LoginViewController: UIViewController, NVActivityIndicatorViewable {
+class LoginViewController: UIViewController, NVActivityIndicatorViewable, UITextFieldDelegate {
     
     
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
     
     private let activityIndicatorView =
         NVActivityIndicatorView(frame: UIScreen.main.bounds,
@@ -33,9 +34,11 @@ class LoginViewController: UIViewController, NVActivityIndicatorViewable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        [self.loginTextField, self.passwordTextField].forEach {
+            $0.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)}
+        loginButtonConfiguration(isEnabled: false, alpha: 0.5)
         self.hideKeyboard()
         setupActivityIndicator()
-
     }
     
     private func setupActivityIndicator() {
@@ -45,7 +48,7 @@ class LoginViewController: UIViewController, NVActivityIndicatorViewable {
     
     private func loginButtonPressed() {
         guard let username = loginTextField.text, let password = passwordTextField.text
-            else { print("invalid data"); return }
+            else { return }
         
         RequestManager.sharedInstance.login(username: username, password: password) { (success, token, error) in
             if success {
@@ -69,6 +72,24 @@ class LoginViewController: UIViewController, NVActivityIndicatorViewable {
                 self.present(alert, animated: true, completion: nil)
             }
         }
+    }
+    
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        
+        guard let username = loginTextField.text,  let password = passwordTextField.text
+            else { return }
+        
+        let validationResult: Bool =
+            ![username.matchesRegex(regex: Regex.username.rawValue),
+              password.matchesRegex(regex: Regex.password.rawValue)].contains(false)
+        
+        validationResult ? loginButtonConfiguration(isEnabled: true, alpha: 1.0) : loginButtonConfiguration(isEnabled: false, alpha: 0.5)
+    }
+    
+    private func loginButtonConfiguration(isEnabled state: Bool, alpha: CGFloat) {
+        loginButton.isEnabled = state
+        loginButton.alpha = alpha
     }
     
     

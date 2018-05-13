@@ -30,7 +30,7 @@ extension String {
 enum Regex: String {
     case username = "^[a-zA-Z0-9]{4,16}$"  //only letters and/or nubers without special characters, min max 16
     case email = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
-    case password = "^[a-zA-Z0-9]{1,15}$"
+    case password = "^[a-zA-Z0-9]{4,15}$"
 }
 
 
