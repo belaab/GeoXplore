@@ -277,6 +277,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="Ste-Aw-Rpc" id="nYF-KT-GFC"/>
                         <outlet property="passwordTextField" destination="Hhh-dH-mPa" id="VME-ys-Tpc"/>
+                        <outlet property="registerButton" destination="sXa-K1-ksz" id="tYb-6i-Fch"/>
                         <outlet property="repeatPasswordTextField" destination="IKu-ah-mpG" id="kbT-s0-n2L"/>
                         <outlet property="usernameTextField" destination="VLx-RK-ObC" id="G6Q-tL-saM"/>
                     </connections>

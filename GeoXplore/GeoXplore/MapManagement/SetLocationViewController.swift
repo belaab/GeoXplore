@@ -8,19 +8,31 @@
 
 import UIKit
 import Mapbox
+import NVActivityIndicatorView
 
-class SetLocationViewController: UIViewController {
+class SetLocationViewController: UIViewController, NVActivityIndicatorViewable {
     
     @IBOutlet weak var mapView: MGLMapView!
     private let annotation = MGLPointAnnotation()
+    private let activityIndicatorView =
+        NVActivityIndicatorView(frame: UIScreen.main.bounds,
+                                type: NVActivityIndicatorType.ballClipRotateMultiple, color: UIColor(red: 113.0/255.0, green: 195.0/255.0, blue: 139.0/255.0, alpha: 1.0))
+    
     
     @IBAction func playButton(_ sender: UIButton) {
+        showActivityIndicator()
         sendCoordinates()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
+        setupActivityIndicator()
+    }
+    
+    private func setupActivityIndicator() {
+        activityIndicatorView.backgroundColor = UIColor(red: 33.0/255.0, green: 19.0/255.0, blue: 40.0/255.0, alpha: 1.0)
+        view.addSubview(activityIndicatorView)
     }
     
     private func viewSetup() {
@@ -28,6 +40,8 @@ class SetLocationViewController: UIViewController {
         mapView.delegate = self
         view.addSubview(mapView)
         mapView.showsUserLocation = true
+        mapView.alpha = 0.95
+        self.view.isUserInteractionEnabled = false
         let gesture = UILongPressGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         mapView.addGestureRecognizer(gesture)
     }
@@ -42,8 +56,10 @@ class SetLocationViewController: UIViewController {
                 print("Coordinates sent.")
                 let boxExplorerViewController = StoryboardManager.boxExplorerViewController()
                 self.present(boxExplorerViewController, animated: true, completion: nil)
+                self.activityIndicatorView.stopAnimating()
             } else {
-                print(error)
+                print(error) //TODO
+                self.stopAnimating()
                 let alert = UIAlertController(title: "Sending location failure", message: "Sorry, please try again.", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
                     switch action.style{
@@ -76,11 +92,20 @@ class SetLocationViewController: UIViewController {
         }
     }
     
+    private func showActivityIndicator() {
+        let size = CGSize(width: 100, height: 100)
+        startAnimating(size, message: "Loading", messageFont: UIFont.systemFont(ofSize: 15, weight: .light), type: activityIndicatorView.type, textColor: UIColor(red: 113.0/255.0, green: 195.0/255.0, blue: 139.0/255.0, alpha: 0.7))
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.0) {
+            NVActivityIndicatorPresenter.sharedInstance.setMessage("Almost there...")
+        }
+    }
+    
 }
 
 
 
-extension SetLocationViewController: MGLMapViewDelegate, UIGestureRecognizerDelegate {
+extension SetLocationViewController: MGLMapViewDelegate, UIGestureRecognizerDelegate, CLLocationManagerDelegate {
     
     func mapView(_ mapView: MGLMapView, imageFor annotation: MGLAnnotation) -> MGLAnnotationImage? {
         var annotationImage = mapView.dequeueReusableAnnotationImage(withIdentifier: "box")
@@ -97,5 +122,14 @@ extension SetLocationViewController: MGLMapViewDelegate, UIGestureRecognizerDele
         let camera = MGLMapCamera(lookingAtCenter: annotation.coordinate, fromDistance: 4000, pitch: 0, heading: 0)
         mapView.fly(to: camera, completionHandler: nil)
     }
+    
+    func mapViewDidFinishLoadingMap(_ mapView: MGLMapView) {
+        let camera = MGLMapCamera(lookingAtCenter: (mapView.userLocation?.coordinate)!, fromDistance: 4000, pitch: 10, heading: 0)
+        mapView.fly(to: camera) {
+            self.view.isUserInteractionEnabled = true
+            mapView.alpha = 1.0
+        }
+    }
+
 }
 
