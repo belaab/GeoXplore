@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B1DA0FE20AA14020059E7E7 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1DA0FD20AA14010059E7E7 /* UserProfileViewController.swift */; };
+		2B1DA10020AA19680059E7E7 /* APIUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1DA0FF20AA19680059E7E7 /* APIUserProfile.swift */; };
 		2B32D14020834DC700642738 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B32D13F20834DC700642738 /* RequestManager.swift */; };
 		2B32D1442083523600642738 /* APIRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B32D1432083523600642738 /* APIRegister.swift */; };
 		2B3A03DA20A728EB00CF13A3 /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3A03D920A728EB00CF13A3 /* HideKeyboard.swift */; };
@@ -27,7 +29,7 @@
 		2BED38A62085586600D734D7 /* APILocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BED38A52085586600D734D7 /* APILocation.swift */; };
 		2BED38A82086085B00D734D7 /* BoxExplorer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BED38A72086085B00D734D7 /* BoxExplorer.storyboard */; };
 		2BED38AA20864E1700D734D7 /* BoxExplorerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BED38A920864E1700D734D7 /* BoxExplorerViewController.swift */; };
-		2BED38AC208653C600D734D7 /* BoxModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BED38AB208653C600D734D7 /* BoxModel.swift */; };
+		2BED38AC208653C600D734D7 /* APIBoxModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BED38AB208653C600D734D7 /* APIBoxModel.swift */; };
 		2BED38AE2086B13E00D734D7 /* CongratsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BED38AD2086B13E00D734D7 /* CongratsViewController.swift */; };
 		2BED38B02086B16700D734D7 /* Congrats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BED38AF2086B16700D734D7 /* Congrats.storyboard */; };
 		2BF567BB2084F3AA00F8E6CF /* SetLocation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BF567BA2084F3AA00F8E6CF /* SetLocation.storyboard */; };
@@ -37,6 +39,8 @@
 
 /* Begin PBXFileReference section */
 		0C62D332798919C75732A4D6 /* Pods_GeoXplore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoXplore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B1DA0FD20AA14010059E7E7 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		2B1DA0FF20AA19680059E7E7 /* APIUserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIUserProfile.swift; sourceTree = "<group>"; };
 		2B32D13F20834DC700642738 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		2B32D1432083523600642738 /* APIRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRegister.swift; sourceTree = "<group>"; };
 		2B3A03D920A728EB00CF13A3 /* HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
@@ -59,7 +63,7 @@
 		2BED38A52085586600D734D7 /* APILocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILocation.swift; sourceTree = "<group>"; };
 		2BED38A72086085B00D734D7 /* BoxExplorer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BoxExplorer.storyboard; sourceTree = "<group>"; };
 		2BED38A920864E1700D734D7 /* BoxExplorerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxExplorerViewController.swift; sourceTree = "<group>"; };
-		2BED38AB208653C600D734D7 /* BoxModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxModel.swift; sourceTree = "<group>"; };
+		2BED38AB208653C600D734D7 /* APIBoxModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIBoxModel.swift; sourceTree = "<group>"; };
 		2BED38AD2086B13E00D734D7 /* CongratsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsViewController.swift; sourceTree = "<group>"; };
 		2BED38AF2086B16700D734D7 /* Congrats.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Congrats.storyboard; sourceTree = "<group>"; };
 		2BF567BA2084F3AA00F8E6CF /* SetLocation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetLocation.storyboard; sourceTree = "<group>"; };
@@ -88,6 +92,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2B1DA0FB20AA139D0059E7E7 /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				2B1DA0FD20AA14010059E7E7 /* UserProfileViewController.swift */,
+			);
+			path = Statistics;
+			sourceTree = "<group>";
+		};
 		2B32D14120834FA400642738 /* APIManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,7 +115,8 @@
 			children = (
 				2B32D1432083523600642738 /* APIRegister.swift */,
 				2BED38A52085586600D734D7 /* APILocation.swift */,
-				2BED38AB208653C600D734D7 /* BoxModel.swift */,
+				2BED38AB208653C600D734D7 /* APIBoxModel.swift */,
+				2B1DA0FF20AA19680059E7E7 /* APIUserProfile.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -152,6 +165,7 @@
 		2BC0CC3020778D0C001033B0 /* GeoXplore */ = {
 			isa = PBXGroup;
 			children = (
+				2B1DA0FB20AA139D0059E7E7 /* Statistics */,
 				2B3A03D820A728CA00CF13A3 /* Extensions */,
 				2B487E7C2090C1D800B81492 /* Storyboards */,
 				2BF567B92084F38000F8E6CF /* MapManagement */,
@@ -355,6 +369,8 @@
 				2BED38A220853A1500D734D7 /* GradientView.swift in Sources */,
 				2BED38A62085586600D734D7 /* APILocation.swift in Sources */,
 				2BD97C78207D41090033AA26 /* TargetType.swift in Sources */,
+				2B1DA10020AA19680059E7E7 /* APIUserProfile.swift in Sources */,
+				2B1DA0FE20AA14020059E7E7 /* UserProfileViewController.swift in Sources */,
 				2BC0CC3220778D0C001033B0 /* AppDelegate.swift in Sources */,
 				2B3A03DA20A728EB00CF13A3 /* HideKeyboard.swift in Sources */,
 				2BC0CC60207AAC03001033B0 /* StoryboardManager.swift in Sources */,
@@ -364,7 +380,7 @@
 				2BC0CC64207B7CE3001033B0 /* RegisterViewController.swift in Sources */,
 				2BF567BD2084F60E00F8E6CF /* SetLocationViewController.swift in Sources */,
 				2B32D1442083523600642738 /* APIRegister.swift in Sources */,
-				2BED38AC208653C600D734D7 /* BoxModel.swift in Sources */,
+				2BED38AC208653C600D734D7 /* APIBoxModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

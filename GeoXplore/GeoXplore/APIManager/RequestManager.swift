@@ -111,7 +111,34 @@ class RequestManager {
         })
     }
     
-    
+    func getUserStatistics(completion: @escaping(Bool, UserProfile, Error?) -> Void) {
+        
+        let getToken =  KeychainWrapper.standard.string(forKey: "accessToken")
+        let headers: HTTPHeaders = ["Authorization": getToken!]
+        
+        Alamofire.request(RequestType.getStatistics.url, method: .get, encoding: JSONEncoding.default, headers: headers)
+            .validate(statusCode: 200..<300)
+            .responseJSON(completionHandler: { (response:DataResponse<Any>) in
+                switch(response.result) {
+                case .success(_):
+                    if let json = response.result.value {
+                        guard let jsonArray = json as? [String: Any] else {return}
+                        guard let userProfileModel = Mapper<UserProfile>().map(JSON: jsonArray) else {return}
+//                        for item in jsonArray {
+//                            guard let singleBox = Mapper<Box>().map(JSON: item) else {return}
+//                            boxDetails.append(singleBox)
+                        //}
+                        completion(true, userProfileModel, nil)
+                    }
+                case .failure(_):
+                    if let error = response.result.error {
+                        print("ERROR")
+                        var userProfile = UserProfile(username: "", experience: 0, level: 0, toNextLevel: 0.0, openedChests: 0)
+                        completion(false, userProfile, error)
+                    }
+                }
+            })
+    }
     
     
     
