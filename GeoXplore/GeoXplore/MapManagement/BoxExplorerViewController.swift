@@ -9,9 +9,9 @@
 import UIKit
 import Mapbox
 //TODO: TODO: validating distance
-//TODO: TODO: better handlimg errors
+//TODO: TODO: handling errors
 
-class BoxExplorerViewController: UIViewController, MGLMapViewDelegate {
+class BoxExplorerViewController: UIViewController {
     
     var boxes = [Box]()
     var userLocation = CLLocation()
@@ -42,7 +42,7 @@ class BoxExplorerViewController: UIViewController, MGLMapViewDelegate {
                 self.boxes = boxesArray
                 boxesArray.forEach({ box in
                     let annotation = MGLPointAnnotation()
-                    print(box.latitude,box.longitude)
+                    //print(box.latitude,box.longitude)
                     annotation.coordinate = CLLocationCoordinate2DMake(box.latitude, box.longitude)
                     switch box.opened {
                     case false:
@@ -60,11 +60,12 @@ class BoxExplorerViewController: UIViewController, MGLMapViewDelegate {
     
     
     private func checkingUserPosition() {
-        let pins = mapView.annotations
         
-        for pin in pins! {
+        guard let pins = mapView.annotations else { return }
+        let userCoordinate = CLLocation(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
+        
+        pins.forEach { pin in
             let coordinate = CLLocation(latitude: pin.coordinate.latitude, longitude: pin.coordinate.longitude)
-            let userCoordinate = CLLocation(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
             let distanceInMeters: CLLocationDistance = coordinate.distance(from: userCoordinate)
             print(distanceInMeters)
             
@@ -104,7 +105,7 @@ class BoxExplorerViewController: UIViewController, MGLMapViewDelegate {
 }
 
 
-extension BoxExplorerViewController: CLLocationManagerDelegate {
+extension BoxExplorerViewController: CLLocationManagerDelegate, MGLMapViewDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         userLocation = locations[0] as CLLocation
@@ -119,6 +120,11 @@ extension BoxExplorerViewController: CLLocationManagerDelegate {
     func mapView(_ mapView: MGLMapView, didSelect annotation: MGLAnnotation) {
         let camera = MGLMapCamera(lookingAtCenter: annotation.coordinate, fromDistance: 4000, pitch: 0, heading: 0)
         mapView.fly(to: camera, completionHandler: nil)
+    }
+    
+    func mapViewDidFinishLoadingMap(_ mapView: MGLMapView) {
+        guard let annotations = mapView.annotations else { return }
+            mapView.showAnnotations(annotations, edgePadding: UIEdgeInsetsMake(40.0, 40.0, 40.0, 40.0), animated: true)
     }
     
     func mapView(_ mapView: MGLMapView, imageFor annotation: MGLAnnotation) -> MGLAnnotationImage? {

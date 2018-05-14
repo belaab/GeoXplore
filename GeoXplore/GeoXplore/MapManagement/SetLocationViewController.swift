@@ -10,7 +10,7 @@ import UIKit
 import Mapbox
 import NVActivityIndicatorView
 
-class SetLocationViewController: UIViewController, NVActivityIndicatorViewable{
+class SetLocationViewController: UIViewController, NVActivityIndicatorViewable {
     
     @IBOutlet weak var mapView: MGLMapView!
     private let annotation = MGLPointAnnotation()
@@ -40,6 +40,8 @@ class SetLocationViewController: UIViewController, NVActivityIndicatorViewable{
         mapView.delegate = self
         view.addSubview(mapView)
         mapView.showsUserLocation = true
+        mapView.alpha = 0.95
+        self.view.isUserInteractionEnabled = false
         let gesture = UILongPressGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         mapView.addGestureRecognizer(gesture)
     }
@@ -90,7 +92,7 @@ class SetLocationViewController: UIViewController, NVActivityIndicatorViewable{
         }
     }
     
-    private func showActivityIndicator(){
+    private func showActivityIndicator() {
         let size = CGSize(width: 100, height: 100)
         startAnimating(size, message: "Loading", messageFont: UIFont.systemFont(ofSize: 15, weight: .light), type: activityIndicatorView.type, textColor: UIColor(red: 113.0/255.0, green: 195.0/255.0, blue: 139.0/255.0, alpha: 0.7))
         
@@ -103,7 +105,7 @@ class SetLocationViewController: UIViewController, NVActivityIndicatorViewable{
 
 
 
-extension SetLocationViewController: MGLMapViewDelegate, UIGestureRecognizerDelegate {
+extension SetLocationViewController: MGLMapViewDelegate, UIGestureRecognizerDelegate, CLLocationManagerDelegate {
     
     func mapView(_ mapView: MGLMapView, imageFor annotation: MGLAnnotation) -> MGLAnnotationImage? {
         var annotationImage = mapView.dequeueReusableAnnotationImage(withIdentifier: "box")
@@ -119,6 +121,14 @@ extension SetLocationViewController: MGLMapViewDelegate, UIGestureRecognizerDele
     func mapView(_ mapView: MGLMapView, didSelect annotation: MGLAnnotation) {
         let camera = MGLMapCamera(lookingAtCenter: annotation.coordinate, fromDistance: 4000, pitch: 0, heading: 0)
         mapView.fly(to: camera, completionHandler: nil)
+    }
+    
+    func mapViewDidFinishLoadingMap(_ mapView: MGLMapView) {
+        let camera = MGLMapCamera(lookingAtCenter: (mapView.userLocation?.coordinate)!, fromDistance: 4000, pitch: 10, heading: 0)
+        mapView.fly(to: camera) {
+            self.view.isUserInteractionEnabled = true
+            mapView.alpha = 1.0
+        }
     }
 
 }
