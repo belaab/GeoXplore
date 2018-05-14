@@ -54,8 +54,15 @@ class SetLocationViewController: UIViewController, NVActivityIndicatorViewable {
             if success {
                 print("longitude: \(doubleLongitude), latitude: \(doubleLatitude)")
                 print("Coordinates sent.")
-                let boxExplorerViewController = StoryboardManager.boxExplorerViewController()
-                self.present(boxExplorerViewController, animated: true, completion: nil)
+                
+                //let tabBarVC = UITabBarViewCon
+//                let boxExplorerViewController = StoryboardManager.boxExplorerViewController()
+//                self.present(boxExplorerViewController.viewControllers![0], animated: true, completion: nil)
+                let storyboard = UIStoryboard(name: "BoxExplorer", bundle: nil)
+                let controller = storyboard.instantiateViewController(withIdentifier: "tabbarViewController")
+                self.present(controller, animated: true, completion: nil)
+//                let boxExplorerViewController = StoryboardManager.boxExplorerViewController()
+//                self.present(boxExplorerViewController, animated: true, completion: nil)
                 self.activityIndicatorView.stopAnimating()
             } else {
                 print(error) //TODO
@@ -73,6 +80,16 @@ class SetLocationViewController: UIViewController, NVActivityIndicatorViewable {
                 self.present(alert, animated: true, completion: nil)
             }
         }
+        
+        
+        
+//        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//            if segue.identifier == "tabBarViewController" {
+//                if let destinationVC = segue.destination as? UITabBarController {
+//                    destinationVC.selectedIndex = 0
+//                }
+//            }
+//        }
     }
     
     

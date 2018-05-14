@@ -102,6 +102,15 @@ class BoxExplorerViewController: UIViewController {
             //locationManager.startUpdatingHeading()
         }
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "tabBarViewController" {
+//            if let destinationVC = segue.destination as? UITabBarController {
+//                destinationVC.selectedIndex = 0
+//            }
+//        }
+//    }
+    
 }
 
 

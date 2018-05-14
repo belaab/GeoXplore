@@ -25,6 +25,7 @@ struct StoryboardManager {
         let setLocation = SetLocationViewController.self
         let boxExplorer = BoxExplorerViewController.self
         let congrats = CongratsViewController.self
+        let tabbar = UITabBarController.self
     }
     
     enum StoryboardNames: String {
@@ -41,6 +42,7 @@ struct StoryboardManager {
         case setLocationViewController
         case boxExplorerViewController
         case congratsViewController
+        case tabbarViewController
     }
     
     static func loginViewController() -> LoginViewController {
@@ -58,10 +60,10 @@ struct StoryboardManager {
         return setLocationVC
     }
     
-    static func boxExplorerViewController() -> BoxExplorerViewController {
-        let boxExplorerVC = self.viewController(ViewControllerTypes().boxExplorer, withIdentifier: ViewControllerIdentifiers.boxExplorerViewController.rawValue, fromStoryboard: StoryboardNames.BoxExplorer.rawValue)
-        return boxExplorerVC
-    }
+//    static func boxExplorerViewController() -> UITabBarController {
+//        let boxExplorerVC = self.viewController(ViewControllerTypes().tabbar, withIdentifier: ViewControllerIdentifiers.tabbarViewController.rawValue, fromStoryboard: StoryboardNames.BoxExplorer.rawValue)
+//        return boxExplorerVC
+//    }
     
     static func congratsViewController() -> CongratsViewController {
         let congratsVC = self.viewController(ViewControllerTypes().congrats, withIdentifier: ViewControllerIdentifiers.congratsViewController.rawValue, fromStoryboard: StoryboardNames.Congrats.rawValue)

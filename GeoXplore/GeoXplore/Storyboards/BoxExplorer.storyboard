@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dbD-Ni-ajm">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -48,7 +48,7 @@
                                         <color key="textColor" red="0.25791470909999997" green="1" blue="0.76331214749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GBH-xv-ZUF">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GBH-xv-ZUF">
                                         <rect key="frame" x="39" y="177" width="296" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.47697807339999998" green="0.88994869399999998" blue="0.64453864449999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -57,7 +57,7 @@
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="8"/>
+                                                <integer key="value" value="25"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
@@ -88,13 +88,98 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aZa-ZG-2nH"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="My boxes" image="map" id="Vku-4C-0nv"/>
                     <connections>
                         <outlet property="mapView" destination="1Db-XO-X7l" id="nfz-be-HIH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jsW-Du-wc2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="13.6" y="217.24137931034485"/>
+            <point key="canvasLocation" x="62" y="-11"/>
+        </scene>
+        <!--My profile-->
+        <scene sceneID="mhy-xk-Gtk">
+            <objects>
+                <viewController id="WFT-sk-Hfl" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lhx-Tu-MGJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="EXU-zm-P0h">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="628"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="EXU-zm-P0h" firstAttribute="leading" secondItem="lhx-Tu-MGJ" secondAttribute="leading" id="Bk4-9K-mj9"/>
+                            <constraint firstAttribute="trailing" secondItem="EXU-zm-P0h" secondAttribute="trailing" id="KMw-rT-rVb"/>
+                            <constraint firstItem="EXU-zm-P0h" firstAttribute="top" secondItem="lhx-Tu-MGJ" secondAttribute="top" id="KNy-U7-G6q"/>
+                            <constraint firstItem="EXU-zm-P0h" firstAttribute="bottom" secondItem="CsP-4p-Lun" secondAttribute="bottom" constant="10" id="arO-nz-mCG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="CsP-4p-Lun"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="My profile" image="profile" id="PY5-mY-XcM">
+                        <color key="badgeColor" red="0.55006996268656716" green="0.15872212124214463" blue="0.096328395880356479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N7Z-FC-sbE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="743.20000000000005" y="711.99400299850083"/>
+        </scene>
+        <!--Ranking-->
+        <scene sceneID="auC-3k-jjc">
+            <objects>
+                <viewController id="10J-Ra-Ruo" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="07W-w3-8vQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smoothbackground" translatesAutoresizingMaskIntoConstraints="NO" id="JDm-3S-lTo">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="628"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="JDm-3S-lTo" firstAttribute="top" secondItem="07W-w3-8vQ" secondAttribute="top" id="VPl-um-oKW"/>
+                            <constraint firstItem="JDm-3S-lTo" firstAttribute="leading" secondItem="AcI-7j-un3" secondAttribute="leading" id="XAg-ri-GSs"/>
+                            <constraint firstItem="JDm-3S-lTo" firstAttribute="trailing" secondItem="AcI-7j-un3" secondAttribute="trailing" id="YvW-52-GHb"/>
+                            <constraint firstItem="JDm-3S-lTo" firstAttribute="bottom" secondItem="AcI-7j-un3" secondAttribute="bottom" constant="10" id="bEk-8K-VmJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="AcI-7j-un3"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Ranking" image="ranking" id="oSF-2k-L0o"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ymy-N8-YOm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-220" y="1093.4032983508246"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Juz-kK-KVA">
+            <objects>
+                <tabBarController storyboardIdentifier="tabbarViewController" automaticallyAdjustsScrollViewInsets="NO" id="dbD-Ni-ajm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="shq-fp-c2H">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.30351541999999998" green="0.70335820900000001" blue="0.53864003380000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.20800354580981295" green="0.6515158582089553" blue="0.44149999867035533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.25036147388059704" green="0.10219445895530342" blue="0.24831760300830291" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="rQU-eb-MVY" kind="relationship" relationship="viewControllers" id="pdc-UK-EvL"/>
+                        <segue destination="10J-Ra-Ruo" kind="relationship" relationship="viewControllers" id="bL3-Vh-nJp"/>
+                        <segue destination="WFT-sk-Hfl" kind="relationship" relationship="viewControllers" id="cwU-jC-ANr"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cG2-3k-OGI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-774.39999999999998" y="267.16641679160421"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="background" width="493" height="873"/>
+        <image name="map" width="32" height="32"/>
+        <image name="profile" width="32" height="32"/>
+        <image name="ranking" width="32" height="32"/>
+        <image name="smoothbackground" width="318" height="567"/>
+    </resources>
 </document>
