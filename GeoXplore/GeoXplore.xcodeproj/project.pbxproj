@@ -10,6 +10,10 @@
 		2B1DA0FE20AA14020059E7E7 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1DA0FD20AA14010059E7E7 /* UserProfileViewController.swift */; };
 		2B1DA10020AA19680059E7E7 /* APIUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1DA0FF20AA19680059E7E7 /* APIUserProfile.swift */; };
 		2B1DA10220AAE48A0059E7E7 /* DoubleToPercentages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1DA10120AAE48A0059E7E7 /* DoubleToPercentages.swift */; };
+		2B1DA10420AB062C0059E7E7 /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1DA10320AB062C0059E7E7 /* RankingViewController.swift */; };
+		2B1DA10920AB07380059E7E7 /* RankingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1DA10720AB07380059E7E7 /* RankingViewCell.swift */; };
+		2B1DA10A20AB07380059E7E7 /* RankingViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B1DA10820AB07380059E7E7 /* RankingViewCell.xib */; };
+		2B1DA10C20AB104B0059E7E7 /* APIRankingUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1DA10B20AB104B0059E7E7 /* APIRankingUser.swift */; };
 		2B32D14020834DC700642738 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B32D13F20834DC700642738 /* RequestManager.swift */; };
 		2B32D1442083523600642738 /* APIRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B32D1432083523600642738 /* APIRegister.swift */; };
 		2B3A03DA20A728EB00CF13A3 /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3A03D920A728EB00CF13A3 /* HideKeyboard.swift */; };
@@ -43,6 +47,10 @@
 		2B1DA0FD20AA14010059E7E7 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		2B1DA0FF20AA19680059E7E7 /* APIUserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIUserProfile.swift; sourceTree = "<group>"; };
 		2B1DA10120AAE48A0059E7E7 /* DoubleToPercentages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleToPercentages.swift; sourceTree = "<group>"; };
+		2B1DA10320AB062C0059E7E7 /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
+		2B1DA10720AB07380059E7E7 /* RankingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewCell.swift; sourceTree = "<group>"; };
+		2B1DA10820AB07380059E7E7 /* RankingViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingViewCell.xib; sourceTree = "<group>"; };
+		2B1DA10B20AB104B0059E7E7 /* APIRankingUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRankingUser.swift; sourceTree = "<group>"; };
 		2B32D13F20834DC700642738 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		2B32D1432083523600642738 /* APIRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRegister.swift; sourceTree = "<group>"; };
 		2B3A03D920A728EB00CF13A3 /* HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
@@ -98,6 +106,9 @@
 			isa = PBXGroup;
 			children = (
 				2B1DA0FD20AA14010059E7E7 /* UserProfileViewController.swift */,
+				2B1DA10320AB062C0059E7E7 /* RankingViewController.swift */,
+				2B1DA10720AB07380059E7E7 /* RankingViewCell.swift */,
+				2B1DA10820AB07380059E7E7 /* RankingViewCell.xib */,
 			);
 			path = Statistics;
 			sourceTree = "<group>";
@@ -119,6 +130,7 @@
 				2BED38A52085586600D734D7 /* APILocation.swift */,
 				2BED38AB208653C600D734D7 /* APIBoxModel.swift */,
 				2B1DA0FF20AA19680059E7E7 /* APIUserProfile.swift */,
+				2B1DA10B20AB104B0059E7E7 /* APIRankingUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -285,6 +297,7 @@
 			files = (
 				2BF567BB2084F3AA00F8E6CF /* SetLocation.storyboard in Resources */,
 				2BC0CC3C20778D0C001033B0 /* LaunchScreen.storyboard in Resources */,
+				2B1DA10A20AB07380059E7E7 /* RankingViewCell.xib in Resources */,
 				2BC0CC5C20784386001033B0 /* Login.storyboard in Resources */,
 				2BED38B02086B16700D734D7 /* Congrats.storyboard in Resources */,
 				2BED38A82086085B00D734D7 /* BoxExplorer.storyboard in Resources */,
@@ -376,13 +389,16 @@
 				2B1DA10020AA19680059E7E7 /* APIUserProfile.swift in Sources */,
 				2B1DA0FE20AA14020059E7E7 /* UserProfileViewController.swift in Sources */,
 				2BC0CC3220778D0C001033B0 /* AppDelegate.swift in Sources */,
+				2B1DA10C20AB104B0059E7E7 /* APIRankingUser.swift in Sources */,
 				2B3A03DA20A728EB00CF13A3 /* HideKeyboard.swift in Sources */,
 				2BC0CC60207AAC03001033B0 /* StoryboardManager.swift in Sources */,
 				2BC0CC66207B7D80001033B0 /* LoginViewController.swift in Sources */,
 				2BD97C7A207D41B60033AA26 /* UrlBuilder.swift in Sources */,
 				2B3A03DC20A72C0300CF13A3 /* ValidatingInputs.swift in Sources */,
 				2BC0CC64207B7CE3001033B0 /* RegisterViewController.swift in Sources */,
+				2B1DA10420AB062C0059E7E7 /* RankingViewController.swift in Sources */,
 				2BF567BD2084F60E00F8E6CF /* SetLocationViewController.swift in Sources */,
+				2B1DA10920AB07380059E7E7 /* RankingViewCell.swift in Sources */,
 				2B32D1442083523600642738 /* APIRegister.swift in Sources */,
 				2BED38AC208653C600D734D7 /* APIBoxModel.swift in Sources */,
 			);

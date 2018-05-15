@@ -407,7 +407,7 @@
         <!--Ranking-->
         <scene sceneID="auC-3k-jjc">
             <objects>
-                <viewController id="10J-Ra-Ruo" sceneMemberID="viewController">
+                <viewController id="10J-Ra-Ruo" customClass="RankingViewController" customModule="GeoXplore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="07W-w3-8vQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -415,17 +415,35 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smoothbackground" translatesAutoresizingMaskIntoConstraints="NO" id="JDm-3S-lTo">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="628"/>
                             </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ezi-1s-SDZ">
+                                <rect key="frame" x="4" y="60" width="367" height="558"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="10J-Ra-Ruo" id="gU1-Rq-PUB"/>
+                                    <outlet property="delegate" destination="10J-Ra-Ruo" id="Bx1-iV-EKF"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="ezi-1s-SDZ" firstAttribute="leading" secondItem="AcI-7j-un3" secondAttribute="leading" constant="4" id="TgB-zc-4hw"/>
                             <constraint firstItem="JDm-3S-lTo" firstAttribute="top" secondItem="07W-w3-8vQ" secondAttribute="top" id="VPl-um-oKW"/>
                             <constraint firstItem="JDm-3S-lTo" firstAttribute="leading" secondItem="AcI-7j-un3" secondAttribute="leading" id="XAg-ri-GSs"/>
+                            <constraint firstItem="AcI-7j-un3" firstAttribute="trailing" secondItem="ezi-1s-SDZ" secondAttribute="trailing" constant="4" id="Xva-D7-cGL"/>
                             <constraint firstItem="JDm-3S-lTo" firstAttribute="trailing" secondItem="AcI-7j-un3" secondAttribute="trailing" id="YvW-52-GHb"/>
                             <constraint firstItem="JDm-3S-lTo" firstAttribute="bottom" secondItem="AcI-7j-un3" secondAttribute="bottom" constant="10" id="bEk-8K-VmJ"/>
+                            <constraint firstItem="ezi-1s-SDZ" firstAttribute="top" secondItem="AcI-7j-un3" secondAttribute="top" constant="40" id="edp-Uv-IqC"/>
+                            <constraint firstAttribute="bottom" secondItem="ezi-1s-SDZ" secondAttribute="bottom" id="qKg-PG-jy9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AcI-7j-un3"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Ranking" image="ranking" id="oSF-2k-L0o"/>
+                    <connections>
+                        <outlet property="rankingTableView" destination="ezi-1s-SDZ" id="zYN-Dc-1C9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ymy-N8-YOm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

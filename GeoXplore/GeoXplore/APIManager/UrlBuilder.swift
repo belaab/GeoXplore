@@ -14,6 +14,7 @@ enum RequestType {
     case postLocation
     case getBoxes
     case getStatistics
+    case getRanking
 }
 
 extension RequestType: TargetType {
@@ -30,6 +31,9 @@ extension RequestType: TargetType {
             return URL(string: "https://geoxplore-api.herokuapp.com/user/chests")!
         case .getStatistics:
             return URL(string: "https://geoxplore-api.herokuapp.com/user/my-statistics")!
+        case .getRanking:
+            return URL(string: "https://geoxplore-api.herokuapp.com/community/ranking")!
         }
+        
     }
 }

@@ -146,6 +146,37 @@ class RequestManager {
     }
     
     
+    func getRankingUsers(completion: @escaping(Bool, [RankingUser]?, Error?) -> Void) {
+        
+        let getToken =  KeychainWrapper.standard.string(forKey: "accessToken")
+        let headers: HTTPHeaders = ["Authorization": getToken!]
+        var rankingUsers = [RankingUser]()
+        
+        Alamofire.request(RequestType.getRanking.url, method: .get, encoding: JSONEncoding.default, headers: headers)
+            .validate(statusCode: 200..<300)
+            .responseJSON(completionHandler: { (response:DataResponse<Any>) in
+                switch(response.result) {
+                case .success(_):
+                    if let json = response.result.value {
+                        guard let jsonArray = json as? [[String: AnyObject]] else {return}
+                        print(jsonArray)
+                        for item in jsonArray {
+                            guard let user = Mapper<RankingUser>().map(JSON: item) else {return}
+                            rankingUsers.append(user)
+                        }
+                        completion(true, rankingUsers, nil)
+                    }
+                case .failure(_):
+                    if let error = response.result.error {
+                       // response.response?.statusCode
+                        print("Status error code: \(String(describing: response.response?.statusCode))")
+                        completion(false, nil, error)
+                    }
+                }
+            })
+    }
+    
+    
     
     
     

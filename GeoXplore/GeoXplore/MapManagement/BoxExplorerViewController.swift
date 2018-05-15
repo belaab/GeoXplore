@@ -46,7 +46,7 @@ class BoxExplorerViewController: UIViewController {
                     annotation.coordinate = CLLocationCoordinate2DMake(box.latitude, box.longitude)
                     switch box.opened {
                     case false:
-                        annotation.title = "close"
+                        annotation.title = "closed"
                     case true:
                         annotation.title = "opened"
                     }
