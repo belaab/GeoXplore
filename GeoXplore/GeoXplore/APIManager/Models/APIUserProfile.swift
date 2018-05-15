@@ -18,16 +18,22 @@ class UserProfile: Mappable {
     var openedChests: Int
 
     
-//    init(username: String, experience: Int, level: Int, toNextLevel: Double, openedChests: Int) {
-//        self.username = username
-//        self.experience = experience
-//        self.level = level
-//        self.toNextLevel = toNextLevel
-//        self.openedChests = openedChests
-//    }
+    init(username: String, experience: Int, level: Int, toNextLevel: Double, openedChests: Int) {
+        self.username = username
+        self.experience = experience
+        self.level = level
+        self.toNextLevel = toNextLevel
+        self.openedChests = openedChests
+    }
     
     required init?(map: Map) {
+        self.username = ""
+        self.experience = 0
+        self.level = 0
+        self.toNextLevel = 0.0
+        self.openedChests = 0
     }
+    
     
     func mapping(map: Map) {
         self.username <- map["username"]

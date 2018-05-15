@@ -66,7 +66,7 @@ class RequestManager {
         let headers: HTTPHeaders = ["Authorization": getToken! ] //getToken!
         
         Alamofire.request(RequestType.postLocation.url, method: .post, parameters: jsonData, encoding: JSONEncoding.default, headers: headers)
-            .validate(statusCode: 200..<300)
+//            .validate(statusCode: 200..<300)
             .responseJSON { (response) in
             switch(response.result) {
             case .success(_):
@@ -74,6 +74,7 @@ class RequestManager {
                     print("SUCCESS")
                     completion(true, nil)
             case .failure(_):
+                print("Status code: \(response.response!.statusCode)")
                 if let error = response.result.error {
                     print(response.result.error)
                     completion(false, error)
@@ -96,6 +97,7 @@ class RequestManager {
             case .success(_):
                 if let json = response.result.value {
                     guard let jsonArray = json as? [[String: AnyObject]] else {return}
+                    print(jsonArray)
                     for item in jsonArray {
                         guard let singleBox = Mapper<Box>().map(JSON: item) else {return}
                         boxDetails.append(singleBox)
@@ -111,7 +113,7 @@ class RequestManager {
         })
     }
     
-    func getUserStatistics(completion: @escaping(Bool, UserProfile, Error?) -> Void) {
+    func getUserStatistics(completion: @escaping(Bool, UserProfile?, Error?) -> Void) {
         
         let getToken =  KeychainWrapper.standard.string(forKey: "accessToken")
         let headers: HTTPHeaders = ["Authorization": getToken!]
@@ -123,6 +125,7 @@ class RequestManager {
                 case .success(_):
                     if let json = response.result.value {
                         guard let jsonArray = json as? [String: Any] else {return}
+                        print(jsonArray)
                         guard let userProfileModel = Mapper<UserProfile>().map(JSON: jsonArray) else {return}
 //                        for item in jsonArray {
 //                            guard let singleBox = Mapper<Box>().map(JSON: item) else {return}
@@ -132,9 +135,11 @@ class RequestManager {
                     }
                 case .failure(_):
                     if let error = response.result.error {
-                        print("ERROR")
-                        var userProfile = UserProfile(username: "", experience: 0, level: 0, toNextLevel: 0.0, openedChests: 0)
-                        completion(false, userProfile, error)
+                        print(error)
+                        //var userProfile = UserProfile(username: "", experience: 0, level: 0, toNextLevel: 0.0, openedChests: 0)
+                        print(response.response!.statusCode)
+                        //var userProfile = UserProfile(map: Map)
+                        completion(false, nil, error)
                     }
                 }
             })

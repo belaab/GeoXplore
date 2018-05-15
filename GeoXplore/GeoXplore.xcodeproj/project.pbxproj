@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2B1DA0FE20AA14020059E7E7 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1DA0FD20AA14010059E7E7 /* UserProfileViewController.swift */; };
 		2B1DA10020AA19680059E7E7 /* APIUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1DA0FF20AA19680059E7E7 /* APIUserProfile.swift */; };
+		2B1DA10220AAE48A0059E7E7 /* DoubleToPercentages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1DA10120AAE48A0059E7E7 /* DoubleToPercentages.swift */; };
 		2B32D14020834DC700642738 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B32D13F20834DC700642738 /* RequestManager.swift */; };
 		2B32D1442083523600642738 /* APIRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B32D1432083523600642738 /* APIRegister.swift */; };
 		2B3A03DA20A728EB00CF13A3 /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3A03D920A728EB00CF13A3 /* HideKeyboard.swift */; };
@@ -41,6 +42,7 @@
 		0C62D332798919C75732A4D6 /* Pods_GeoXplore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoXplore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B1DA0FD20AA14010059E7E7 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		2B1DA0FF20AA19680059E7E7 /* APIUserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIUserProfile.swift; sourceTree = "<group>"; };
+		2B1DA10120AAE48A0059E7E7 /* DoubleToPercentages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleToPercentages.swift; sourceTree = "<group>"; };
 		2B32D13F20834DC700642738 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		2B32D1432083523600642738 /* APIRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRegister.swift; sourceTree = "<group>"; };
 		2B3A03D920A728EB00CF13A3 /* HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			children = (
 				2B3A03D920A728EB00CF13A3 /* HideKeyboard.swift */,
 				2B3A03DB20A72C0300CF13A3 /* ValidatingInputs.swift */,
+				2B1DA10120AAE48A0059E7E7 /* DoubleToPercentages.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				2BED38AE2086B13E00D734D7 /* CongratsViewController.swift in Sources */,
 				2B32D14020834DC700642738 /* RequestManager.swift in Sources */,
 				2BED38AA20864E1700D734D7 /* BoxExplorerViewController.swift in Sources */,
+				2B1DA10220AAE48A0059E7E7 /* DoubleToPercentages.swift in Sources */,
 				2BC0CC5D20784386001033B0 /* ChooseSignUpInViewController.swift in Sources */,
 				2BED38A220853A1500D734D7 /* GradientView.swift in Sources */,
 				2BED38A62085586600D734D7 /* APILocation.swift in Sources */,
