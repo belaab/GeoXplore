@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="J3N-Yo-eEV">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="ArialRoundedMTBold.ttf">
+            <string>ArialRoundedMTBold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--arBoxViewController-->
+        <scene sceneID="KIe-JH-sbX">
+            <objects>
+                <viewController storyboardIdentifier="arBoxViewController" title="arBoxViewController" id="J3N-Yo-eEV" customClass="ARBoxVIewController" customModule="GeoXplore" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="u3w-PZ-Hhm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gtl-UM-ipV">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </arscnView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PlZ-li-gek">
+                                <rect key="frame" x="37.5" y="554" width="300" height="60"/>
+                                <color key="backgroundColor" red="0.34894820210902444" green="0.72425373134328352" blue="0.66839159069504817" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="1yp-Ac-1Pw"/>
+                                    <constraint firstAttribute="width" constant="300" id="N7R-UC-tLd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
+                                <state key="normal" title="OK!">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="dismiss:" destination="J3N-Yo-eEV" eventType="touchUpInside" id="QdH-NP-C7Z"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Gtl-UM-ipV" firstAttribute="trailing" secondItem="szt-WU-alg" secondAttribute="trailing" id="2sJ-1n-W65"/>
+                            <constraint firstItem="Gtl-UM-ipV" firstAttribute="top" secondItem="u3w-PZ-Hhm" secondAttribute="top" id="2xC-rP-HrG"/>
+                            <constraint firstItem="szt-WU-alg" firstAttribute="bottom" secondItem="PlZ-li-gek" secondAttribute="bottom" constant="53" id="Ove-5O-qM6"/>
+                            <constraint firstItem="Gtl-UM-ipV" firstAttribute="leading" secondItem="szt-WU-alg" secondAttribute="leading" id="XHT-oe-Zyb"/>
+                            <constraint firstItem="PlZ-li-gek" firstAttribute="centerX" secondItem="u3w-PZ-Hhm" secondAttribute="centerX" id="cru-Gx-fkF"/>
+                            <constraint firstItem="Gtl-UM-ipV" firstAttribute="bottom" secondItem="szt-WU-alg" secondAttribute="bottom" id="fvj-oW-bD0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="szt-WU-alg"/>
+                    </view>
+                    <connections>
+                        <outlet property="sceneView" destination="Gtl-UM-ipV" id="4CV-eA-v36"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oXM-Bl-Rey" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="87.200000000000003" y="-19.340329835082461"/>
+        </scene>
+    </scenes>
+</document>

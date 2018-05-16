@@ -20,8 +20,8 @@ class BoxExplorerViewController: UIViewController {
     
     @IBAction func checkLocation(_ sender: UIButton) {
         checkingUserPosition()
-        let congratsViewController = StoryboardManager.congratsViewController()
-        self.present(congratsViewController, animated: true, completion: nil)
+//        let congratsViewController = StoryboardManager.congratsViewController()
+//        self.present(congratsViewController, animated: true, completion: nil)
     }
     
     
@@ -43,7 +43,7 @@ class BoxExplorerViewController: UIViewController {
                 boxesArray.forEach({ box in
                     let annotation = MGLPointAnnotation()
                     //print(box.latitude,box.longitude)
-                    annotation.coordinate = CLLocationCoordinate2DMake(box.latitude, box.longitude)
+                    annotation.coordinate = CLLocationCoordinate2DMake(box.longitude, box.latitude)
                     switch box.opened {
                     case false:
                         annotation.title = "closed"
@@ -67,21 +67,32 @@ class BoxExplorerViewController: UIViewController {
         pins.forEach { pin in
             let coordinate = CLLocation(latitude: pin.coordinate.latitude, longitude: pin.coordinate.longitude)
             let distanceInMeters: CLLocationDistance = coordinate.distance(from: userCoordinate)
-            print(distanceInMeters)
+            print("distanceInMeters: \(distanceInMeters)")
             
-            let newPin = MGLPointAnnotation()
-            newPin.coordinate = pin.coordinate
-            
-            switch (pin.title!)! {
-            case "opened":
+            if distanceInMeters < 200 {
+                
+                let newPin = MGLPointAnnotation()
+                newPin.coordinate = pin.coordinate
                 newPin.title = "opened"
-            case "closed":
-                newPin.title = "opened"
-            default:
-                newPin.title = "closed"
+                mapView.removeAnnotation(pin)
+                mapView.addAnnotation(newPin)
+                
+                let congratsViewController = StoryboardManager.congratsViewController()
+                self.present(congratsViewController, animated: true, completion: nil)
             }
-            mapView.removeAnnotation(pin)
-            mapView.addAnnotation(newPin)
+            
+//            let newPin = MGLPointAnnotation()
+//            newPin.coordinate = pin.coordinate
+            
+//            switch (pin.title!)! {
+//            case "opened":
+//                newPin.title = "opened"
+//            case "closed":
+//                newPin.title = "opened"
+//            default:
+//                newPin.title = "closed"
+//            }
+        
         }
     }
     

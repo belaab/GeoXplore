@@ -26,6 +26,7 @@ struct StoryboardManager {
         let boxExplorer = BoxExplorerViewController.self
         let congrats = CongratsViewController.self
         let tabbar = UITabBarController.self
+        let ar = ARBoxVIewController.self
     }
     
     enum StoryboardNames: String {
@@ -34,6 +35,7 @@ struct StoryboardManager {
         case SetLocation
         case BoxExplorer
         case Congrats
+        case ARBox
     }
     
     enum ViewControllerIdentifiers: String {
@@ -43,6 +45,7 @@ struct StoryboardManager {
         case boxExplorerViewController
         case congratsViewController
         case tabbarViewController
+        case arBoxViewController
     }
     
     static func loginViewController() -> LoginViewController {
@@ -68,6 +71,13 @@ struct StoryboardManager {
     static func congratsViewController() -> CongratsViewController {
         let congratsVC = self.viewController(ViewControllerTypes().congrats, withIdentifier: ViewControllerIdentifiers.congratsViewController.rawValue, fromStoryboard: StoryboardNames.Congrats.rawValue)
         return congratsVC
+    }
+    
+    
+    
+    static func arBoxViewController() -> ARBoxVIewController {
+        let arVC = self.viewController(ViewControllerTypes().ar, withIdentifier: ViewControllerIdentifiers.arBoxViewController.rawValue, fromStoryboard: StoryboardNames.ARBox.rawValue)
+        return arVC
     }
 
 }

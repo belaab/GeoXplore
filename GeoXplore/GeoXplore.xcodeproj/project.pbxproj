@@ -14,6 +14,11 @@
 		2B1DA10920AB07380059E7E7 /* RankingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1DA10720AB07380059E7E7 /* RankingViewCell.swift */; };
 		2B1DA10A20AB07380059E7E7 /* RankingViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B1DA10820AB07380059E7E7 /* RankingViewCell.xib */; };
 		2B1DA10C20AB104B0059E7E7 /* APIRankingUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1DA10B20AB104B0059E7E7 /* APIRankingUser.swift */; };
+		2B1DA10E20AB8C660059E7E7 /* ARBoxVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1DA10D20AB8C660059E7E7 /* ARBoxVIewController.swift */; };
+		2B1DA11020AB91E50059E7E7 /* boxScene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 2B1DA10F20AB91E50059E7E7 /* boxScene.scn */; };
+		2B1DA11220AB950F0059E7E7 /* ARBox.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B1DA11120AB950F0059E7E7 /* ARBox.storyboard */; };
+		2B1DA11620ABA0990059E7E7 /* Textures in Resources */ = {isa = PBXBuildFile; fileRef = 2B1DA11520ABA0990059E7E7 /* Textures */; };
+		2B1DA11920ABA1540059E7E7 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B1DA11820ABA1540059E7E7 /* art.scnassets */; };
 		2B32D14020834DC700642738 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B32D13F20834DC700642738 /* RequestManager.swift */; };
 		2B32D1442083523600642738 /* APIRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B32D1432083523600642738 /* APIRegister.swift */; };
 		2B3A03DA20A728EB00CF13A3 /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3A03D920A728EB00CF13A3 /* HideKeyboard.swift */; };
@@ -51,6 +56,11 @@
 		2B1DA10720AB07380059E7E7 /* RankingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewCell.swift; sourceTree = "<group>"; };
 		2B1DA10820AB07380059E7E7 /* RankingViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingViewCell.xib; sourceTree = "<group>"; };
 		2B1DA10B20AB104B0059E7E7 /* APIRankingUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRankingUser.swift; sourceTree = "<group>"; };
+		2B1DA10D20AB8C660059E7E7 /* ARBoxVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARBoxVIewController.swift; sourceTree = "<group>"; };
+		2B1DA10F20AB91E50059E7E7 /* boxScene.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = boxScene.scn; sourceTree = "<group>"; };
+		2B1DA11120AB950F0059E7E7 /* ARBox.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ARBox.storyboard; sourceTree = "<group>"; };
+		2B1DA11520ABA0990059E7E7 /* Textures */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Textures; sourceTree = "<group>"; };
+		2B1DA11820ABA1540059E7E7 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		2B32D13F20834DC700642738 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		2B32D1432083523600642738 /* APIRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRegister.swift; sourceTree = "<group>"; };
 		2B3A03D920A728EB00CF13A3 /* HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
@@ -105,10 +115,12 @@
 		2B1DA0FB20AA139D0059E7E7 /* Statistics */ = {
 			isa = PBXGroup;
 			children = (
+				2B1DA10D20AB8C660059E7E7 /* ARBoxVIewController.swift */,
 				2B1DA0FD20AA14010059E7E7 /* UserProfileViewController.swift */,
 				2B1DA10320AB062C0059E7E7 /* RankingViewController.swift */,
 				2B1DA10720AB07380059E7E7 /* RankingViewCell.swift */,
 				2B1DA10820AB07380059E7E7 /* RankingViewCell.xib */,
+				2B1DA11120AB950F0059E7E7 /* ARBox.storyboard */,
 			);
 			path = Statistics;
 			sourceTree = "<group>";
@@ -162,6 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				2BED38A320854FB100D734D7 /* Assets.xcassets */,
+				2B1DA11820ABA1540059E7E7 /* art.scnassets */,
+				2B1DA11520ABA0990059E7E7 /* Textures */,
 				2BC0CC3020778D0C001033B0 /* GeoXplore */,
 				2BC0CC2F20778D0C001033B0 /* Products */,
 				E72F4648A7B2298B1C06F5B0 /* Pods */,
@@ -190,6 +204,7 @@
 				2BC0CC3120778D0C001033B0 /* AppDelegate.swift */,
 				2BC0CC3A20778D0C001033B0 /* LaunchScreen.storyboard */,
 				2BC0CC3D20778D0C001033B0 /* Info.plist */,
+				2B1DA10F20AB91E50059E7E7 /* boxScene.scn */,
 			);
 			path = GeoXplore;
 			sourceTree = "<group>";
@@ -295,12 +310,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B1DA11220AB950F0059E7E7 /* ARBox.storyboard in Resources */,
 				2BF567BB2084F3AA00F8E6CF /* SetLocation.storyboard in Resources */,
+				2B1DA11920ABA1540059E7E7 /* art.scnassets in Resources */,
 				2BC0CC3C20778D0C001033B0 /* LaunchScreen.storyboard in Resources */,
 				2B1DA10A20AB07380059E7E7 /* RankingViewCell.xib in Resources */,
+				2B1DA11620ABA0990059E7E7 /* Textures in Resources */,
 				2BC0CC5C20784386001033B0 /* Login.storyboard in Resources */,
 				2BED38B02086B16700D734D7 /* Congrats.storyboard in Resources */,
 				2BED38A82086085B00D734D7 /* BoxExplorer.storyboard in Resources */,
+				2B1DA11020AB91E50059E7E7 /* boxScene.scn in Resources */,
 				2BC0CC5B20784386001033B0 /* ChooseSignUpIn.storyboard in Resources */,
 				2BED38A420854FB200D734D7 /* Assets.xcassets in Resources */,
 				2BC0CC62207B736D001033B0 /* Register.storyboard in Resources */,
@@ -401,6 +420,7 @@
 				2B1DA10920AB07380059E7E7 /* RankingViewCell.swift in Sources */,
 				2B32D1442083523600642738 /* APIRegister.swift in Sources */,
 				2BED38AC208653C600D734D7 /* APIBoxModel.swift in Sources */,
+				2B1DA10E20AB8C660059E7E7 /* ARBoxVIewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

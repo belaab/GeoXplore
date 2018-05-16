@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="ArialRoundedMTBold.ttf">
+            <string>ArialRoundedMTBold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Congrats View Controller-->
         <scene sceneID="VMm-Md-aID">
@@ -22,71 +27,69 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.77845629124423787" green="0.49131541063303991" blue="0.86005130597014923" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5A5-08-Xx4">
-                                <rect key="frame" x="0.0" y="20" width="64" height="58"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="64" id="Dwa-kQ-jJ6"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="58" id="NNO-ZI-Gbw"/>
-                                    <constraint firstAttribute="width" constant="64" id="dDV-7C-b2y"/>
-                                    <constraint firstAttribute="height" constant="58" id="r8P-4V-ru2"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="30"/>
-                                <state key="normal" title="X">
-                                    <color key="titleColor" red="0.99119636194029848" green="0.99119636194029848" blue="0.99119636194029848" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="dissmiss:" destination="hAC-gF-Foa" eventType="touchUpInside" id="wun-hC-NfM"/>
-                                </connections>
-                            </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Tdc-oz-h6A">
-                                <rect key="frame" x="40" y="132" width="297" height="385"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="79" translatesAutoresizingMaskIntoConstraints="NO" id="naK-SK-CKx">
+                                <rect key="frame" x="10" y="347" width="355" height="260"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congrats!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ich-1a-ban">
-                                        <rect key="frame" x="67.5" y="0.0" width="162" height="84"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="84" id="Rtv-Hu-inq"/>
-                                            <constraint firstAttribute="width" constant="162" id="qj8-Nc-esM"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="40"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have unblocked box!  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1H-ue-e6A">
-                                        <rect key="frame" x="30.5" y="124" width="236" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="2nj-3i-9li"/>
-                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="34" id="HYl-Ij-rHN"/>
-                                            <constraint firstAttribute="width" constant="236" id="UQE-2m-HUD"/>
-                                            <constraint firstAttribute="height" constant="21" id="b3F-ge-SEe"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                        <color key="textColor" red="0.75359970173210888" green="0.95867537313432838" blue="0.85672956676624346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_box" translatesAutoresizingMaskIntoConstraints="NO" id="Orl-at-Cgo">
-                                        <rect key="frame" x="40" y="185" width="217" height="200"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="217" id="iFf-oV-zmo"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="qXf-EV-BNm"/>
-                                        </constraints>
+                                    <imageView userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_box" translatesAutoresizingMaskIntoConstraints="NO" id="Re7-93-GXY">
+                                        <rect key="frame" x="113.5" y="0.0" width="128" height="121"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9tI-9K-xPT">
+                                        <rect key="frame" x="27.5" y="200" width="300" height="60"/>
+                                        <color key="backgroundColor" red="0.34894820209999999" green="0.72425373130000004" blue="0.66839159069999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="7H7-PW-Fx1"/>
+                                            <constraint firstAttribute="height" constant="60" id="93U-Aw-U3A"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
+                                        <state key="normal" title="OK!">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="30"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="showARView:" destination="hAC-gF-Foa" eventType="touchUpInside" id="F4b-wk-QRb"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Orl-at-Cgo" firstAttribute="leading" secondItem="Tdc-oz-h6A" secondAttribute="leading" constant="40" id="AWC-e5-IeE"/>
-                                    <constraint firstAttribute="trailing" secondItem="Orl-at-Cgo" secondAttribute="trailing" constant="40" id="IoI-4g-K8U"/>
+                                    <constraint firstAttribute="height" constant="260" id="jYP-aj-aHw"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It seems that You are close enough to unblock box. Click button to collect the box." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2wl-Jy-atk">
+                                <rect key="frame" x="36" y="179" width="296" height="148"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" red="0.75359970170000001" green="0.95867537309999995" blue="0.85672956680000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congrats!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ekB-eI-bZ0">
+                                <rect key="frame" x="106" y="123" width="162" height="84"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="84" id="2UD-qY-6xc"/>
+                                    <constraint firstAttribute="width" constant="162" id="DcB-rb-5BT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="ekB-eI-bZ0" firstAttribute="centerX" secondItem="naK-SK-CKx" secondAttribute="centerX" id="0Xo-1P-Tp6"/>
                             <constraint firstItem="37W-Ez-gh4" firstAttribute="top" secondItem="2GD-8z-Bwd" secondAttribute="top" id="1eO-OR-etX"/>
-                            <constraint firstItem="viZ-KT-4xL" firstAttribute="bottom" secondItem="Tdc-oz-h6A" secondAttribute="bottom" constant="150" id="BnF-oQ-uUE"/>
-                            <constraint firstItem="5A5-08-Xx4" firstAttribute="top" secondItem="viZ-KT-4xL" secondAttribute="top" id="HEe-Jb-xsg"/>
+                            <constraint firstItem="naK-SK-CKx" firstAttribute="top" secondItem="2wl-Jy-atk" secondAttribute="bottom" constant="20" id="1qo-pO-422"/>
+                            <constraint firstItem="2wl-Jy-atk" firstAttribute="top" secondItem="ekB-eI-bZ0" secondAttribute="bottom" constant="-28" id="3WO-H3-pHz"/>
+                            <constraint firstItem="2wl-Jy-atk" firstAttribute="leading" secondItem="viZ-KT-4xL" secondAttribute="leading" constant="36" id="GTi-tv-kEf"/>
+                            <constraint firstItem="viZ-KT-4xL" firstAttribute="trailing" secondItem="2wl-Jy-atk" secondAttribute="trailing" constant="43" id="H6L-94-78M"/>
                             <constraint firstItem="37W-Ez-gh4" firstAttribute="leading" secondItem="viZ-KT-4xL" secondAttribute="leading" id="HmJ-oz-DNR"/>
-                            <constraint firstItem="5A5-08-Xx4" firstAttribute="leading" secondItem="viZ-KT-4xL" secondAttribute="leading" id="Hwb-nE-qEE"/>
                             <constraint firstItem="37W-Ez-gh4" firstAttribute="bottom" secondItem="viZ-KT-4xL" secondAttribute="bottom" id="KY9-kr-MCh"/>
-                            <constraint firstItem="Tdc-oz-h6A" firstAttribute="leading" secondItem="viZ-KT-4xL" secondAttribute="leading" constant="40" id="Q2C-Oa-BFk"/>
                             <constraint firstItem="37W-Ez-gh4" firstAttribute="trailing" secondItem="viZ-KT-4xL" secondAttribute="trailing" id="XeL-fa-SdW"/>
+                            <constraint firstItem="viZ-KT-4xL" firstAttribute="bottom" secondItem="naK-SK-CKx" secondAttribute="bottom" constant="60" id="o7y-Oh-iIH"/>
+                            <constraint firstItem="naK-SK-CKx" firstAttribute="leading" secondItem="viZ-KT-4xL" secondAttribute="leading" constant="10" id="pms-KL-hYC"/>
+                            <constraint firstItem="viZ-KT-4xL" firstAttribute="trailing" secondItem="naK-SK-CKx" secondAttribute="trailing" constant="10" id="udU-o5-O7a"/>
+                            <constraint firstItem="ekB-eI-bZ0" firstAttribute="top" secondItem="viZ-KT-4xL" secondAttribute="top" constant="103" id="xSu-PG-T7H"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="viZ-KT-4xL"/>
                     </view>
