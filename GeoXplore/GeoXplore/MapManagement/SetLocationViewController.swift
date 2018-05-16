@@ -125,15 +125,15 @@ class SetLocationViewController: UIViewController, NVActivityIndicatorViewable {
 extension SetLocationViewController: MGLMapViewDelegate, UIGestureRecognizerDelegate, CLLocationManagerDelegate {
     
     func mapView(_ mapView: MGLMapView, imageFor annotation: MGLAnnotation) -> MGLAnnotationImage? {
-        var annotationImage = mapView.dequeueReusableAnnotationImage(withIdentifier: "box")
+        var annotationImage = mapView.dequeueReusableAnnotationImage(withIdentifier: "picker")
         
         if annotationImage == nil {
-            var image = UIImage(named: "box")!
+            var image = UIImage(named: "picker")!
             image = image.withAlignmentRectInsets(UIEdgeInsets(top: 0, left: 0, bottom: image.size.height/2, right: 0))
-            annotationImage = MGLAnnotationImage(image: image, reuseIdentifier: "box")
+            annotationImage = MGLAnnotationImage(image: image, reuseIdentifier: "picker")
         }
         return annotationImage
-    }
+    }           
     
     func mapView(_ mapView: MGLMapView, didSelect annotation: MGLAnnotation) {
         let camera = MGLMapCamera(lookingAtCenter: annotation.coordinate, fromDistance: 4000, pitch: 0, heading: 0)
