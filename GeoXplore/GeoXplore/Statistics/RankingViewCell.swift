@@ -20,13 +20,5 @@ class RankingViewCell: UITableViewCell {
         super.awakeFromNib()
         self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2;
         self.profileImage.clipsToBounds = true
-//        
     }
-
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//
-//        // Configure the view for the selected state
-//    }
-    
 }

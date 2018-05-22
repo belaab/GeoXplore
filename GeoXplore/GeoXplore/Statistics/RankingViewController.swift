@@ -13,39 +13,39 @@ class RankingViewController: UIViewController {
     
     @IBOutlet weak var rankingTableView: UITableView!
     var rankingUsers = [RankingUser]()
-//    var rankingUserAmount = [RankingUser]() {
-//        didSet {
-//            rankingTableView.reloadData()
-//        }
-//    }
+
         override func viewDidLoad() {
-            //getRanking()
         super.viewDidLoad()
         self.rankingTableView.register(UINib(nibName: "RankingViewCell", bundle: nil), forCellReuseIdentifier: "RankingViewCell")
         self.rankingTableView.estimatedRowHeight = 260
         self.rankingTableView.rowHeight = UITableViewAutomaticDimension
+        //animateTableView()
+
         getRanking()
-        animateTableView()
         self.rankingTableView.delegate = self
         self.rankingTableView.dataSource = self
         rankingTableView.backgroundColor = UIColor.clear
-       /// getRanking()
-        animateTableView()
+        //animateTableView()
 
        rankingTableView.reloadData()
-        animateTableView()
+       // animateTableView()
        // rankingTableView.reloadData()
         
     }
     
     
+//    @IBAction func sortingPositionsDown(_ sender: UIButton) {
+//        items = allItems.filter { $0.stationsCount != "brak danych"}
+//        items.sort { $0.stationsCount.compare($1.stationsCount, options: .numeric) == .orderedDescending }
+//        reload()
+//    }
     
     
     func getRanking() {
         RequestManager.sharedInstance.getRankingUsers { (success, rankingUsers, error) in
             if success {
                 guard let rankingUserModels = rankingUsers else { return }
-                self.rankingUsers = rankingUserModels
+                self.rankingUsers = rankingUserModels.sorted { $0.openedChests  >  $1.openedChests }
                 print("Liczba: \(rankingUserModels.count)")
                 rankingUsers?.forEach({ (user) in
                     print(user.level)
@@ -56,17 +56,8 @@ class RankingViewController: UIViewController {
                 print("Error while initializing ranking cells")
             }
         }
-        DispatchQueue.main.async {
-            self.rankingTableView.reloadData()
-            self.rankingTableView.delegate = self
-        }
-        self.animateTableView()
+
     }
-    
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        getRanking()
-//    }
     
     
     private func animateTableView() {
@@ -116,19 +107,40 @@ extension RankingViewController: UITableViewDelegate, UITableViewDataSource {
             else { return UITableViewCell() }
         cell.backgroundColor = UIColor.clear
         let row = indexPath.row
-      //  let user = rankingUsers[indexPath.row]
-//        print(user.username)
-//        print(user.level)
-     //   rankingUsers.forEach { (user) in
         cell.username.text = rankingUsers[row].username.uppercased()
         cell.level.text = String(describing: rankingUsers[row].level)
         cell.openedChests.text = String(describing: rankingUsers[row].openedChests)
-       // }
+    
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 115
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 115
+//    }
+    
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        let tableHeight: CGFloat = rankingTableView.bounds.size.height
+//        let tableWidth: CGFloat = rankingTableView.bounds.size.width
+//        var row = 0
+//        var index = 0
+//        let cells = rankingTableView.visibleCells
+//        let numberOfAwardedPlaces = 3
+//
+//        for cell in cells {
+//            let cell: UITableViewCell = a as UITableViewCell
+//            UIView.animate(withDuration: 1.5, delay: 0.05 * Double(index), usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [], animations: {
+//                cell.transform = CGAffineTransform(translationX: 0, y: 0);
+//            }, completion: nil)
+//            index += 1
+//        }
+//
+//    }
+
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+        UIView.animate(withDuration: 0.4) {
+            cell.transform = CGAffineTransform.identity
+        }
     }
 
 }

@@ -66,7 +66,7 @@ class RequestManager {
         let headers: HTTPHeaders = ["Authorization": getToken! ] //getToken!
         
         Alamofire.request(RequestType.postLocation.url, method: .post, parameters: jsonData, encoding: JSONEncoding.default, headers: headers)
-//            .validate(statusCode: 200..<300)
+            .validate(statusCode: 200..<300)
             .responseJSON { (response) in
             switch(response.result) {
             case .success(_):
