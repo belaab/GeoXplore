@@ -51,4 +51,3 @@ When completed, the project should be ready to open:
 open "GeoXplore.xcworkspace"
 ```
 
-## Building the project
