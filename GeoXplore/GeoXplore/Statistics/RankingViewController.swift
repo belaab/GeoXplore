@@ -10,83 +10,40 @@ import UIKit
 
 class RankingViewController: UIViewController {
     
-    
     @IBOutlet weak var rankingTableView: UITableView!
     var rankingUsers = [RankingUser]()
 
-        override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
-        self.rankingTableView.register(UINib(nibName: "RankingViewCell", bundle: nil), forCellReuseIdentifier: "RankingViewCell")
-        self.rankingTableView.estimatedRowHeight = 260
-        self.rankingTableView.rowHeight = UITableViewAutomaticDimension
-        //animateTableView()
-
+        setupView()
         getRanking()
-        self.rankingTableView.delegate = self
-        self.rankingTableView.dataSource = self
-        rankingTableView.backgroundColor = UIColor.clear
-        //animateTableView()
-
-       rankingTableView.reloadData()
-       // animateTableView()
-       // rankingTableView.reloadData()
-        
     }
     
+    private func setupView() {
+        rankingTableView.register(UINib(nibName: "RankingViewCell", bundle: nil), forCellReuseIdentifier: "RankingViewCell")
+        rankingTableView.estimatedRowHeight = 260
+        rankingTableView.rowHeight = UITableViewAutomaticDimension
+        rankingTableView.delegate = self
+        rankingTableView.dataSource = self
+        rankingTableView.backgroundColor = UIColor.clear
+    }
     
-//    @IBAction func sortingPositionsDown(_ sender: UIButton) {
-//        items = allItems.filter { $0.stationsCount != "brak danych"}
-//        items.sort { $0.stationsCount.compare($1.stationsCount, options: .numeric) == .orderedDescending }
-//        reload()
-//    }
-    
-    
-    func getRanking() {
+    private func getRanking() {
         RequestManager.sharedInstance.getRankingUsers { (success, rankingUsers, error) in
             if success {
                 guard let rankingUserModels = rankingUsers else { return }
                 self.rankingUsers = rankingUserModels.sorted { $0.openedChests  >  $1.openedChests }
                 print("Liczba: \(rankingUserModels.count)")
-                rankingUsers?.forEach({ (user) in
-                    print(user.level)
-                    print(user.username)
-                    self.rankingTableView.reloadData()
-                })
             } else {
                 print("Error while initializing ranking cells")
+                //TODO: TODO
             }
+            self.rankingTableView.reloadData()
         }
 
     }
     
-    
-    private func animateTableView() {
-        
-        let tableHeight: CGFloat = rankingTableView.bounds.size.height
-        let tableWidth: CGFloat = rankingTableView.bounds.size.width
-        var row = 0
-        var index = 0
-        let cells = rankingTableView.visibleCells
-        let numberOfAwardedPlaces = 3
-        
-        for i in cells {
-            let cell: UITableViewCell = i as UITableViewCell
-            if row < numberOfAwardedPlaces {
-                cell.transform = CGAffineTransform(translationX: 0, y: tableHeight/2)
-            } else {
-                cell.transform = CGAffineTransform(translationX: tableWidth, y: 0)
-            }
-            row += 1
-        }
-        for a in cells {
-            let cell: UITableViewCell = a as UITableViewCell
-            UIView.animate(withDuration: 1.5, delay: 0.05 * Double(index), usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [], animations: {
-                cell.transform = CGAffineTransform(translationX: 0, y: 0);
-            }, completion: nil)
-            index += 1
-        }
-    }
-    
+
     
 }
 
@@ -105,6 +62,7 @@ extension RankingViewController: UITableViewDelegate, UITableViewDataSource {
         
         guard let cell = rankingTableView.dequeueReusableCell(withIdentifier: "RankingViewCell", for: indexPath) as? RankingViewCell
             else { return UITableViewCell() }
+        
         cell.backgroundColor = UIColor.clear
         let row = indexPath.row
         cell.username.text = rankingUsers[row].username.uppercased()
@@ -113,28 +71,7 @@ extension RankingViewController: UITableViewDelegate, UITableViewDataSource {
     
         return cell
     }
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 115
-//    }
-    
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        let tableHeight: CGFloat = rankingTableView.bounds.size.height
-//        let tableWidth: CGFloat = rankingTableView.bounds.size.width
-//        var row = 0
-//        var index = 0
-//        let cells = rankingTableView.visibleCells
-//        let numberOfAwardedPlaces = 3
-//
-//        for cell in cells {
-//            let cell: UITableViewCell = a as UITableViewCell
-//            UIView.animate(withDuration: 1.5, delay: 0.05 * Double(index), usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [], animations: {
-//                cell.transform = CGAffineTransform(translationX: 0, y: 0);
-//            }, completion: nil)
-//            index += 1
-//        }
-//
-//    }
+
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)

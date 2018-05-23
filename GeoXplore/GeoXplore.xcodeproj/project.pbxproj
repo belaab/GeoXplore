@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B07ECFC20B59B82002FFEE7 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B07ECFB20B59B82002FFEE7 /* Colors.swift */; };
 		2B18833020B48B7100E45E1B /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B18832F20B48B7100E45E1B /* CustomTabBarController.swift */; };
 		2B1DA0FE20AA14020059E7E7 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1DA0FD20AA14010059E7E7 /* UserProfileViewController.swift */; };
 		2B1DA10020AA19680059E7E7 /* APIUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1DA0FF20AA19680059E7E7 /* APIUserProfile.swift */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		0C62D332798919C75732A4D6 /* Pods_GeoXplore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoXplore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B07ECFB20B59B82002FFEE7 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		2B18832F20B48B7100E45E1B /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		2B1DA0FD20AA14010059E7E7 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		2B1DA0FF20AA19680059E7E7 /* APIUserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIUserProfile.swift; sourceTree = "<group>"; };
@@ -122,7 +124,6 @@
 				2B1DA10320AB062C0059E7E7 /* RankingViewController.swift */,
 				2B1DA10720AB07380059E7E7 /* RankingViewCell.swift */,
 				2B1DA10820AB07380059E7E7 /* RankingViewCell.xib */,
-				2B1DA11120AB950F0059E7E7 /* ARBox.storyboard */,
 			);
 			path = Statistics;
 			sourceTree = "<group>";
@@ -162,6 +163,7 @@
 		2B487E7C2090C1D800B81492 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				2B1DA11120AB950F0059E7E7 /* ARBox.storyboard */,
 				2BF567BA2084F3AA00F8E6CF /* SetLocation.storyboard */,
 				2BED38A72086085B00D734D7 /* BoxExplorer.storyboard */,
 				2BED38AF2086B16700D734D7 /* Congrats.storyboard */,
@@ -228,6 +230,7 @@
 				2BC0CC5F207AAC03001033B0 /* StoryboardManager.swift */,
 				2BD97C77207D41090033AA26 /* TargetType.swift */,
 				2B18832F20B48B7100E45E1B /* CustomTabBarController.swift */,
+				2B07ECFB20B59B82002FFEE7 /* Colors.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				2BC0CC64207B7CE3001033B0 /* RegisterViewController.swift in Sources */,
 				2B1DA10420AB062C0059E7E7 /* RankingViewController.swift in Sources */,
 				2BF567BD2084F60E00F8E6CF /* SetLocationViewController.swift in Sources */,
+				2B07ECFC20B59B82002FFEE7 /* Colors.swift in Sources */,
 				2B1DA10920AB07380059E7E7 /* RankingViewCell.swift in Sources */,
 				2B32D1442083523600642738 /* APIRegister.swift in Sources */,
 				2BED38AC208653C600D734D7 /* APIBoxModel.swift in Sources */,

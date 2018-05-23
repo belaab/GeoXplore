@@ -20,15 +20,19 @@ class UserProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.userPhoto.layer.cornerRadius = self.userPhoto.frame.size.width / 2;
-        self.userPhoto.clipsToBounds = true
-        getUserInfo()
+        setupView()
+        getUserProfileInfo()
     }
     
-    func getUserInfo() {
-        
-        RequestManager.sharedInstance.getUserStatistics { (result, profile, error) in
-            switch result {
+    private func setupView() {
+        userPhoto.layer.cornerRadius = self.userPhoto.frame.size.width / 2;
+        userPhoto.clipsToBounds = true
+    }
+    
+    private func getUserProfileInfo() {
+       
+        RequestManager.sharedInstance.getUserStatistics { (success, profile, error) in
+            switch success {
             case true:
                 if let userProfileModel = profile {
                     guard let userNick = profile?.username,

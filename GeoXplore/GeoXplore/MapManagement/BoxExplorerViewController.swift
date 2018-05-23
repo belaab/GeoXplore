@@ -20,8 +20,6 @@ class BoxExplorerViewController: UIViewController {
     
     @IBAction func checkLocation(_ sender: UIButton) {
         checkingUserPosition()
-//        let congratsViewController = StoryboardManager.congratsViewController()
-//        self.present(congratsViewController, animated: true, completion: nil)
     }
     
     
@@ -42,7 +40,7 @@ class BoxExplorerViewController: UIViewController {
                 self.boxes = boxesArray
                 boxesArray.forEach({ box in
                     let annotation = MGLPointAnnotation()
-                    //print(box.latitude,box.longitude)
+                    print(box.latitude,box.longitude)
                     annotation.coordinate = CLLocationCoordinate2DMake(box.longitude, box.latitude)
                     switch box.opened {
                     case false:
@@ -69,8 +67,7 @@ class BoxExplorerViewController: UIViewController {
             let distanceInMeters: CLLocationDistance = coordinate.distance(from: userCoordinate)
             print("distanceInMeters: \(distanceInMeters)")
             
-            if distanceInMeters < 200 {
-                
+            if distanceInMeters < 100 {
                 let newPin = MGLPointAnnotation()
                 newPin.coordinate = pin.coordinate
                 newPin.title = "opened"
@@ -80,18 +77,6 @@ class BoxExplorerViewController: UIViewController {
                 let congratsViewController = StoryboardManager.congratsViewController()
                 self.present(congratsViewController, animated: true, completion: nil)
             }
-            
-//            let newPin = MGLPointAnnotation()
-//            newPin.coordinate = pin.coordinate
-            
-//            switch (pin.title!)! {
-//            case "opened":
-//                newPin.title = "opened"
-//            case "closed":
-//                newPin.title = "opened"
-//            default:
-//                newPin.title = "closed"
-//            }
         
         }
     }
@@ -113,15 +98,6 @@ class BoxExplorerViewController: UIViewController {
             //locationManager.startUpdatingHeading()
         }
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "tabBarViewController" {
-//            if let destinationVC = segue.destination as? UITabBarController {
-//                destinationVC.selectedIndex = 0
-//            }
-//        }
-//    }
-    
 }
 
 
@@ -144,8 +120,10 @@ extension BoxExplorerViewController: CLLocationManagerDelegate, MGLMapViewDelega
     
     func mapViewDidFinishLoadingMap(_ mapView: MGLMapView) {
         guard let annotations = mapView.annotations else { return }
-            mapView.showAnnotations(annotations, edgePadding: UIEdgeInsetsMake(40.0, 40.0, 40.0, 40.0), animated: true)
+        mapView.showAnnotations(annotations, edgePadding: UIEdgeInsetsMake(110.0, 40.0, 40.0, 40.0), animated: true)
     }
+    
+
     
     func mapView(_ mapView: MGLMapView, imageFor annotation: MGLAnnotation) -> MGLAnnotationImage? {
         

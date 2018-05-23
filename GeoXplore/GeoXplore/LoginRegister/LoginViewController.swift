@@ -19,7 +19,7 @@ class LoginViewController: UIViewController, NVActivityIndicatorViewable, UIText
     
     private let activityIndicatorView =
         NVActivityIndicatorView(frame: UIScreen.main.bounds,
-                                type: NVActivityIndicatorType.ballClipRotateMultiple, color: UIColor(red: 113.0/255.0, green: 195.0/255.0, blue: 139.0/255.0, alpha: 1.0))
+                                type: NVActivityIndicatorType.ballClipRotateMultiple, color: Colors.loaderLightGreen)
     
     
     @IBAction func dissmissLoginView(_ sender: UIButton) {
@@ -42,7 +42,7 @@ class LoginViewController: UIViewController, NVActivityIndicatorViewable, UIText
     }
     
     private func setupActivityIndicator() {
-        activityIndicatorView.backgroundColor = UIColor(red: 33.0/255.0, green: 19.0/255.0, blue: 40.0/255.0, alpha: 1.0)
+        activityIndicatorView.backgroundColor = Colors.loaderBackgroungPurple
         view.addSubview(activityIndicatorView)
     }
     
@@ -95,7 +95,7 @@ class LoginViewController: UIViewController, NVActivityIndicatorViewable, UIText
     
     private func showActivityIndicator(){
         let size = CGSize(width: 100, height: 100)
-        startAnimating(size, message: "Loading", messageFont: UIFont.systemFont(ofSize: 15, weight: .light), type: activityIndicatorView.type, textColor: UIColor(red: 113.0/255.0, green: 195.0/255.0, blue: 139.0/255.0, alpha: 0.7))
+        startAnimating(size, message: "Loading", messageFont: UIFont.systemFont(ofSize: 15, weight: .light), type: activityIndicatorView.type, textColor: Colors.loaderLightGreen)
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.0) {
             NVActivityIndicatorPresenter.sharedInstance.setMessage("Almost there...")

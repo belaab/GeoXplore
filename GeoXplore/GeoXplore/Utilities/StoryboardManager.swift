@@ -63,10 +63,10 @@ struct StoryboardManager {
         return setLocationVC
     }
     
-//    static func boxExplorerViewController() -> UITabBarController {
-//        let boxExplorerVC = self.viewController(ViewControllerTypes().tabbar, withIdentifier: ViewControllerIdentifiers.tabbarViewController.rawValue, fromStoryboard: StoryboardNames.BoxExplorer.rawValue)
-//        return boxExplorerVC
-//    }
+    static func boxExplorerViewController() -> UITabBarController {
+        let boxExplorerVC = self.viewController(ViewControllerTypes().tabbar, withIdentifier: ViewControllerIdentifiers.tabbarViewController.rawValue, fromStoryboard: StoryboardNames.BoxExplorer.rawValue)
+        return boxExplorerVC
+    }
     
     static func congratsViewController() -> CongratsViewController {
         let congratsVC = self.viewController(ViewControllerTypes().congrats, withIdentifier: ViewControllerIdentifiers.congratsViewController.rawValue, fromStoryboard: StoryboardNames.Congrats.rawValue)

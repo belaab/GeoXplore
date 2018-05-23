@@ -18,7 +18,7 @@ extension Double {
             return nil
         }
         
-        let stringWithPercentage = String(describing: Int(self)) + "%"
-        return stringWithPercentage
+        let stringWithPercentages = String(describing: Int(self)) + "%"
+        return stringWithPercentages
     }
 }
