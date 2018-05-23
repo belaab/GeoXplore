@@ -11,8 +11,8 @@ import UIKit
 class GradientView: UIView {
 
     let gradient = CAGradientLayer()
-    let secondColor = UIColor (red: 59.0/255.0, green: 37.0/255.0, blue: 70.0/255.0, alpha: 0.0).cgColor
-    let firstColor = UIColor (red: 33.0/255.0, green: 19.0/255.0, blue: 40.0/255.0, alpha: 1.0).cgColor
+    let secondColor = Colors.gradientViewSecondColor.cgColor
+    let firstColor = Colors.loaderBackgroungPurple.cgColor
     
     override func awakeFromNib() {
         setupGradientView()

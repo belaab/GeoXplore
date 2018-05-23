@@ -16,8 +16,9 @@ class SetLocationViewController: UIViewController, NVActivityIndicatorViewable {
     private let annotation = MGLPointAnnotation()
     private let activityIndicatorView =
         NVActivityIndicatorView(frame: UIScreen.main.bounds,
-                                type: NVActivityIndicatorType.ballClipRotateMultiple, color: UIColor(red: 113.0/255.0, green: 195.0/255.0, blue: 139.0/255.0, alpha: 1.0))
+                                type: NVActivityIndicatorType.ballClipRotateMultiple, color: Colors.loaderLightGreen)
     
+    @IBOutlet weak var playButtonReady: UIButton!
     
     @IBAction func playButton(_ sender: UIButton) {
         showActivityIndicator()
@@ -31,7 +32,7 @@ class SetLocationViewController: UIViewController, NVActivityIndicatorViewable {
     }
     
     private func setupActivityIndicator() {
-        activityIndicatorView.backgroundColor = UIColor(red: 33.0/255.0, green: 19.0/255.0, blue: 40.0/255.0, alpha: 1.0)
+        activityIndicatorView.backgroundColor = Colors.loaderBackgroungPurple
         view.addSubview(activityIndicatorView)
     }
     
@@ -40,7 +41,10 @@ class SetLocationViewController: UIViewController, NVActivityIndicatorViewable {
         mapView.delegate = self
         view.addSubview(mapView)
         mapView.showsUserLocation = true
+        playButtonReady.isEnabled = false
+        playButtonReady.alpha = 0.8
         mapView.alpha = 0.95
+        
         self.view.isUserInteractionEnabled = false
         let gesture = UILongPressGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         mapView.addGestureRecognizer(gesture)
@@ -89,13 +93,14 @@ class SetLocationViewController: UIViewController, NVActivityIndicatorViewable {
             let touchPoint: CGPoint = gestureRecognizer.location(in: mapView)
             let newCoordinate: CLLocationCoordinate2D = mapView.convert(touchPoint, toCoordinateFrom: mapView)
             addAnnotationOnLocation(pointedCoordinate: newCoordinate)
+            playButtonReady.alpha = 1.0
+            playButtonReady.isEnabled = true
         }
     }
     
     private func showActivityIndicator() {
         let size = CGSize(width: 100, height: 100)
-        startAnimating(size, message: "Loading", messageFont: UIFont.systemFont(ofSize: 15, weight: .light), type: activityIndicatorView.type, textColor: UIColor(red: 113.0/255.0, green: 195.0/255.0, blue: 139.0/255.0, alpha: 0.7))
-        
+        startAnimating(size, message: "Loading", messageFont: UIFont.systemFont(ofSize: 15, weight: .light), type: activityIndicatorView.type, textColor: Colors.loaderLightGreen)
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.0) {
             NVActivityIndicatorPresenter.sharedInstance.setMessage("Almost there...")
         }
@@ -108,20 +113,22 @@ class SetLocationViewController: UIViewController, NVActivityIndicatorViewable {
 extension SetLocationViewController: MGLMapViewDelegate, UIGestureRecognizerDelegate, CLLocationManagerDelegate {
     
     func mapView(_ mapView: MGLMapView, imageFor annotation: MGLAnnotation) -> MGLAnnotationImage? {
-        var annotationImage = mapView.dequeueReusableAnnotationImage(withIdentifier: "box")
+        var annotationImage = mapView.dequeueReusableAnnotationImage(withIdentifier: "picker")
         
         if annotationImage == nil {
-            var image = UIImage(named: "box")!
+            var image = UIImage(named: "picker")!
             image = image.withAlignmentRectInsets(UIEdgeInsets(top: 0, left: 0, bottom: image.size.height/2, right: 0))
-            annotationImage = MGLAnnotationImage(image: image, reuseIdentifier: "box")
+            annotationImage = MGLAnnotationImage(image: image, reuseIdentifier: "picker")
         }
         return annotationImage
-    }
+    }           
     
     func mapView(_ mapView: MGLMapView, didSelect annotation: MGLAnnotation) {
         let camera = MGLMapCamera(lookingAtCenter: annotation.coordinate, fromDistance: 4000, pitch: 0, heading: 0)
         mapView.fly(to: camera, completionHandler: nil)
     }
+    
+    
     
     func mapViewDidFinishLoadingMap(_ mapView: MGLMapView) {
         let camera = MGLMapCamera(lookingAtCenter: (mapView.userLocation?.coordinate)!, fromDistance: 4000, pitch: 10, heading: 0)

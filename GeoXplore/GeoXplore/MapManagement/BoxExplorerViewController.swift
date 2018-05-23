@@ -20,8 +20,6 @@ class BoxExplorerViewController: UIViewController {
     
     @IBAction func checkLocation(_ sender: UIButton) {
         checkingUserPosition()
-        let congratsViewController = StoryboardManager.congratsViewController()
-        self.present(congratsViewController, animated: true, completion: nil)
     }
     
     
@@ -42,13 +40,13 @@ class BoxExplorerViewController: UIViewController {
                 self.boxes = boxesArray
                 boxesArray.forEach({ box in
                     let annotation = MGLPointAnnotation()
-                    //print(box.latitude,box.longitude)
-                    annotation.coordinate = CLLocationCoordinate2DMake(box.latitude, box.longitude)
+                    print(box.latitude,box.longitude)
+                    annotation.coordinate = CLLocationCoordinate2DMake(box.longitude, box.latitude)
                     switch box.opened {
                     case false:
-                        annotation.title = "opened"
-                    case true:
                         annotation.title = "closed"
+                    case true:
+                        annotation.title = "opened"
                     }
                     self.mapView.addAnnotation(annotation)
                 })
@@ -67,21 +65,19 @@ class BoxExplorerViewController: UIViewController {
         pins.forEach { pin in
             let coordinate = CLLocation(latitude: pin.coordinate.latitude, longitude: pin.coordinate.longitude)
             let distanceInMeters: CLLocationDistance = coordinate.distance(from: userCoordinate)
-            print(distanceInMeters)
+            print("distanceInMeters: \(distanceInMeters)")
             
-            let newPin = MGLPointAnnotation()
-            newPin.coordinate = pin.coordinate
-            
-            switch (pin.title!)! {
-            case "opened":
+            if distanceInMeters < 100 {
+                let newPin = MGLPointAnnotation()
+                newPin.coordinate = pin.coordinate
                 newPin.title = "opened"
-            case "closed":
-                newPin.title = "opened"
-            default:
-                newPin.title = "closed"
+                mapView.removeAnnotation(pin)
+                mapView.addAnnotation(newPin)
+                
+                let congratsViewController = StoryboardManager.congratsViewController()
+                self.present(congratsViewController, animated: true, completion: nil)
             }
-            mapView.removeAnnotation(pin)
-            mapView.addAnnotation(newPin)
+        
         }
     }
     
@@ -124,8 +120,10 @@ extension BoxExplorerViewController: CLLocationManagerDelegate, MGLMapViewDelega
     
     func mapViewDidFinishLoadingMap(_ mapView: MGLMapView) {
         guard let annotations = mapView.annotations else { return }
-            mapView.showAnnotations(annotations, edgePadding: UIEdgeInsetsMake(40.0, 40.0, 40.0, 40.0), animated: true)
+        mapView.showAnnotations(annotations, edgePadding: UIEdgeInsetsMake(110.0, 40.0, 40.0, 40.0), animated: true)
     }
+    
+
     
     func mapView(_ mapView: MGLMapView, imageFor annotation: MGLAnnotation) -> MGLAnnotationImage? {
         

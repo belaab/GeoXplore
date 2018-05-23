@@ -30,13 +30,13 @@
                                             <constraint firstAttribute="height" constant="243" id="qdJ-D7-nBo"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sCJ-Mt-Id6">
-                                        <rect key="frame" x="39" y="80" width="296" height="41"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sCJ-Mt-Id6">
+                                        <rect key="frame" x="20" y="98" width="335" height="40"/>
                                         <attributedString key="attributedText">
-                                            <fragment content="Boxes will be provided based on chosen location.">
+                                            <fragment content="Long press the screen to choose area around which you will be getting boxes ">
                                                 <attributes>
                                                     <color key="NSColor" red="0.85882352941176465" green="0.84705882352941175" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" metaFont="system" size="17"/>
+                                                    <font key="NSFont" size="17" name=".SFNSText"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -44,11 +44,11 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose your area" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ZZ-2u-W4R">
-                                        <rect key="frame" x="72" y="40" width="230.5" height="35"/>
+                                        <rect key="frame" x="79" y="53" width="216.5" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="E6g-Gk-mNP"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="32"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
                                         <color key="textColor" red="0.25791470909999997" green="1" blue="0.76331214749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -56,15 +56,15 @@
                                         <rect key="frame" x="39" y="149" width="296" height="50"/>
                                         <color key="backgroundColor" red="0.47697807343719434" green="0.88994869402985077" blue="0.64453864449610609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="296" id="S79-fE-X08"/>
-                                            <constraint firstAttribute="height" constant="55" id="pkc-87-zzL"/>
+                                            <constraint firstAttribute="width" constant="250" id="S79-fE-X08"/>
+                                            <constraint firstAttribute="height" constant="50" id="pkc-87-zzL"/>
                                         </constraints>
                                         <state key="normal" title="OK, READY TO PLAY">
                                             <color key="titleColor" red="1" green="0.99061489392644264" blue="0.91803278688524592" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="8"/>
+                                                <integer key="value" value="25"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
@@ -75,16 +75,17 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="fOH-dI-Yci" secondAttribute="trailing" id="0vN-bT-FOx"/>
-                                    <constraint firstItem="sCJ-Mt-Id6" firstAttribute="width" secondItem="ux8-Af-yW9" secondAttribute="width" id="1fy-TP-Qie"/>
                                     <constraint firstAttribute="height" constant="667" id="3gt-Jn-qX1"/>
                                     <constraint firstItem="fOH-dI-Yci" firstAttribute="leading" secondItem="LEv-4b-Uax" secondAttribute="leading" id="6Rc-Y2-7Ad"/>
-                                    <constraint firstItem="9ZZ-2u-W4R" firstAttribute="top" secondItem="LEv-4b-Uax" secondAttribute="top" constant="40" id="6kM-gP-Kgw"/>
+                                    <constraint firstItem="9ZZ-2u-W4R" firstAttribute="top" secondItem="LEv-4b-Uax" secondAttribute="top" constant="53" id="6kM-gP-Kgw"/>
                                     <constraint firstItem="ux8-Af-yW9" firstAttribute="bottom" secondItem="fOH-dI-Yci" secondAttribute="bottom" constant="-39" id="7EO-xA-gte"/>
-                                    <constraint firstItem="sCJ-Mt-Id6" firstAttribute="top" secondItem="9ZZ-2u-W4R" secondAttribute="bottom" constant="5" id="7kw-XW-khv"/>
+                                    <constraint firstItem="sCJ-Mt-Id6" firstAttribute="top" secondItem="9ZZ-2u-W4R" secondAttribute="bottom" constant="10" id="7kw-XW-khv"/>
                                     <constraint firstItem="ux8-Af-yW9" firstAttribute="centerX" secondItem="LEv-4b-Uax" secondAttribute="centerX" id="DoP-ao-OTH"/>
                                     <constraint firstItem="fOH-dI-Yci" firstAttribute="top" secondItem="LEv-4b-Uax" secondAttribute="top" id="JTq-jY-Xf2"/>
                                     <constraint firstItem="sCJ-Mt-Id6" firstAttribute="centerX" secondItem="LEv-4b-Uax" secondAttribute="centerX" id="V5K-RU-uUp"/>
                                     <constraint firstItem="9ZZ-2u-W4R" firstAttribute="centerX" secondItem="LEv-4b-Uax" secondAttribute="centerX" id="hRa-cl-6GY"/>
+                                    <constraint firstItem="sCJ-Mt-Id6" firstAttribute="leading" secondItem="LEv-4b-Uax" secondAttribute="leading" constant="20" id="oS0-kd-K5c"/>
+                                    <constraint firstAttribute="trailing" secondItem="sCJ-Mt-Id6" secondAttribute="trailing" constant="20" id="tcu-id-Jy1"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="styleURL__" value="mapbox://styles/belaab/cjg4bq8vq1ir42rnyljaz229s"/>
@@ -108,6 +109,7 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="LEv-4b-Uax" id="gIk-dE-eQy"/>
+                        <outlet property="playButtonReady" destination="ux8-Af-yW9" id="4ys-wV-x1v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mRL-9X-kzD" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key></key>
+	<string></string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -22,6 +24,10 @@
 	<true/>
 	<key>MGLMapboxAccessToken</key>
 	<string>pk.eyJ1IjoiYmVsYWFiIiwiYSI6ImNqZjhucjI1bTFiNngycGxwb3hiYmhoM2kifQ.5OzaHrEAHwGUiiH-X4jKvA</string>
+	<key>NSCameraUsageDescription</key>
+	<string>you need camera to display ARKit stuff</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>xddd</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Shows your location on the map and helps improve OpenStreetMap.</string>
 	<key>UILaunchStoryboardName</key>
@@ -45,9 +51,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>xddd</string>
-	<key></key>
-	<string></string>
 </dict>
 </plist>

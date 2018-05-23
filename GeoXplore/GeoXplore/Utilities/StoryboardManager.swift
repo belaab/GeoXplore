@@ -25,6 +25,8 @@ struct StoryboardManager {
         let setLocation = SetLocationViewController.self
         let boxExplorer = BoxExplorerViewController.self
         let congrats = CongratsViewController.self
+        let tabbar = UITabBarController.self
+        let ar = ARBoxVIewController.self
     }
     
     enum StoryboardNames: String {
@@ -33,6 +35,7 @@ struct StoryboardManager {
         case SetLocation
         case BoxExplorer
         case Congrats
+        case ARBox
     }
     
     enum ViewControllerIdentifiers: String {
@@ -41,6 +44,8 @@ struct StoryboardManager {
         case setLocationViewController
         case boxExplorerViewController
         case congratsViewController
+        case tabbarViewController
+        case arBoxViewController
     }
     
     static func loginViewController() -> LoginViewController {
@@ -58,14 +63,21 @@ struct StoryboardManager {
         return setLocationVC
     }
     
-    static func boxExplorerViewController() -> BoxExplorerViewController {
-        let boxExplorerVC = self.viewController(ViewControllerTypes().boxExplorer, withIdentifier: ViewControllerIdentifiers.boxExplorerViewController.rawValue, fromStoryboard: StoryboardNames.BoxExplorer.rawValue)
+    static func boxExplorerViewController() -> UITabBarController {
+        let boxExplorerVC = self.viewController(ViewControllerTypes().tabbar, withIdentifier: ViewControllerIdentifiers.tabbarViewController.rawValue, fromStoryboard: StoryboardNames.BoxExplorer.rawValue)
         return boxExplorerVC
     }
     
     static func congratsViewController() -> CongratsViewController {
         let congratsVC = self.viewController(ViewControllerTypes().congrats, withIdentifier: ViewControllerIdentifiers.congratsViewController.rawValue, fromStoryboard: StoryboardNames.Congrats.rawValue)
         return congratsVC
+    }
+    
+    
+    
+    static func arBoxViewController() -> ARBoxVIewController {
+        let arVC = self.viewController(ViewControllerTypes().ar, withIdentifier: ViewControllerIdentifiers.arBoxViewController.rawValue, fromStoryboard: StoryboardNames.ARBox.rawValue)
+        return arVC
     }
 
 }

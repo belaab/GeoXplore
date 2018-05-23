@@ -74,6 +74,7 @@ class RequestManager {
                     print("SUCCESS")
                     completion(true, nil)
             case .failure(_):
+                print("Status code: \(response.response!.statusCode)")
                 if let error = response.result.error {
                     print(response.result.error)
                     completion(false, error)
@@ -96,6 +97,7 @@ class RequestManager {
             case .success(_):
                 if let json = response.result.value {
                     guard let jsonArray = json as? [[String: AnyObject]] else {return}
+                    print(jsonArray)
                     for item in jsonArray {
                         guard let singleBox = Mapper<Box>().map(JSON: item) else {return}
                         boxDetails.append(singleBox)
@@ -111,7 +113,68 @@ class RequestManager {
         })
     }
     
+    func getUserStatistics(completion: @escaping(Bool, UserProfile?, Error?) -> Void) {
+        
+        let getToken =  KeychainWrapper.standard.string(forKey: "accessToken")
+        let headers: HTTPHeaders = ["Authorization": getToken!]
+        
+        Alamofire.request(RequestType.getStatistics.url, method: .get, encoding: JSONEncoding.default, headers: headers)
+            .validate(statusCode: 200..<300)
+            .responseJSON(completionHandler: { (response:DataResponse<Any>) in
+                switch(response.result) {
+                case .success(_):
+                    if let json = response.result.value {
+                        guard let jsonArray = json as? [String: Any] else {return}
+                        print(jsonArray)
+                        guard let userProfileModel = Mapper<UserProfile>().map(JSON: jsonArray) else {return}
+//                        for item in jsonArray {
+//                            guard let singleBox = Mapper<Box>().map(JSON: item) else {return}
+//                            boxDetails.append(singleBox)
+                        //}
+                        completion(true, userProfileModel, nil)
+                    }
+                case .failure(_):
+                    if let error = response.result.error {
+                        print(error)
+                        //var userProfile = UserProfile(username: "", experience: 0, level: 0, toNextLevel: 0.0, openedChests: 0)
+                        print(response.response!.statusCode)
+                        //var userProfile = UserProfile(map: Map)
+                        completion(false, nil, error)
+                    }
+                }
+            })
+    }
     
+    
+    func getRankingUsers(completion: @escaping(Bool, [RankingUser]?, Error?) -> Void) {
+        
+        let getToken =  KeychainWrapper.standard.string(forKey: "accessToken")
+        let headers: HTTPHeaders = ["Authorization": getToken!]
+        var rankingUsers = [RankingUser]()
+        
+        Alamofire.request(RequestType.getRanking.url, method: .get, encoding: JSONEncoding.default, headers: headers)
+            .validate(statusCode: 200..<300)
+            .responseJSON(completionHandler: { (response:DataResponse<Any>) in
+                switch(response.result) {
+                case .success(_):
+                    if let json = response.result.value {
+                        guard let jsonArray = json as? [[String: AnyObject]] else {return}
+                        print(jsonArray)
+                        for item in jsonArray {
+                            guard let user = Mapper<RankingUser>().map(JSON: item) else {return}
+                            rankingUsers.append(user)
+                        }
+                        completion(true, rankingUsers, nil)
+                    }
+                case .failure(_):
+                    if let error = response.result.error {
+                       // response.response?.statusCode
+                        print("Status error code: \(String(describing: response.response?.statusCode))")
+                        completion(false, nil, error)
+                    }
+                }
+            })
+    }
     
     
     
