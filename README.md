@@ -33,7 +33,14 @@ git clone https://github.com/belaab/GeoXplore.git
 
 ```
 
-This project uses [CocoaPods](https://cocoapods.org/) as a dependency manager. If you don't have it already, install it with the following command:
+This project uses [CocoaPods](https://cocoapods.org/) as a dependency manager, all used pods listed below:
+  - [Alamofire](https://github.com/Alamofire/Alamofire)
+  - [Mapbox iOS SDK](https://www.mapbox.com/ios-sdk/)
+  - [ObjectMapper](https://github.com/Hearst-DD/ObjectMapper)
+  - [SwiftKeychainWrapper](https://github.com/jrendel/SwiftKeychainWrapper)
+  - [NVActivityIndicatorView](https://github.com/ninjaprox/NVActivityIndicatorView)
+
+If you don't have installed CocoaPods already, install it with the following command:
 
 ```
 gem install cocoapods
