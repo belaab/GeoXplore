@@ -17,7 +17,6 @@
 		2B1DA10A20AB07380059E7E7 /* RankingViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B1DA10820AB07380059E7E7 /* RankingViewCell.xib */; };
 		2B1DA10C20AB104B0059E7E7 /* APIRankingUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1DA10B20AB104B0059E7E7 /* APIRankingUser.swift */; };
 		2B1DA10E20AB8C660059E7E7 /* ARBoxVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1DA10D20AB8C660059E7E7 /* ARBoxVIewController.swift */; };
-		2B1DA11020AB91E50059E7E7 /* boxScene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 2B1DA10F20AB91E50059E7E7 /* boxScene.scn */; };
 		2B1DA11220AB950F0059E7E7 /* ARBox.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B1DA11120AB950F0059E7E7 /* ARBox.storyboard */; };
 		2B1DA11620ABA0990059E7E7 /* Textures in Resources */ = {isa = PBXBuildFile; fileRef = 2B1DA11520ABA0990059E7E7 /* Textures */; };
 		2B1DA11920ABA1540059E7E7 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B1DA11820ABA1540059E7E7 /* art.scnassets */; };
@@ -61,7 +60,6 @@
 		2B1DA10820AB07380059E7E7 /* RankingViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingViewCell.xib; sourceTree = "<group>"; };
 		2B1DA10B20AB104B0059E7E7 /* APIRankingUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRankingUser.swift; sourceTree = "<group>"; };
 		2B1DA10D20AB8C660059E7E7 /* ARBoxVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARBoxVIewController.swift; sourceTree = "<group>"; };
-		2B1DA10F20AB91E50059E7E7 /* boxScene.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = boxScene.scn; sourceTree = "<group>"; };
 		2B1DA11120AB950F0059E7E7 /* ARBox.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ARBox.storyboard; sourceTree = "<group>"; };
 		2B1DA11520ABA0990059E7E7 /* Textures */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Textures; sourceTree = "<group>"; };
 		2B1DA11820ABA1540059E7E7 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -208,7 +206,6 @@
 				2BC0CC3120778D0C001033B0 /* AppDelegate.swift */,
 				2BC0CC3A20778D0C001033B0 /* LaunchScreen.storyboard */,
 				2BC0CC3D20778D0C001033B0 /* Info.plist */,
-				2B1DA10F20AB91E50059E7E7 /* boxScene.scn */,
 			);
 			path = GeoXplore;
 			sourceTree = "<group>";
@@ -325,7 +322,6 @@
 				2BC0CC5C20784386001033B0 /* Login.storyboard in Resources */,
 				2BED38B02086B16700D734D7 /* Congrats.storyboard in Resources */,
 				2BED38A82086085B00D734D7 /* BoxExplorer.storyboard in Resources */,
-				2B1DA11020AB91E50059E7E7 /* boxScene.scn in Resources */,
 				2BC0CC5B20784386001033B0 /* ChooseSignUpIn.storyboard in Resources */,
 				2BED38A420854FB200D734D7 /* Assets.xcassets in Resources */,
 				2BC0CC62207B736D001033B0 /* Register.storyboard in Resources */,

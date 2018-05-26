@@ -10,13 +10,17 @@ import UIKit
 import Mapbox
 import NVActivityIndicatorView
 
+
+
 class SetLocationViewController: UIViewController, NVActivityIndicatorViewable {
     
+    @IBInspectable
     @IBOutlet weak var mapView: MGLMapView!
     private let annotation = MGLPointAnnotation()
     private let activityIndicatorView =
         NVActivityIndicatorView(frame: UIScreen.main.bounds,
                                 type: NVActivityIndicatorType.ballClipRotateMultiple, color: Colors.loaderLightGreen)
+  
     
     @IBOutlet weak var playButtonReady: UIButton!
     

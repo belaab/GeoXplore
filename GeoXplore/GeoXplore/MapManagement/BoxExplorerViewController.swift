@@ -67,7 +67,7 @@ class BoxExplorerViewController: UIViewController {
             let distanceInMeters: CLLocationDistance = coordinate.distance(from: userCoordinate)
             print("distanceInMeters: \(distanceInMeters)")
             
-            if distanceInMeters < 100 {
+            if distanceInMeters < 1000 {
                 let newPin = MGLPointAnnotation()
                 newPin.coordinate = pin.coordinate
                 newPin.title = "opened"
