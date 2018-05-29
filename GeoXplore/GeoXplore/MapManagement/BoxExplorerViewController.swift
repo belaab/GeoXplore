@@ -24,7 +24,7 @@ class BoxExplorerViewController: UIViewController {
         let determineIfAlreadyOpened = closestBoxDisnatce.isLess(than: Constants.minimalDistanceToUnblockBox)
         
         switch (isUblockedBox, determineIfAlreadyOpened) {
-        case (true, _): //means user reach minimal distance to box
+        case (true, _): //means user reached minimal distance to box
             print("You have unblocked the box")
         case (false, true): //means all boxes unblocked (user has not boxes to unblock; all boxes has been founded: distance < 100)
             print("You already have unblocked all chests")
@@ -80,16 +80,17 @@ class BoxExplorerViewController: UIViewController {
         for pin in pins {
             let pinCoordinate = CLLocation(latitude: pin.coordinate.latitude, longitude: pin.coordinate.longitude)
             let distanceInMeters: CLLocationDistance = pinCoordinate.distance(from: userCoordinate)
-            distancesToAllBoxes.append(distanceInMeters)
-            
+            print("Distance in meters: \(distanceInMeters)")
+        
             if distanceInMeters < Constants.minimalDistanceToUnblockBox && (pin.title!) == "closed" {
                 let newPin = CustomPointAnnotation(id: pin.id, dateCreated: pin.dateCreated, dateFound: pin.dateFound, value: pin.value)
                 newPin.coordinate = pin.coordinate
                 newPin.title = "opened"
                 mapView.removeAnnotation(pin)
                 mapView.addAnnotation(newPin)
-                
                 return (true, distanceInMeters)
+            } else if distanceInMeters > Constants.minimalDistanceToUnblockBox && (pin.title!) == "closed" {
+                distancesToAllBoxes.append(distanceInMeters)
             }
         }
         return (false, distancesToAllBoxes.sorted { $0 < $1 }.first!)
