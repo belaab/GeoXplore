@@ -30,9 +30,19 @@ class ARBoxVIewController: UIViewController {
     private func addARBox() {
         let boxScene = SCNScene(named: "art.scnassets/cube.scn")
         let boxNode = boxScene?.rootNode.childNode(withName: "box", recursively: false)
-        boxNode?.position = SCNVector3(0, 0.1, -2)
+        boxNode?.position = SCNVector3(1, 0, -2)
         //boxNode?.geometry?.firstMaterial?.diffuse.contents = UIImage(named: "wood.jpg")
         sceneView.scene.rootNode.addChildNode(boxNode!)
+        
+        let myLight = SCNNode()
+        myLight.light = SCNLight()
+        myLight.scale = SCNVector3(1,1,1)
+        myLight.position = SCNVector3Zero
+        myLight.light?.type = SCNLight.LightType.directional
+        myLight.light?.color = UIColor.red
+        
+        // add the light to the scene
+        sceneView.scene.rootNode.addChildNode(myLight)
     }
 
 

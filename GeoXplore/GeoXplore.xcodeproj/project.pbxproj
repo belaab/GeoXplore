@@ -20,6 +20,8 @@
 		2B1DA11220AB950F0059E7E7 /* ARBox.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B1DA11120AB950F0059E7E7 /* ARBox.storyboard */; };
 		2B1DA11620ABA0990059E7E7 /* Textures in Resources */ = {isa = PBXBuildFile; fileRef = 2B1DA11520ABA0990059E7E7 /* Textures */; };
 		2B1DA11920ABA1540059E7E7 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B1DA11820ABA1540059E7E7 /* art.scnassets */; };
+		2B3080EE20BD7A29007721EC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3080ED20BD7A29007721EC /* Constants.swift */; };
+		2B3080F020BD8018007721EC /* CustomPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3080EF20BD8018007721EC /* CustomPointAnnotation.swift */; };
 		2B32D14020834DC700642738 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B32D13F20834DC700642738 /* RequestManager.swift */; };
 		2B32D1442083523600642738 /* APIRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B32D1432083523600642738 /* APIRegister.swift */; };
 		2B3A03DA20A728EB00CF13A3 /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3A03D920A728EB00CF13A3 /* HideKeyboard.swift */; };
@@ -63,6 +65,8 @@
 		2B1DA11120AB950F0059E7E7 /* ARBox.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ARBox.storyboard; sourceTree = "<group>"; };
 		2B1DA11520ABA0990059E7E7 /* Textures */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Textures; sourceTree = "<group>"; };
 		2B1DA11820ABA1540059E7E7 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		2B3080ED20BD7A29007721EC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2B3080EF20BD8018007721EC /* CustomPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPointAnnotation.swift; sourceTree = "<group>"; };
 		2B32D13F20834DC700642738 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		2B32D1432083523600642738 /* APIRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRegister.swift; sourceTree = "<group>"; };
 		2B3A03D920A728EB00CF13A3 /* HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
@@ -228,6 +232,7 @@
 				2BD97C77207D41090033AA26 /* TargetType.swift */,
 				2B18832F20B48B7100E45E1B /* CustomTabBarController.swift */,
 				2B07ECFB20B59B82002FFEE7 /* Colors.swift */,
+				2B3080ED20BD7A29007721EC /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -238,6 +243,7 @@
 				2BF567BC2084F60E00F8E6CF /* SetLocationViewController.swift */,
 				2BED38A920864E1700D734D7 /* BoxExplorerViewController.swift */,
 				2BED38AD2086B13E00D734D7 /* CongratsViewController.swift */,
+				2B3080EF20BD8018007721EC /* CustomPointAnnotation.swift */,
 			);
 			path = MapManagement;
 			sourceTree = "<group>";
@@ -413,6 +419,7 @@
 				2B1DA10C20AB104B0059E7E7 /* APIRankingUser.swift in Sources */,
 				2B18833020B48B7100E45E1B /* CustomTabBarController.swift in Sources */,
 				2B3A03DA20A728EB00CF13A3 /* HideKeyboard.swift in Sources */,
+				2B3080F020BD8018007721EC /* CustomPointAnnotation.swift in Sources */,
 				2BC0CC60207AAC03001033B0 /* StoryboardManager.swift in Sources */,
 				2BC0CC66207B7D80001033B0 /* LoginViewController.swift in Sources */,
 				2BD97C7A207D41B60033AA26 /* UrlBuilder.swift in Sources */,
@@ -425,6 +432,7 @@
 				2B32D1442083523600642738 /* APIRegister.swift in Sources */,
 				2BED38AC208653C600D734D7 /* APIBoxModel.swift in Sources */,
 				2B1DA10E20AB8C660059E7E7 /* ARBoxVIewController.swift in Sources */,
+				2B3080EE20BD7A29007721EC /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,6 +565,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K9ASVR2BY4;
 				INFOPLIST_FILE = GeoXplore/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ib.GeoXplore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -573,6 +582,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K9ASVR2BY4;
 				INFOPLIST_FILE = GeoXplore/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ib.GeoXplore;
 				PRODUCT_NAME = "$(TARGET_NAME)";

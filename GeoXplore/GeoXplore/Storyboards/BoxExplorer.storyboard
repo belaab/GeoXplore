@@ -46,8 +46,8 @@
                                         </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="These are your boxes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMF-cb-olk">
-                                        <rect key="frame" x="56.5" y="59" width="262.5" height="35"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="These are your boxes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMF-cb-olk">
+                                        <rect key="frame" x="57" y="59" width="284" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="K3R-wS-9dG"/>
                                         </constraints>
@@ -112,7 +112,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jsW-Du-wc2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="62" y="-11"/>
+            <point key="canvasLocation" x="61.600000000000001" y="-11.244377811094454"/>
         </scene>
         <!--My profile-->
         <scene sceneID="mhy-xk-Gtk">

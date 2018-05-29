@@ -17,6 +17,7 @@ struct Box: Mappable {
     var dateCreated: String
     var dateFound: String
     var opened: Bool
+    var value: Int
 
     init?(map: Map) {
         self.id = 0
@@ -25,6 +26,7 @@ struct Box: Mappable {
         self.dateCreated = ""
         self.dateFound = ""
         self.opened = false
+        self.value = 0 
     }
     
     mutating func mapping(map: Map) {
@@ -34,5 +36,6 @@ struct Box: Mappable {
         dateCreated <- map["dateCreated"]
         dateFound <- map["dateFound"]
         opened <- map["opened"]
+        value <- map["value"]
     }
 }

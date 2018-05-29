@@ -19,7 +19,21 @@ class BoxExplorerViewController: UIViewController {
     @IBOutlet weak var mapView: MGLMapView!
     
     @IBAction func checkLocation(_ sender: UIButton) {
-        checkingUserPosition()
+        
+        let(isUblockedBox, closestBoxDisnatce) = checkingUserPosition()
+        let determineIfAlreadyOpened = closestBoxDisnatce.isLess(than: Constants.minimalDistanceToUnblockBox)
+        
+        switch (isUblockedBox, determineIfAlreadyOpened) {
+        case (true, _): //means user reach minimal distance to box
+            print("You have unblocked the box")
+        case (false, true): //means all boxes unblocked (user has not boxes to unblock; all boxes has been founded: distance < 100)
+            print("You already have unblocked all chests")
+        case (false, false): //means no boxes reached with minimal distance
+            print("You are not close enough")
+        }
+        
+        let congratsViewController = StoryboardManager.congratsViewController()
+        self.present(congratsViewController, animated: true, completion: nil)
     }
     
     
@@ -39,7 +53,7 @@ class BoxExplorerViewController: UIViewController {
             if success {
                 self.boxes = boxesArray
                 boxesArray.forEach({ box in
-                    let annotation = MGLPointAnnotation()
+                    let annotation = CustomPointAnnotation(id: box.id, dateCreated: box.dateCreated, dateFound: box.dateFound, value: box.value)
                     print(box.latitude,box.longitude)
                     annotation.coordinate = CLLocationCoordinate2DMake(box.longitude, box.latitude)
                     switch box.opened {
@@ -57,31 +71,31 @@ class BoxExplorerViewController: UIViewController {
     }
     
     
-    private func checkingUserPosition() {
+    private func checkingUserPosition() -> (isUnblockedxBox: Bool, closestBoxDistance: Double) {
         
-        guard let pins = mapView.annotations else { return }
+        guard let pins = mapView.annotations as? [CustomPointAnnotation] else { return (false, 0.0) }
         let userCoordinate = CLLocation(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
+        var distancesToAllBoxes = [CLLocationDistance]()
         
-        pins.forEach { pin in
-            let coordinate = CLLocation(latitude: pin.coordinate.latitude, longitude: pin.coordinate.longitude)
-            let distanceInMeters: CLLocationDistance = coordinate.distance(from: userCoordinate)
-            print("distanceInMeters: \(distanceInMeters)")
+        for pin in pins {
+            let pinCoordinate = CLLocation(latitude: pin.coordinate.latitude, longitude: pin.coordinate.longitude)
+            let distanceInMeters: CLLocationDistance = pinCoordinate.distance(from: userCoordinate)
+            distancesToAllBoxes.append(distanceInMeters)
             
-            if distanceInMeters < 1000 {
-                let newPin = MGLPointAnnotation()
+            if distanceInMeters < Constants.minimalDistanceToUnblockBox && (pin.title!) == "closed" {
+                let newPin = CustomPointAnnotation(id: pin.id, dateCreated: pin.dateCreated, dateFound: pin.dateFound, value: pin.value)
                 newPin.coordinate = pin.coordinate
                 newPin.title = "opened"
                 mapView.removeAnnotation(pin)
                 mapView.addAnnotation(newPin)
                 
-                let congratsViewController = StoryboardManager.congratsViewController()
-                self.present(congratsViewController, animated: true, completion: nil)
+                return (true, distanceInMeters)
             }
-        
         }
+        return (false, distancesToAllBoxes.sorted { $0 < $1 }.first!)
     }
     
-    private func viewSetup(){
+    private func viewSetup() {
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.delegate = self
         view.addSubview(mapView)
