@@ -26,7 +26,7 @@ class BoxExplorerViewController: UIViewController {
         switch (isUblockedBox, determineIfAlreadyOpened) {
         case (true, _): //means user reached minimal distance to box
             print("You have unblocked the box")
-        case (false, true): //means all boxes unblocked (user has not boxes to unblock; all boxes has been founded: distance < 100)
+        case (false, true): //means all boxes unblocked (user has not boxes to unblock; all boxes has been found: distance < 100)
             print("You already have unblocked all chests")
         case (false, false): //means no boxes reached with minimal distance
             print("You are not close enough")
@@ -53,7 +53,7 @@ class BoxExplorerViewController: UIViewController {
             if success {
                 self.boxes = boxesArray
                 boxesArray.forEach({ box in
-                    let annotation = CustomPointAnnotation(id: box.id, dateCreated: box.dateCreated, dateFound: box.dateFound, value: box.value)
+                    let annotation = CustomPointAnnotation(id: box.id, dateCreated: box.dateCreated, dateFound: box.dateFound, opened: box.opened, value: box.value)
                     print(box.latitude,box.longitude)
                     annotation.coordinate = CLLocationCoordinate2DMake(box.longitude, box.latitude)
                     switch box.opened {
@@ -71,19 +71,21 @@ class BoxExplorerViewController: UIViewController {
     }
     
     
-    private func checkingUserPosition() -> (isUnblockedxBox: Bool, closestBoxDistance: Double) {
+    private func checkingUserPosition() -> (isUnblockedBox: Bool, closestBoxDistance: Double) {
         
         guard let pins = mapView.annotations as? [CustomPointAnnotation] else { return (false, 0.0) }
         let userCoordinate = CLLocation(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
         var distancesToAllBoxes = [CLLocationDistance]()
+        let closedBoxes = pins.filter { $0.title != "opened" }
+        if closedBoxes.count == 0 { return (false, 0.0)}
         
-        for pin in pins {
+        for pin in closedBoxes {
             let pinCoordinate = CLLocation(latitude: pin.coordinate.latitude, longitude: pin.coordinate.longitude)
             let distanceInMeters: CLLocationDistance = pinCoordinate.distance(from: userCoordinate)
             print("Distance in meters: \(distanceInMeters)")
         
             if distanceInMeters < Constants.minimalDistanceToUnblockBox && (pin.title!) == "closed" {
-                let newPin = CustomPointAnnotation(id: pin.id, dateCreated: pin.dateCreated, dateFound: pin.dateFound, value: pin.value)
+                let newPin = CustomPointAnnotation(id: pin.id, dateCreated: pin.dateCreated, dateFound: pin.dateFound, opened: pin.opened, value: pin.value)
                 newPin.coordinate = pin.coordinate
                 newPin.title = "opened"
                 mapView.removeAnnotation(pin)

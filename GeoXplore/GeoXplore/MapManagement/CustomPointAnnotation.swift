@@ -14,15 +14,14 @@ class CustomPointAnnotation: MGLPointAnnotation {
     var id: Int
     var dateCreated: String
     var dateFound: String
-   // var opened: Bool
+    var opened: Bool
     var value: Int
     
-    init(id: Int, dateCreated: String, dateFound: String, /*opened: Bool,*/ value: Int){
-    
+    init(id: Int, dateCreated: String, dateFound: String, opened: Bool, value: Int){
         self.id = id
         self.dateCreated = dateCreated
         self.dateFound = dateFound
-        //self.opened = opened
+        self.opened = opened
         self.value = value
         super.init()
     }
