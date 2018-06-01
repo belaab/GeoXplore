@@ -12,6 +12,7 @@ import ARKit
 class ARBoxVIewController: UIViewController {
 
     let configuration = ARWorldTrackingConfiguration()
+   
     @IBAction func dismiss(_ sender: UIButton) {
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
@@ -28,21 +29,33 @@ class ARBoxVIewController: UIViewController {
     }
     
     private func addARBox() {
-        let boxScene = SCNScene(named: "art.scnassets/cube.scn")
-        let boxNode = boxScene?.rootNode.childNode(withName: "box", recursively: false)
-        boxNode?.position = SCNVector3(1, 0, -2)
-        //boxNode?.geometry?.firstMaterial?.diffuse.contents = UIImage(named: "wood.jpg")
-        sceneView.scene.rootNode.addChildNode(boxNode!)
+       
+        let spotLight = SCNNode()
+        let particleSystem = SCNParticleSystem(named: "Reactor", inDirectory: "art.scnassets")
+        let systemNode = SCNNode()
         
-        let myLight = SCNNode()
-        myLight.light = SCNLight()
-        myLight.scale = SCNVector3(1,1,1)
-        myLight.position = SCNVector3Zero
-        myLight.light?.type = SCNLight.LightType.directional
-        myLight.light?.color = UIColor.red
+        let boxScene = SCNScene(named: "art.scnassets/Chest.scn")
+        let boxNode = boxScene?.rootNode.childNode(withName: "Chest", recursively: false)
         
-        // add the light to the scene
-        sceneView.scene.rootNode.addChildNode(myLight)
+        let systemNodeposition = SCNVector3(0, -1, -3.3)
+        let boxNodePosition = SCNVector3(0, -0.2, -3.3)
+       
+        spotLight.light = SCNLight()
+        spotLight.scale = SCNVector3(1,1,1)
+        spotLight.light?.intensity = 1000
+        spotLight.castsShadow = true
+        spotLight.position = SCNVector3Zero
+        spotLight.light?.type = SCNLight.LightType.directional
+        spotLight.light?.color = UIColor.white
+   
+        systemNode.position = systemNodeposition
+        boxNode?.position = boxNodePosition
+        
+        guard let scnParticleSystem = particleSystem, let scnBoxNode = boxNode else { return }
+        systemNode.addParticleSystem(scnParticleSystem)
+        sceneView.scene.rootNode.addChildNode(scnBoxNode)
+        sceneView.scene.rootNode.addChildNode(spotLight)
+        sceneView.scene.rootNode.addChildNode(systemNode)
     }
 
 
