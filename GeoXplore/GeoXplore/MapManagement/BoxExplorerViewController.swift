@@ -13,27 +13,33 @@ import Mapbox
 
 class BoxExplorerViewController: UIViewController {
     
+    @IBOutlet weak var mapView: MGLMapView!
     var boxes = [Box]()
     var userLocation = CLLocation()
     var locationManager = CLLocationManager()
-    @IBOutlet weak var mapView: MGLMapView!
     
     @IBAction func checkLocation(_ sender: UIButton) {
+        
+        let resultViewController = StoryboardManager.resultViewController(model: configureResultModel())
+        self.present(resultViewController, animated: true, completion: nil)
+    }
+    
+    private func configureResultModel() -> BoxFinderResult {
         
         let(isUblockedBox, closestBoxDisnatce) = checkingUserPosition()
         let determineIfAlreadyOpened = closestBoxDisnatce.isLess(than: Constants.minimalDistanceToUnblockBox)
         
         switch (isUblockedBox, determineIfAlreadyOpened) {
-        case (true, _): //means user reached minimal distance to box
-            print("You have unblocked the box")
-        case (false, true): //means all boxes unblocked (user has not boxes to unblock; all boxes has been found: distance < 100)
-            print("You already have unblocked all chests")
-        case (false, false): //means no boxes reached with minimal distance
-            print("You are not close enough")
-        }
         
-        let congratsViewController = StoryboardManager.congratsViewController()
-        self.present(congratsViewController, animated: true, completion: nil)
+        case (true, _): //means user reached minimal distance to box
+            return BoxFinderResult(result: true, distance: closestBoxDisnatce, resultInfoText: "successTitle".localized(), resultDescription: "successDescription".localized())
+            
+        case (false, true): //means all boxes unblocked (user has not boxes to unblock; all boxes has been found: distance < 100)
+            return BoxFinderResult(result: true, distance: closestBoxDisnatce, resultInfoText: "allUnblockedTitle".localized(), resultDescription: "allUnblockedDesc".localized())
+            
+        case (false, false): //means no boxes reached with minimal distance
+            return BoxFinderResult(result: true, distance: 0, resultInfoText: "failTitle".localized(), resultDescription: "failDescription".localized())
+        }
     }
     
     
@@ -104,6 +110,10 @@ class BoxExplorerViewController: UIViewController {
         view.addSubview(mapView)
         mapView.showsUserLocation = true
     }
+    
+//    private func configureResultModel(result: Bool) -> BoxFinderResult {
+//        return BoxFinderResult(result: true, distance: closestBoxDisnatce, resultInfoText: "www")
+//    }
     
     private func determineMyCurrentLocation() {
         locationManager.delegate = self

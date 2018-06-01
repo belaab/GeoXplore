@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  GeoXplore
+
+  Created by Izabela Brzeczek on 01.06.2018.
+  Copyright © 2018 Izabela Brzeczek. All rights reserved.
+*/
+
+//
+"successTitle" = "Congratulations!";
+"successDescription" = "You have unblocked the box!";
+
+"failTitle" = "Oops..";
+"failDescription" = "You are not close enough";
+
+"allUnblockedTitle" = "Great job!";
+"allUnblockedDesc" = "You already have unblocked all chests! Wait for new ones!";

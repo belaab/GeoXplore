@@ -1,5 +1,5 @@
 //
-//  CongratsViewController.swift
+//  BoxFinderResultViewController.swift
 //  GeoXplore
 //
 //  Created by Izabela Brzeczek on 18.04.2018.
@@ -9,12 +9,21 @@
 import UIKit
 //MARK: temporary placeholder view
 
-class CongratsViewController: UIViewController {
+class BoxFinderResultViewController: UIViewController {
+    
+    @IBOutlet weak var ResultTitleLabel: UILabel!
+    @IBOutlet weak var resultDescriptionLabel: UILabel!
+    @IBOutlet weak var resultImage: UIImageView!
+    @IBOutlet weak var distanceLabel: UILabel!
+    var resultModel: BoxFinderResult? = nil
     
     let arBoxViewController = StoryboardManager.arBoxViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ResultTitleLabel.text = resultModel?.resultInfoText
+        resultDescriptionLabel.text = resultModel?.resultDescription
+        distanceLabel.text = String(describing: resultModel?.distance)
     }
    
     @IBAction func showARView(_ sender: Any) {

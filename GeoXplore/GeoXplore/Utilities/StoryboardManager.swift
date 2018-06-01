@@ -24,7 +24,7 @@ struct StoryboardManager {
         let login = LoginViewController.self
         let setLocation = SetLocationViewController.self
         let boxExplorer = BoxExplorerViewController.self
-        let congrats = CongratsViewController.self
+        let result = BoxFinderResultViewController.self
         let tabbar = UITabBarController.self
         let ar = ARBoxVIewController.self
     }
@@ -34,7 +34,7 @@ struct StoryboardManager {
         case Register
         case SetLocation
         case BoxExplorer
-        case Congrats
+        case Result
         case ARBox
     }
     
@@ -43,7 +43,7 @@ struct StoryboardManager {
         case registerViewController
         case setLocationViewController
         case boxExplorerViewController
-        case congratsViewController
+        case resultViewController
         case tabbarViewController
         case arBoxViewController
     }
@@ -68,9 +68,10 @@ struct StoryboardManager {
         return boxExplorerVC
     }
     
-    static func congratsViewController() -> CongratsViewController {
-        let congratsVC = self.viewController(ViewControllerTypes().congrats, withIdentifier: ViewControllerIdentifiers.congratsViewController.rawValue, fromStoryboard: StoryboardNames.Congrats.rawValue)
-        return congratsVC
+    static func resultViewController(model: BoxFinderResult) -> BoxFinderResultViewController {
+        let resultVC = self.viewController(ViewControllerTypes().result, withIdentifier: ViewControllerIdentifiers.resultViewController.rawValue, fromStoryboard: StoryboardNames.Result.rawValue)
+        resultVC.resultModel = model
+        return resultVC
     }
     
     

@@ -43,10 +43,13 @@
 		2BED38A82086085B00D734D7 /* BoxExplorer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BED38A72086085B00D734D7 /* BoxExplorer.storyboard */; };
 		2BED38AA20864E1700D734D7 /* BoxExplorerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BED38A920864E1700D734D7 /* BoxExplorerViewController.swift */; };
 		2BED38AC208653C600D734D7 /* APIBoxModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BED38AB208653C600D734D7 /* APIBoxModel.swift */; };
-		2BED38AE2086B13E00D734D7 /* CongratsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BED38AD2086B13E00D734D7 /* CongratsViewController.swift */; };
-		2BED38B02086B16700D734D7 /* Congrats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BED38AF2086B16700D734D7 /* Congrats.storyboard */; };
+		2BED38AE2086B13E00D734D7 /* BoxFinderResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BED38AD2086B13E00D734D7 /* BoxFinderResultViewController.swift */; };
+		2BED38B02086B16700D734D7 /* Result.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BED38AF2086B16700D734D7 /* Result.storyboard */; };
 		2BF567BB2084F3AA00F8E6CF /* SetLocation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BF567BA2084F3AA00F8E6CF /* SetLocation.storyboard */; };
 		2BF567BD2084F60E00F8E6CF /* SetLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF567BC2084F60E00F8E6CF /* SetLocationViewController.swift */; };
+		2BFF354F20C1B9F100E3EFBF /* BoxFinderResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF354E20C1B9F100E3EFBF /* BoxFinderResult.swift */; };
+		2BFF355220C1DB8F00E3EFBF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BFF355120C1DB8F00E3EFBF /* Localizable.strings */; };
+		2BFF355420C1DED400E3EFBF /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF355320C1DED400E3EFBF /* LocalizedStrings.swift */; };
 		514D49B39D49978513EA0016 /* Pods_GeoXplore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C62D332798919C75732A4D6 /* Pods_GeoXplore.framework */; };
 /* End PBXBuildFile section */
 
@@ -90,10 +93,13 @@
 		2BED38A72086085B00D734D7 /* BoxExplorer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BoxExplorer.storyboard; sourceTree = "<group>"; };
 		2BED38A920864E1700D734D7 /* BoxExplorerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxExplorerViewController.swift; sourceTree = "<group>"; };
 		2BED38AB208653C600D734D7 /* APIBoxModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIBoxModel.swift; sourceTree = "<group>"; };
-		2BED38AD2086B13E00D734D7 /* CongratsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsViewController.swift; sourceTree = "<group>"; };
-		2BED38AF2086B16700D734D7 /* Congrats.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Congrats.storyboard; sourceTree = "<group>"; };
+		2BED38AD2086B13E00D734D7 /* BoxFinderResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxFinderResultViewController.swift; sourceTree = "<group>"; };
+		2BED38AF2086B16700D734D7 /* Result.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Result.storyboard; sourceTree = "<group>"; };
 		2BF567BA2084F3AA00F8E6CF /* SetLocation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetLocation.storyboard; sourceTree = "<group>"; };
 		2BF567BC2084F60E00F8E6CF /* SetLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLocationViewController.swift; sourceTree = "<group>"; };
+		2BFF354E20C1B9F100E3EFBF /* BoxFinderResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxFinderResult.swift; sourceTree = "<group>"; };
+		2BFF355120C1DB8F00E3EFBF /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		2BFF355320C1DED400E3EFBF /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
 		B2EF8CD55388AEB04B96C030 /* Pods-GeoXplore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoXplore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoXplore/Pods-GeoXplore.debug.xcconfig"; sourceTree = "<group>"; };
 		D9CEC8B3CA0ED479C07F28F2 /* Pods-GeoXplore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoXplore.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeoXplore/Pods-GeoXplore.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -168,7 +174,7 @@
 				2B1DA11120AB950F0059E7E7 /* ARBox.storyboard */,
 				2BF567BA2084F3AA00F8E6CF /* SetLocation.storyboard */,
 				2BED38A72086085B00D734D7 /* BoxExplorer.storyboard */,
-				2BED38AF2086B16700D734D7 /* Congrats.storyboard */,
+				2BED38AF2086B16700D734D7 /* Result.storyboard */,
 				2BC0CC5820784385001033B0 /* ChooseSignUpIn.storyboard */,
 				2BC0CC61207B736D001033B0 /* Register.storyboard */,
 				2BC0CC5920784386001033B0 /* Login.storyboard */,
@@ -200,6 +206,7 @@
 		2BC0CC3020778D0C001033B0 /* GeoXplore */ = {
 			isa = PBXGroup;
 			children = (
+				2BFF354D20C1B8D100E3EFBF /* Models */,
 				2B1DA0FB20AA139D0059E7E7 /* Statistics */,
 				2B3A03D820A728CA00CF13A3 /* Extensions */,
 				2B487E7C2090C1D800B81492 /* Storyboards */,
@@ -233,6 +240,8 @@
 				2B18832F20B48B7100E45E1B /* CustomTabBarController.swift */,
 				2B07ECFB20B59B82002FFEE7 /* Colors.swift */,
 				2B3080ED20BD7A29007721EC /* Constants.swift */,
+				2BFF355120C1DB8F00E3EFBF /* Localizable.strings */,
+				2BFF355320C1DED400E3EFBF /* LocalizedStrings.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -242,10 +251,18 @@
 			children = (
 				2BF567BC2084F60E00F8E6CF /* SetLocationViewController.swift */,
 				2BED38A920864E1700D734D7 /* BoxExplorerViewController.swift */,
-				2BED38AD2086B13E00D734D7 /* CongratsViewController.swift */,
-				2B3080EF20BD8018007721EC /* CustomPointAnnotation.swift */,
+				2BED38AD2086B13E00D734D7 /* BoxFinderResultViewController.swift */,
 			);
 			path = MapManagement;
+			sourceTree = "<group>";
+		};
+		2BFF354D20C1B8D100E3EFBF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2B3080EF20BD8018007721EC /* CustomPointAnnotation.swift */,
+				2BFF354E20C1B9F100E3EFBF /* BoxFinderResult.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		E72F4648A7B2298B1C06F5B0 /* Pods */ = {
@@ -326,8 +343,9 @@
 				2B1DA10A20AB07380059E7E7 /* RankingViewCell.xib in Resources */,
 				2B1DA11620ABA0990059E7E7 /* Textures in Resources */,
 				2BC0CC5C20784386001033B0 /* Login.storyboard in Resources */,
-				2BED38B02086B16700D734D7 /* Congrats.storyboard in Resources */,
+				2BED38B02086B16700D734D7 /* Result.storyboard in Resources */,
 				2BED38A82086085B00D734D7 /* BoxExplorer.storyboard in Resources */,
+				2BFF355220C1DB8F00E3EFBF /* Localizable.strings in Resources */,
 				2BC0CC5B20784386001033B0 /* ChooseSignUpIn.storyboard in Resources */,
 				2BED38A420854FB200D734D7 /* Assets.xcassets in Resources */,
 				2BC0CC62207B736D001033B0 /* Register.storyboard in Resources */,
@@ -405,11 +423,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BED38AE2086B13E00D734D7 /* CongratsViewController.swift in Sources */,
+				2BED38AE2086B13E00D734D7 /* BoxFinderResultViewController.swift in Sources */,
 				2B32D14020834DC700642738 /* RequestManager.swift in Sources */,
 				2BED38AA20864E1700D734D7 /* BoxExplorerViewController.swift in Sources */,
 				2B1DA10220AAE48A0059E7E7 /* DoubleToPercentages.swift in Sources */,
+				2BFF355420C1DED400E3EFBF /* LocalizedStrings.swift in Sources */,
 				2BC0CC5D20784386001033B0 /* ChooseSignUpInViewController.swift in Sources */,
+				2BFF354F20C1B9F100E3EFBF /* BoxFinderResult.swift in Sources */,
 				2BED38A220853A1500D734D7 /* GradientView.swift in Sources */,
 				2BED38A62085586600D734D7 /* APILocation.swift in Sources */,
 				2BD97C78207D41090033AA26 /* TargetType.swift in Sources */,

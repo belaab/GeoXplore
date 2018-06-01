@@ -15,10 +15,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Congrats View Controller-->
+        <!--Box Finder Result View Controller-->
         <scene sceneID="VMm-Md-aID">
             <objects>
-                <viewController storyboardIdentifier="congratsViewController" id="hAC-gF-Foa" customClass="CongratsViewController" customModule="GeoXplore" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="resultViewController" id="hAC-gF-Foa" customClass="BoxFinderResultViewController" customModule="GeoXplore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2GD-8z-Bwd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -30,8 +30,14 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="79" translatesAutoresizingMaskIntoConstraints="NO" id="naK-SK-CKx">
                                 <rect key="frame" x="10" y="347" width="355" height="260"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gfp-Mo-Dzh">
+                                        <rect key="frame" x="156.5" y="0.0" width="42" height="15"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <imageView userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_box" translatesAutoresizingMaskIntoConstraints="NO" id="Re7-93-GXY">
-                                        <rect key="frame" x="113.5" y="0.0" width="128" height="121"/>
+                                        <rect key="frame" x="113.5" y="94" width="128" height="27"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9tI-9K-xPT">
                                         <rect key="frame" x="27.5" y="200" width="300" height="60"/>
@@ -93,6 +99,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="viZ-KT-4xL"/>
                     </view>
+                    <connections>
+                        <outlet property="ResultTitleLabel" destination="ekB-eI-bZ0" id="ASs-ln-znY"/>
+                        <outlet property="distanceLabel" destination="Gfp-Mo-Dzh" id="IKE-mN-Cnc"/>
+                        <outlet property="resultDescriptionLabel" destination="2wl-Jy-atk" id="JEf-Vr-VBF"/>
+                        <outlet property="resultImage" destination="Re7-93-GXY" id="QyW-sK-Ero"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mtk-SW-qsS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
