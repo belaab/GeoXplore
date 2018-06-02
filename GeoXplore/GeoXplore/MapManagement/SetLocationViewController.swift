@@ -14,6 +14,8 @@ class SetLocationViewController: UIViewController, NVActivityIndicatorViewable {
     
     @IBInspectable
     @IBOutlet weak var mapView: MGLMapView!
+    @IBOutlet weak var viewTitleLabel: UILabel!
+    @IBOutlet weak var viewDescriptionLabel: UILabel!
     private let annotation = MGLPointAnnotation()
     private let activityIndicatorView =
         NVActivityIndicatorView(frame: UIScreen.main.bounds,
@@ -24,13 +26,16 @@ class SetLocationViewController: UIViewController, NVActivityIndicatorViewable {
     
     @IBAction func playButton(_ sender: UIButton) {
         showActivityIndicator()
-        sendCoordinates()
+        getCoordinates()
+        //getCoordinates()
+        //sendCoordinates()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
         setupActivityIndicator()
+        getCoordinates()
     }
     
     private func setupActivityIndicator() {
@@ -50,6 +55,27 @@ class SetLocationViewController: UIViewController, NVActivityIndicatorViewable {
         self.view.isUserInteractionEnabled = false
         let gesture = UILongPressGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         mapView.addGestureRecognizer(gesture)
+    }
+    
+    
+    private func getCoordinates() {
+        RequestManager.sharedInstance.getHomeLocation { (success, apimodel, errorStatusCode) in
+            switch success {
+            case true:
+                self.configureView()
+            case false:
+                if let statusCode = errorStatusCode, statusCode == 404 {
+                    self.sendCoordinates()
+                } else {
+                    print("Unacceptable status code: \(errorStatusCode!)")
+                }
+            }
+        }
+    }
+    
+    private func configureView() {
+        viewTitleLabel.text = "Your home location"
+        viewDescriptionLabel.text = "You can accept it or choose new location - long press the screen to set new one."
     }
     
     private func sendCoordinates() {

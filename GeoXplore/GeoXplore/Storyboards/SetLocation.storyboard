@@ -110,6 +110,8 @@
                     <connections>
                         <outlet property="mapView" destination="LEv-4b-Uax" id="gIk-dE-eQy"/>
                         <outlet property="playButtonReady" destination="ux8-Af-yW9" id="4ys-wV-x1v"/>
+                        <outlet property="viewDescriptionLabel" destination="sCJ-Mt-Id6" id="eDb-OO-636"/>
+                        <outlet property="viewTitleLabel" destination="9ZZ-2u-W4R" id="k9C-Ww-8Xj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mRL-9X-kzD" userLabel="First Responder" sceneMemberID="firstResponder"/>
