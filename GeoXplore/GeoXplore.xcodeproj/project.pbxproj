@@ -47,6 +47,8 @@
 		2BED38B02086B16700D734D7 /* Result.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BED38AF2086B16700D734D7 /* Result.storyboard */; };
 		2BF567BB2084F3AA00F8E6CF /* SetLocation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BF567BA2084F3AA00F8E6CF /* SetLocation.storyboard */; };
 		2BF567BD2084F60E00F8E6CF /* SetLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF567BC2084F60E00F8E6CF /* SetLocationViewController.swift */; };
+		2BFF29D01EE1B7C50032648D /* ResultVCTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF29CF1EE1B7C50032648D /* ResultVCTypes.swift */; };
+		2BFF29D220C2F6FE0032648D /* DistanceConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF29D120C2F6FE0032648D /* DistanceConverter.swift */; };
 		2BFF354F20C1B9F100E3EFBF /* BoxFinderResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF354E20C1B9F100E3EFBF /* BoxFinderResult.swift */; };
 		2BFF355220C1DB8F00E3EFBF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BFF355120C1DB8F00E3EFBF /* Localizable.strings */; };
 		2BFF355420C1DED400E3EFBF /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF355320C1DED400E3EFBF /* LocalizedStrings.swift */; };
@@ -97,6 +99,8 @@
 		2BED38AF2086B16700D734D7 /* Result.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Result.storyboard; sourceTree = "<group>"; };
 		2BF567BA2084F3AA00F8E6CF /* SetLocation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetLocation.storyboard; sourceTree = "<group>"; };
 		2BF567BC2084F60E00F8E6CF /* SetLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLocationViewController.swift; sourceTree = "<group>"; };
+		2BFF29CF1EE1B7C50032648D /* ResultVCTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultVCTypes.swift; sourceTree = "<group>"; };
+		2BFF29D120C2F6FE0032648D /* DistanceConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceConverter.swift; sourceTree = "<group>"; };
 		2BFF354E20C1B9F100E3EFBF /* BoxFinderResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxFinderResult.swift; sourceTree = "<group>"; };
 		2BFF355120C1DB8F00E3EFBF /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		2BFF355320C1DED400E3EFBF /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
@@ -163,7 +167,9 @@
 			children = (
 				2B3A03D920A728EB00CF13A3 /* HideKeyboard.swift */,
 				2B3A03DB20A72C0300CF13A3 /* ValidatingInputs.swift */,
+				2BFF355320C1DED400E3EFBF /* LocalizedStrings.swift */,
 				2B1DA10120AAE48A0059E7E7 /* DoubleToPercentages.swift */,
+				2BFF29D120C2F6FE0032648D /* DistanceConverter.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -241,7 +247,7 @@
 				2B07ECFB20B59B82002FFEE7 /* Colors.swift */,
 				2B3080ED20BD7A29007721EC /* Constants.swift */,
 				2BFF355120C1DB8F00E3EFBF /* Localizable.strings */,
-				2BFF355320C1DED400E3EFBF /* LocalizedStrings.swift */,
+				2BFF29CF1EE1B7C50032648D /* ResultVCTypes.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -444,8 +450,10 @@
 				2BC0CC66207B7D80001033B0 /* LoginViewController.swift in Sources */,
 				2BD97C7A207D41B60033AA26 /* UrlBuilder.swift in Sources */,
 				2B3A03DC20A72C0300CF13A3 /* ValidatingInputs.swift in Sources */,
+				2BFF29D220C2F6FE0032648D /* DistanceConverter.swift in Sources */,
 				2BC0CC64207B7CE3001033B0 /* RegisterViewController.swift in Sources */,
 				2B1DA10420AB062C0059E7E7 /* RankingViewController.swift in Sources */,
+				2BFF29D01EE1B7C50032648D /* ResultVCTypes.swift in Sources */,
 				2BF567BD2084F60E00F8E6CF /* SetLocationViewController.swift in Sources */,
 				2B07ECFC20B59B82002FFEE7 /* Colors.swift in Sources */,
 				2B1DA10920AB07380059E7E7 /* RankingViewCell.swift in Sources */,

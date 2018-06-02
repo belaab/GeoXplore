@@ -22,7 +22,6 @@ class ARBoxVIewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // self.sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin] // helps debug the app by showing if the world origin was properly detected
         self.sceneView.session.run(configuration)
         self.sceneView.autoenablesDefaultLighting = true
         addARBox()

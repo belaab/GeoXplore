@@ -7,11 +7,11 @@
 */
 
 //
-"successTitle" = "Congratulations!";
-"successDescription" = "You have unblocked the box!";
+"successTitle" = "CONGRATULATION!";
+"successDescription" = "You are close enough to unblock the chest. Click button see the box and collect them.";
 
-"failTitle" = "Oops..";
-"failDescription" = "You are not close enough";
+"failTitle" = "NOT THIS TIME!";
+"failDescription" = "There is no chests to collect with your current position. Come closer to collect the box.";
 
-"allUnblockedTitle" = "Great job!";
-"allUnblockedDesc" = "You already have unblocked all chests! Wait for new ones!";
+"allUnblockedTitle" = "WELL DONE!";
+"allUnblockedDesc" = "You have already collected all chests. Wait when new one appears!";

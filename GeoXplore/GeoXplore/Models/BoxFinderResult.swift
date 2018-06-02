@@ -10,12 +10,12 @@ import Foundation
 
 class BoxFinderResult {
     
-    var result: Bool
+    var result: String
     var distance: Double
     var resultInfoText: String
     var resultDescription: String
     
-    init(result: Bool, distance: Double, resultInfoText: String, resultDescription: String) {
+    init(result: String, distance: Double, resultInfoText: String, resultDescription: String) {
         self.distance = distance
         self.result = result
         self.resultInfoText = resultInfoText

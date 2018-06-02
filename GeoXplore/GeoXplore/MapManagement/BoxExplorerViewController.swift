@@ -8,7 +8,6 @@
 
 import UIKit
 import Mapbox
-//TODO: TODO: validating distance
 //TODO: TODO: handling errors
 
 class BoxExplorerViewController: UIViewController {
@@ -17,31 +16,6 @@ class BoxExplorerViewController: UIViewController {
     var boxes = [Box]()
     var userLocation = CLLocation()
     var locationManager = CLLocationManager()
-    
-    @IBAction func checkLocation(_ sender: UIButton) {
-        
-        let resultViewController = StoryboardManager.resultViewController(model: configureResultModel())
-        self.present(resultViewController, animated: true, completion: nil)
-    }
-    
-    private func configureResultModel() -> BoxFinderResult {
-        
-        let(isUblockedBox, closestBoxDisnatce) = checkingUserPosition()
-        let determineIfAlreadyOpened = closestBoxDisnatce.isLess(than: Constants.minimalDistanceToUnblockBox)
-        
-        switch (isUblockedBox, determineIfAlreadyOpened) {
-        
-        case (true, _): //means user reached minimal distance to box
-            return BoxFinderResult(result: true, distance: closestBoxDisnatce, resultInfoText: "successTitle".localized(), resultDescription: "successDescription".localized())
-            
-        case (false, true): //means all boxes unblocked (user has not boxes to unblock; all boxes has been found: distance < 100)
-            return BoxFinderResult(result: true, distance: closestBoxDisnatce, resultInfoText: "allUnblockedTitle".localized(), resultDescription: "allUnblockedDesc".localized())
-            
-        case (false, false): //means no boxes reached with minimal distance
-            return BoxFinderResult(result: true, distance: 0, resultInfoText: "failTitle".localized(), resultDescription: "failDescription".localized())
-        }
-    }
-    
     
     override func viewDidLoad(){
         super.viewDidLoad()
@@ -54,6 +28,30 @@ class BoxExplorerViewController: UIViewController {
         determineMyCurrentLocation()
     }
     
+    @IBAction func checkLocation(_ sender: UIButton) {
+        let resultViewController = StoryboardManager.resultViewController(model: configureResultModel())
+        self.present(resultViewController, animated: true, completion: nil)
+    }
+    
+    private func configureResultModel() -> BoxFinderResult {
+        
+        let(isUblockedBox, closestBoxDisnatce) = checkingUserPosition()
+        let determineIfAlreadyOpened = closestBoxDisnatce.isLess(than: Constants.minimalDistanceToUnblockBox)
+        
+        switch (isUblockedBox, determineIfAlreadyOpened) {
+        
+        case (true, _): //means user reached minimal distance to box
+            return BoxFinderResult(result: ResultVC.success.type, distance: closestBoxDisnatce, resultInfoText: "successTitle".localized(), resultDescription: "successDescription".localized())
+            
+        case (false, true): //means all boxes unblocked (user has not boxes to unblock; all boxes has been found: distance < 100)
+            return BoxFinderResult(result: ResultVC.allUnblocked.type, distance: 0, resultInfoText: "allUnblockedTitle".localized(), resultDescription: "allUnblockedDesc".localized())
+            
+        case (false, false): //means no boxes reached with minimal distance
+            return BoxFinderResult(result: ResultVC.failure.type, distance: closestBoxDisnatce, resultInfoText: "failTitle".localized(), resultDescription: "failDescription".localized())
+        }
+    }
+    
+
     private func getPositions(){
         RequestManager.sharedInstance.getBoxesPositions { (success, boxesArray, error) in
             if success {
@@ -111,9 +109,6 @@ class BoxExplorerViewController: UIViewController {
         mapView.showsUserLocation = true
     }
     
-//    private func configureResultModel(result: Bool) -> BoxFinderResult {
-//        return BoxFinderResult(result: true, distance: closestBoxDisnatce, resultInfoText: "www")
-//    }
     
     private func determineMyCurrentLocation() {
         locationManager.delegate = self
