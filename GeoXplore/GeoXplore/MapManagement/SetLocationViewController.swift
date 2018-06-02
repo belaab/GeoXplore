@@ -10,8 +10,6 @@ import UIKit
 import Mapbox
 import NVActivityIndicatorView
 
-
-
 class SetLocationViewController: UIViewController, NVActivityIndicatorViewable {
     
     @IBInspectable

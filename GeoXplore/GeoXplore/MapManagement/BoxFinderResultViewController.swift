@@ -47,11 +47,11 @@ class BoxFinderResultViewController: UIViewController {
         switch(resultModelVC.result) {
         case "failure":
             backgroundImage.image = UIImage(named: "failBackground.png")
-            distanceTitleLabel.text = "closest chest distance"
+            distanceTitleLabel.text = "closest chest distance:"
         case "success":
             isSuccessVCType = true
             backgroundImage.image = UIImage(named: "successBackground.png")
-            distanceTitleLabel.text = "chest distance"
+            distanceTitleLabel.text = "found  chest distance:"
         case "allUnblocked":
             backgroundImage.image = UIImage(named: "allCollectedBackground.png")
             distanceOval.alpha = 0.5

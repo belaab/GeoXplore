@@ -7,7 +7,7 @@
 */
 
 //
-"successTitle" = "CONGRATULATION!";
+"successTitle" = "CONGRATULATIONS!";
 "successDescription" = "You are close enough to unblock the chest. Click button see the box and collect them.";
 
 "failTitle" = "NOT THIS TIME!";

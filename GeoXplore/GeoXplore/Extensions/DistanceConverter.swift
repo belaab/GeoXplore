@@ -21,7 +21,7 @@ extension Double {
         
         if self == 0 { return "" }
         
-        let stringWithPercentages = String(describing: Int(self)) + "m"
-        return stringWithPercentages
+        let stringWithMeters = String(describing: Int(self)) + "m"
+        return stringWithMeters
     }
 }
