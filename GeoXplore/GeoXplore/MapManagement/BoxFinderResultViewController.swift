@@ -29,7 +29,7 @@ class BoxFinderResultViewController: UIViewController {
     @IBAction func showNextView(_ sender: UIButton) {
         if isSuccessVCType {
             self.removeFromParentViewController()
-            let arBoxViewController = StoryboardManager.arBoxViewController()
+            let arBoxViewController = StoryboardManager.arBoxViewController(unblockedBoxID: (resultModel?.boxID)!)
             self.present(arBoxViewController, animated: true, completion: nil)
         } else {
             self.dismiss(animated: true, completion: nil)

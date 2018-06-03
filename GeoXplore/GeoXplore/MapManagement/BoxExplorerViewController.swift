@@ -35,19 +35,19 @@ class BoxExplorerViewController: UIViewController {
     
     private func configureResultModel() -> BoxFinderResult {
         
-        let(isUblockedBox, closestBoxDisnatce) = checkingUserPosition()
+        let(isUblockedBox, closestBoxDisnatce, unblockedBoxId) = checkingUserPosition()
         let determineIfAlreadyOpened = closestBoxDisnatce.isLess(than: Constants.minimalDistanceToUnblockBox)
         
         switch (isUblockedBox, determineIfAlreadyOpened) {
         
         case (true, _): //means user reached minimal distance to box
-            return BoxFinderResult(result: ResultVC.success.type, distance: closestBoxDisnatce, resultInfoText: "successTitle".localized(), resultDescription: "successDescription".localized())
+            return BoxFinderResult(boxID: unblockedBoxId, result: ResultVC.success.type, distance: closestBoxDisnatce, resultInfoText: "successTitle".localized(), resultDescription: "successDescription".localized())
             
         case (false, true): //means all boxes unblocked (user has not boxes to unblock; all boxes has been found: distance < 100)
-            return BoxFinderResult(result: ResultVC.allUnblocked.type, distance: 0, resultInfoText: "allUnblockedTitle".localized(), resultDescription: "allUnblockedDesc".localized())
+            return BoxFinderResult(boxID: 0, result: ResultVC.allUnblocked.type, distance: 0, resultInfoText: "allUnblockedTitle".localized(), resultDescription: "allUnblockedDesc".localized())
             
         case (false, false): //means no boxes reached with minimal distance
-            return BoxFinderResult(result: ResultVC.failure.type, distance: closestBoxDisnatce, resultInfoText: "failTitle".localized(), resultDescription: "failDescription".localized())
+            return BoxFinderResult(boxID: 0, result: ResultVC.failure.type, distance: closestBoxDisnatce, resultInfoText: "failTitle".localized(), resultDescription: "failDescription".localized())
         }
     }
     
@@ -75,13 +75,13 @@ class BoxExplorerViewController: UIViewController {
     }
     
     
-    private func checkingUserPosition() -> (isUnblockedBox: Bool, closestBoxDistance: Double) {
+    private func checkingUserPosition() -> (isUnblockedBox: Bool, closestBoxDistance: Double, chestID: Int) {
         
-        guard let pins = mapView.annotations as? [CustomPointAnnotation] else { return (false, 0.0) }
+        guard let pins = mapView.annotations as? [CustomPointAnnotation] else { return (false, 0.0, 0) }
         let userCoordinate = CLLocation(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
         var distancesToAllBoxes = [CLLocationDistance]()
         let closedBoxes = pins.filter { $0.title != "opened" }
-        if closedBoxes.count == 0 { return (false, 0.0)}
+        if closedBoxes.count == 0 { return (false, 0.0, 0)}
         
         for pin in closedBoxes {
             let pinCoordinate = CLLocation(latitude: pin.coordinate.latitude, longitude: pin.coordinate.longitude)
@@ -94,12 +94,12 @@ class BoxExplorerViewController: UIViewController {
                 newPin.title = "opened"
                 mapView.removeAnnotation(pin)
                 mapView.addAnnotation(newPin)
-                return (true, distanceInMeters)
+                return (true, distanceInMeters, pin.id)
             } else if distanceInMeters > Constants.minimalDistanceToUnblockBox && (pin.title!) == "closed" {
                 distancesToAllBoxes.append(distanceInMeters)
             }
         }
-        return (false, distancesToAllBoxes.sorted { $0 < $1 }.first!)
+        return (false, distancesToAllBoxes.sorted { $0 < $1 }.first!, 0)
     }
     
     private func viewSetup() {

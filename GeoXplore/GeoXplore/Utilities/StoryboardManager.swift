@@ -76,8 +76,9 @@ struct StoryboardManager {
     
     
     
-    static func arBoxViewController() -> ARBoxVIewController {
+    static func arBoxViewController(unblockedBoxID: Int) -> ARBoxVIewController {
         let arVC = self.viewController(ViewControllerTypes().ar, withIdentifier: ViewControllerIdentifiers.arBoxViewController.rawValue, fromStoryboard: StoryboardNames.ARBox.rawValue)
+        arVC.unblockedBoxID = unblockedBoxID
         return arVC
     }
 

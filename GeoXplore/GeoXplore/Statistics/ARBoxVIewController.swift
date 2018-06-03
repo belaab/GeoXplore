@@ -4,24 +4,33 @@
 //
 //  Created by Izabela Brzeczek on 15.05.2018.
 //  Copyright © 2018 Izabela Brzeczek. All rights reserved.
-//
+// TODO: switch to lazy var boxID
 
 import UIKit
 import ARKit
 
 class ARBoxVIewController: UIViewController {
 
-    let configuration = ARWorldTrackingConfiguration()
+    private let configuration = ARWorldTrackingConfiguration()
+    var unblockedBoxID: Int = 0
    
     @IBAction func dismiss(_ sender: UIButton) {
+        postOpenedChest(chestID: unblockedBoxID)
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
         
     }
     
-    private func postOpenedChest() {
-      //  RequestManager.sharedInstance.po
+    private func postOpenedChest(chestID: Int) {
+        let id = String(describing: chestID)
+        RequestManager.sharedInstance.postOpenedChest(chestID: id) { (success, experienceGained, statusCode ) in
+            if success {
+                print("experienceGained: \(experienceGained)")
+            } else {
+                print("statusCode: \(statusCode)")
+            }
+        }
     }
-
+    
     
     @IBOutlet weak var sceneView: ARSCNView!
     
