@@ -61,10 +61,7 @@ class RequestManager {
     
         let model = APILocation(latitude: String(describing: latitude), longitude: String(describing: longitude))
         let jsonData = model.toJSON()
-//
-//        let getToken =  KeychainWrapper.standard.string(forKey: "accessToken")
-//        let headers: HTTPHeaders = ["Authorization": getToken! ] //getToken!
-//
+
         Alamofire.request(RequestType.postLocation.url, method: .post, parameters: jsonData, encoding: JSONEncoding.default, headers: getAuthorizationHeader())
             .validate(statusCode: 200..<300)
             .responseJSON { (response) in
@@ -85,9 +82,6 @@ class RequestManager {
     
     
     func getHomeLocation(completion: @escaping(Bool, APILocation?, Int?) -> Void) {
-        
-//        let getToken =  KeychainWrapper.standard.string(forKey: "accessToken")
-//        let headers: HTTPHeaders = ["Authorization": getToken!]
 
         Alamofire.request(RequestType.getHome.url, method: .get, encoding: JSONEncoding.default, headers: getAuthorizationHeader())
             .validate(statusCode: 200..<300)
@@ -111,8 +105,6 @@ class RequestManager {
     
     func getBoxesPositions(completion: @escaping(Bool, [Box], Error?) -> Void) {
         
-//        let getToken =  KeychainWrapper.standard.string(forKey: "accessToken")
-//        let headers: HTTPHeaders = ["Authorization": getToken!]
         var boxDetails = [Box]()
         
         Alamofire.request(RequestType.getBoxes.url, method: .get, encoding: JSONEncoding.default, headers: getAuthorizationHeader())
@@ -140,9 +132,6 @@ class RequestManager {
     
     func getUserStatistics(completion: @escaping(Bool, UserProfile?, Error?) -> Void) {
         
-//        let getToken =  KeychainWrapper.standard.string(forKey: "accessToken")
-//        let headers: HTTPHeaders = ["Authorization": getToken!]
-        
         Alamofire.request(RequestType.getStatistics.url, method: .get, encoding: JSONEncoding.default, headers: getAuthorizationHeader())
             .validate(statusCode: 200..<300)
             .responseJSON(completionHandler: { (response:DataResponse<Any>) in
@@ -166,8 +155,6 @@ class RequestManager {
     
     func getRankingUsers(completion: @escaping(Bool, [RankingUser]?, Error?) -> Void) {
         
-//        let getToken =  KeychainWrapper.standard.string(forKey: "accessToken")
-//        let headers: HTTPHeaders = ["Authorization": getToken!]
         var rankingUsers = [RankingUser]()
         
         Alamofire.request(RequestType.getRanking.url, method: .get, encoding: JSONEncoding.default, headers: getAuthorizationHeader())
@@ -191,6 +178,27 @@ class RequestManager {
                     }
                 }
             })
+    }
+    
+    func postOpenedChest(chestID: Int, completion: @escaping(Bool, [String:Any]) -> Void) {
+        
+        Alamofire.request(RequestType.postOpenedChest.url, method: .post, parameters: , encoding: JSONEncoding.default, headers: getAuthorizationHeader())
+            .validate(statusCode: 200..<300)
+            .responseJSON { (response) in
+                switch(response.result) {
+                case .success(_):
+                    print("Status code: \(response.response!.statusCode)")
+                    print("SUCCESS")
+                    completion(true, nil)
+                case .failure(_):
+                    print("Status code: \(response.response!.statusCode)")
+                    if let error = response.result.error {
+                        print(response.result.description)
+                        completion(false, error)
+                    }
+                }
+        }
+
     }
     
     

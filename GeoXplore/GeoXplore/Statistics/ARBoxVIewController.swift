@@ -15,6 +15,11 @@ class ARBoxVIewController: UIViewController {
    
     @IBAction func dismiss(_ sender: UIButton) {
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        
+    }
+    
+    private func postOpenedChest() {
+        RequestManager.sharedInstance.po
     }
 
     
