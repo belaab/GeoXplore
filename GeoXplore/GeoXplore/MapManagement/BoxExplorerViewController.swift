@@ -52,14 +52,14 @@ class BoxExplorerViewController: UIViewController {
     }
     
 
-    private func getPositions(){
+    private func getPositions() {
         RequestManager.sharedInstance.getBoxesPositions { (success, boxesArray, error) in
             if success {
                 self.boxes = boxesArray
                 boxesArray.forEach({ box in
                     let annotation = CustomPointAnnotation(id: box.id, dateCreated: box.dateCreated, dateFound: box.dateFound, opened: box.opened, value: box.value)
                     print(box.latitude,box.longitude)
-                    annotation.coordinate = CLLocationCoordinate2DMake(box.longitude, box.latitude)
+                    annotation.coordinate = CLLocationCoordinate2DMake(box.latitude, box.longitude)
                     switch box.opened {
                     case false:
                         annotation.title = "closed"

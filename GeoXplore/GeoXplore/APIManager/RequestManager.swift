@@ -58,11 +58,8 @@ class RequestManager {
     }
     
     func postLocation(longitude: Double, latitude: Double, completion: @escaping(Bool, Error?) -> Void) {
-        
-        let long: String = String(describing: longitude)
-        let lat: String = String(describing: latitude)
-
-        let model = APILocation(longitude: long, latitude: lat)
+    
+        let model = APILocation(latitude: String(describing: latitude), longitude: String(describing: longitude))
         let jsonData = model.toJSON()
         
         let getToken =  KeychainWrapper.standard.string(forKey: "accessToken")

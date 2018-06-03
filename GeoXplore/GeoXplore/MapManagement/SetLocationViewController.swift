@@ -61,17 +61,16 @@ class SetLocationViewController: UIViewController, NVActivityIndicatorViewable {
     
     
     private func getCoordinates() {
-       
+        
         RequestManager.sharedInstance.getHomeLocation { (success, apimodel, errorStatusCode) in
             switch success {
             case true:
-                let model: APILocation = apimodel!
                 self.configureView()
-                //guard let longitude = apimodel?.longitude, let latitude = apimodel?.latitude else { return }
-                //print(longitude, latitude)
-                let latitude: Double = Double(model.latitude)!
-                let longitude: Double = Double(model.latitude)!
-                self.addAnnotationOnLocation(pointedCoordinate: CLLocationCoordinate2DMake(latitude, longitude))
+                guard let locationModel = apimodel,
+                    let doubleLatitude = Double(locationModel.latitude),
+                    let doubleLongitude = Double(locationModel.longitude)
+                    else { return }
+                self.addAnnotationOnLocation(pointedCoordinate: CLLocationCoordinate2DMake(doubleLatitude, doubleLongitude))
             case false:
                 if let statusCode = errorStatusCode, statusCode == 404 {
                     self.isHomeLocationSet = false
@@ -95,17 +94,16 @@ class SetLocationViewController: UIViewController, NVActivityIndicatorViewable {
     }
     
     private func sendCoordinates() {
-        let doubleLongitude: Double = annotation.coordinate.longitude
-        let doubleLatitude: Double = annotation.coordinate.latitude
+        let longitude = annotation.coordinate.longitude
+        let latitude = annotation.coordinate.latitude
         
-        RequestManager.sharedInstance.postLocation(longitude: doubleLatitude, latitude: doubleLongitude) { (success, error) in
+        RequestManager.sharedInstance.postLocation(longitude: longitude, latitude: latitude) { (success, error) in
             if success {
-                print("longitude: \(doubleLongitude), latitude: \(doubleLatitude)")
-                print("Coordinates sent.")
+                print("Coordinates sent. longitude: \(longitude), latitude: \(latitude)")
                 self.activityIndicatorView.stopAnimating()
                 self.presentNewVC()
             } else {
-                print(error) //TODO
+                print(error?.localizedDescription) //TODO
                 self.stopAnimating()
                 let alert = UIAlertController(title: "Sending location failure", message: "Sorry, please try again.", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
@@ -125,13 +123,11 @@ class SetLocationViewController: UIViewController, NVActivityIndicatorViewable {
     
     private func addAnnotationOnLocation(pointedCoordinate: CLLocationCoordinate2D) {
         annotation.coordinate = pointedCoordinate
-        annotation.title = "Loading..."
-        annotation.subtitle = "Loading..."
         mapView.addAnnotation(annotation)
     }
     
     
-    @objc func handleTap(_ gestureRecognizer: UILongPressGestureRecognizer){
+    @objc func handleTap(_ gestureRecognizer: UILongPressGestureRecognizer) {
         if gestureRecognizer.state == UIGestureRecognizerState.began {
             let touchPoint: CGPoint = gestureRecognizer.location(in: mapView)
             let newCoordinate: CLLocationCoordinate2D = mapView.convert(touchPoint, toCoordinateFrom: mapView)
