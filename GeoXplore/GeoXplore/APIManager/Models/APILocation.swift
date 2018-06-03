@@ -9,22 +9,24 @@
 import Foundation
 import ObjectMapper
 
-class APILocation: Mappable {
+struct APILocation: Mappable {
     
-    var longitude: Double?
-    var latitude: Double?
+    var latitude: String
+    var longitude: String
     
-    init(longitude: Double?, latitude: Double?) {
+    init(longitude: String, latitude: String) {
         self.longitude = longitude
         self.latitude = latitude
     }
     
-    required init?(map: Map) {
+     init?(map: Map) {
+        self.longitude = "0"
+        self.latitude = "0"
     }
-    
-    func mapping(map: Map) {
+
+
+    mutating func mapping(map: Map) {
         self.longitude <- map["longitude"]
         self.latitude <- map["latitude"]
- 
     }
 }

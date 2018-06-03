@@ -59,7 +59,10 @@ class RequestManager {
     
     func postLocation(longitude: Double, latitude: Double, completion: @escaping(Bool, Error?) -> Void) {
         
-        let model = APILocation(longitude: longitude, latitude: latitude)
+        let long: String = String(describing: longitude)
+        let lat: String = String(describing: latitude)
+
+        let model = APILocation(longitude: long, latitude: lat)
         let jsonData = model.toJSON()
         
         let getToken =  KeychainWrapper.standard.string(forKey: "accessToken")
@@ -87,7 +90,7 @@ class RequestManager {
         
         let getToken =  KeychainWrapper.standard.string(forKey: "accessToken")
         let headers: HTTPHeaders = ["Authorization": getToken!]
-        //var userLocationModel = APILocation()
+        //var userLocationModel: APILocation? = nil
         
         Alamofire.request(RequestType.getHome.url, method: .get, encoding: JSONEncoding.default, headers: headers)
             .validate(statusCode: 200..<300)
@@ -95,8 +98,12 @@ class RequestManager {
                 switch(response.result) {
                 case .success(_):
                     if let json = response.result.value {
-                        guard let jsonItem = json as? [String: AnyObject] else {return}
-                        let homeLocation = Mapper<APILocation>().map(JSON: jsonItem)
+                        print(json)
+                        guard let jsonItem = json as? [String: Any] else {return}
+                        print(jsonItem)
+                        guard let homeLocation = Mapper<APILocation>().map(JSON: jsonItem) else {return}
+                        print(homeLocation.latitude)
+                        print(homeLocation.longitude)
                         completion(true, homeLocation, nil)
                     }
                 case .failure(_):

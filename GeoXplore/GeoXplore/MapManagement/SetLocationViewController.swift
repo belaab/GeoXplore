@@ -11,12 +11,12 @@ import Mapbox
 import NVActivityIndicatorView
 
 class SetLocationViewController: UIViewController, NVActivityIndicatorViewable {
-    
-    @IBInspectable
+
     @IBOutlet weak var mapView: MGLMapView!
     @IBOutlet weak var viewTitleLabel: UILabel!
     @IBOutlet weak var viewDescriptionLabel: UILabel!
     private let annotation = MGLPointAnnotation()
+    private var isHomeLocationSet: Bool = true
     private let activityIndicatorView =
         NVActivityIndicatorView(frame: UIScreen.main.bounds,
                                 type: NVActivityIndicatorType.ballClipRotateMultiple, color: Colors.loaderLightGreen)
@@ -26,9 +26,11 @@ class SetLocationViewController: UIViewController, NVActivityIndicatorViewable {
     
     @IBAction func playButton(_ sender: UIButton) {
         showActivityIndicator()
-        getCoordinates()
-        //getCoordinates()
-        //sendCoordinates()
+        if !isHomeLocationSet {
+            sendCoordinates()
+        } else {
+            presentNewVC()
+        }
     }
     
     override func viewDidLoad() {
@@ -59,13 +61,20 @@ class SetLocationViewController: UIViewController, NVActivityIndicatorViewable {
     
     
     private func getCoordinates() {
+       
         RequestManager.sharedInstance.getHomeLocation { (success, apimodel, errorStatusCode) in
             switch success {
             case true:
+                let model: APILocation = apimodel!
                 self.configureView()
+                //guard let longitude = apimodel?.longitude, let latitude = apimodel?.latitude else { return }
+                //print(longitude, latitude)
+                let latitude: Double = Double(model.latitude)!
+                let longitude: Double = Double(model.latitude)!
+                self.addAnnotationOnLocation(pointedCoordinate: CLLocationCoordinate2DMake(latitude, longitude))
             case false:
                 if let statusCode = errorStatusCode, statusCode == 404 {
-                    self.sendCoordinates()
+                    self.isHomeLocationSet = false
                 } else {
                     print("Unacceptable status code: \(errorStatusCode!)")
                 }
@@ -76,6 +85,13 @@ class SetLocationViewController: UIViewController, NVActivityIndicatorViewable {
     private func configureView() {
         viewTitleLabel.text = "Your home location"
         viewDescriptionLabel.text = "You can accept it or choose new location - long press the screen to set new one."
+        playButtonReady.alpha = 1.0
+        playButtonReady.isEnabled = true
+    }
+    
+    private func presentNewVC() {
+        let boxExplorerViewController = StoryboardManager.boxExplorerViewController()
+        self.present(boxExplorerViewController, animated: true, completion: nil)
     }
     
     private func sendCoordinates() {
@@ -86,9 +102,8 @@ class SetLocationViewController: UIViewController, NVActivityIndicatorViewable {
             if success {
                 print("longitude: \(doubleLongitude), latitude: \(doubleLatitude)")
                 print("Coordinates sent.")
-                let boxExplorerViewController = StoryboardManager.boxExplorerViewController()
-                self.present(boxExplorerViewController, animated: true, completion: nil)
                 self.activityIndicatorView.stopAnimating()
+                self.presentNewVC()
             } else {
                 print(error) //TODO
                 self.stopAnimating()
@@ -155,8 +170,6 @@ extension SetLocationViewController: MGLMapViewDelegate, UIGestureRecognizerDele
         let camera = MGLMapCamera(lookingAtCenter: annotation.coordinate, fromDistance: 4000, pitch: 0, heading: 0)
         mapView.fly(to: camera, completionHandler: nil)
     }
-    
-    
     
     func mapViewDidFinishLoadingMap(_ mapView: MGLMapView) {
         let camera = MGLMapCamera(lookingAtCenter: (mapView.userLocation?.coordinate)!, fromDistance: 4000, pitch: 10, heading: 0)
