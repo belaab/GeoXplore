@@ -179,24 +179,24 @@ class RequestManager {
             })
     }
     
-    func postOpenedChest(chestID: String, completion: @escaping(Bool, String, Int) -> Void) {
+    func postOpenedChest(chestID: String, completion: @escaping(Bool, Int, Int) -> Void) {
         
         Alamofire.request(RequestType.postOpenedChest(id: chestID).url,  method: .post, encoding: JSONEncoding.default, headers: getAuthorizationHeader())
             .validate(statusCode: 200..<300)
-            .responseJSON { (response) in
+            .responseJSON(completionHandler: { (response:DataResponse<Any>)  in
                 switch(response.result) {
                 case .success(_):
                     if let json = response.result.value {
                         guard let jsonArray = json as? [String: Any],
-                            let experienceGained = jsonArray["expGained"] as? String else { return }
+                            let experienceGained = jsonArray["expGained"] as? Int else { return }
                          completion(true, experienceGained, (response.response?.statusCode)!)
                     }
                 case .failure(_):
                     if let error = response.result.error {
-                        completion(false, response.result.description, (response.response?.statusCode)!)
+                        completion(false, 0, (response.response?.statusCode)!)
                     }
                 }
-        }
+        })
 
     }
     

@@ -15,18 +15,17 @@ class ARBoxVIewController: UIViewController {
     var unblockedBoxID: Int = 0
    
     @IBAction func dismiss(_ sender: UIButton) {
-        postOpenedChest(chestID: unblockedBoxID)
+        sendOpenedChest(chestID: unblockedBoxID)
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
-        
     }
     
-    private func postOpenedChest(chestID: Int) {
+    private func sendOpenedChest(chestID: Int) {
         let id = String(describing: chestID)
-        RequestManager.sharedInstance.postOpenedChest(chestID: id) { (success, experienceGained, statusCode ) in
+        RequestManager.sharedInstance.postOpenedChest(chestID: id) { (success, experienceGained, statusCode )  in
             if success {
                 print("experienceGained: \(experienceGained)")
             } else {
-                print("statusCode: \(statusCode)")
+                print("Erroe status code: \(statusCode)")
             }
         }
     }

@@ -54,7 +54,7 @@ class BoxFinderResultViewController: UIViewController {
             distanceTitleLabel.text = "found  chest distance:"
         case "allUnblocked":
             backgroundImage.image = UIImage(named: "allCollectedBackground.png")
-            distanceOval.alpha = 0.5
+            distanceOval.alpha = 1.0
             distanceLabel.isHidden = true
             distanceTitleLabel.isHidden = true
         default:

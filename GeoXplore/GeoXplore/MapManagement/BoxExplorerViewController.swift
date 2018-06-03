@@ -43,7 +43,7 @@ class BoxExplorerViewController: UIViewController {
         case (true, _): //means user reached minimal distance to box
             return BoxFinderResult(boxID: unblockedBoxId, result: ResultVC.success.type, distance: closestBoxDisnatce, resultInfoText: "successTitle".localized(), resultDescription: "successDescription".localized())
             
-        case (false, true): //means all boxes unblocked (user has not boxes to unblock; all boxes has been found: distance < 100)
+        case (false, true): //means all boxes unblocked (user has not boxes to unblock; all boxes has been found: distance < treshold)
             return BoxFinderResult(boxID: 0, result: ResultVC.allUnblocked.type, distance: 0, resultInfoText: "allUnblockedTitle".localized(), resultDescription: "allUnblockedDesc".localized())
             
         case (false, false): //means no boxes reached with minimal distance
