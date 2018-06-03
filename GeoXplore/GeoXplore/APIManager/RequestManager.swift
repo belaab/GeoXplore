@@ -164,7 +164,6 @@ class RequestManager {
                 case .success(_):
                     if let json = response.result.value {
                         guard let jsonArray = json as? [[String: AnyObject]] else {return}
-                        print(jsonArray)
                         for item in jsonArray {
                             guard let user = Mapper<RankingUser>().map(JSON: item) else {return}
                             rankingUsers.append(user)
@@ -180,21 +179,21 @@ class RequestManager {
             })
     }
     
-    func postOpenedChest(chestID: Int, completion: @escaping(Bool, [String:Any]) -> Void) {
+    func postOpenedChest(chestID: String, completion: @escaping(Bool, String, Int) -> Void) {
         
-        Alamofire.request(RequestType.postOpenedChest.url, method: .post, parameters: , encoding: JSONEncoding.default, headers: getAuthorizationHeader())
+        Alamofire.request(RequestType.postOpenedChest(id: chestID).url,  method: .post, encoding: JSONEncoding.default, headers: getAuthorizationHeader())
             .validate(statusCode: 200..<300)
             .responseJSON { (response) in
                 switch(response.result) {
                 case .success(_):
-                    print("Status code: \(response.response!.statusCode)")
-                    print("SUCCESS")
-                    completion(true, nil)
+                    if let json = response.result.value {
+                        guard let jsonArray = json as? [String: Any],
+                            let experienceGained = jsonArray["expGained"] as? String else { return }
+                         completion(true, experienceGained, (response.response?.statusCode)!)
+                    }
                 case .failure(_):
-                    print("Status code: \(response.response!.statusCode)")
                     if let error = response.result.error {
-                        print(response.result.description)
-                        completion(false, error)
+                        completion(false, response.result.description, (response.response?.statusCode)!)
                     }
                 }
         }

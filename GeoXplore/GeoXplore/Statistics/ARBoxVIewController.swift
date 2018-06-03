@@ -19,7 +19,7 @@ class ARBoxVIewController: UIViewController {
     }
     
     private func postOpenedChest() {
-        RequestManager.sharedInstance.po
+      //  RequestManager.sharedInstance.po
     }
 
     
