@@ -61,11 +61,11 @@ class RequestManager {
     
         let model = APILocation(latitude: String(describing: latitude), longitude: String(describing: longitude))
         let jsonData = model.toJSON()
-        
-        let getToken =  KeychainWrapper.standard.string(forKey: "accessToken")
-        let headers: HTTPHeaders = ["Authorization": getToken! ] //getToken!
-        
-        Alamofire.request(RequestType.postLocation.url, method: .post, parameters: jsonData, encoding: JSONEncoding.default, headers: headers)
+//
+//        let getToken =  KeychainWrapper.standard.string(forKey: "accessToken")
+//        let headers: HTTPHeaders = ["Authorization": getToken! ] //getToken!
+//
+        Alamofire.request(RequestType.postLocation.url, method: .post, parameters: jsonData, encoding: JSONEncoding.default, headers: getAuthorizationHeader())
             .validate(statusCode: 200..<300)
             .responseJSON { (response) in
             switch(response.result) {
@@ -76,31 +76,27 @@ class RequestManager {
             case .failure(_):
                 print("Status code: \(response.response!.statusCode)")
                 if let error = response.result.error {
-                    print(response.result.error)
+                    print(response.result.description)
                     completion(false, error)
                 }
             }
         }
     }
     
+    
     func getHomeLocation(completion: @escaping(Bool, APILocation?, Int?) -> Void) {
         
-        let getToken =  KeychainWrapper.standard.string(forKey: "accessToken")
-        let headers: HTTPHeaders = ["Authorization": getToken!]
-        //var userLocationModel: APILocation? = nil
-        
-        Alamofire.request(RequestType.getHome.url, method: .get, encoding: JSONEncoding.default, headers: headers)
+//        let getToken =  KeychainWrapper.standard.string(forKey: "accessToken")
+//        let headers: HTTPHeaders = ["Authorization": getToken!]
+
+        Alamofire.request(RequestType.getHome.url, method: .get, encoding: JSONEncoding.default, headers: getAuthorizationHeader())
             .validate(statusCode: 200..<300)
             .responseJSON(completionHandler: { (response:DataResponse<Any>) in
                 switch(response.result) {
                 case .success(_):
                     if let json = response.result.value {
-                        print(json)
                         guard let jsonItem = json as? [String: Any] else {return}
-                        print(jsonItem)
                         guard let homeLocation = Mapper<APILocation>().map(JSON: jsonItem) else {return}
-                        print(homeLocation.latitude)
-                        print(homeLocation.longitude)
                         completion(true, homeLocation, nil)
                     }
                 case .failure(_):
@@ -115,11 +111,11 @@ class RequestManager {
     
     func getBoxesPositions(completion: @escaping(Bool, [Box], Error?) -> Void) {
         
-        let getToken =  KeychainWrapper.standard.string(forKey: "accessToken")
-        let headers: HTTPHeaders = ["Authorization": getToken!]
+//        let getToken =  KeychainWrapper.standard.string(forKey: "accessToken")
+//        let headers: HTTPHeaders = ["Authorization": getToken!]
         var boxDetails = [Box]()
         
-        Alamofire.request(RequestType.getBoxes.url, method: .get, encoding: JSONEncoding.default, headers: headers)
+        Alamofire.request(RequestType.getBoxes.url, method: .get, encoding: JSONEncoding.default, headers: getAuthorizationHeader())
             .validate(statusCode: 200..<300)
             .responseJSON(completionHandler: { (response:DataResponse<Any>) in
             switch(response.result) {
@@ -144,10 +140,10 @@ class RequestManager {
     
     func getUserStatistics(completion: @escaping(Bool, UserProfile?, Error?) -> Void) {
         
-        let getToken =  KeychainWrapper.standard.string(forKey: "accessToken")
-        let headers: HTTPHeaders = ["Authorization": getToken!]
+//        let getToken =  KeychainWrapper.standard.string(forKey: "accessToken")
+//        let headers: HTTPHeaders = ["Authorization": getToken!]
         
-        Alamofire.request(RequestType.getStatistics.url, method: .get, encoding: JSONEncoding.default, headers: headers)
+        Alamofire.request(RequestType.getStatistics.url, method: .get, encoding: JSONEncoding.default, headers: getAuthorizationHeader())
             .validate(statusCode: 200..<300)
             .responseJSON(completionHandler: { (response:DataResponse<Any>) in
                 switch(response.result) {
@@ -170,11 +166,11 @@ class RequestManager {
     
     func getRankingUsers(completion: @escaping(Bool, [RankingUser]?, Error?) -> Void) {
         
-        let getToken =  KeychainWrapper.standard.string(forKey: "accessToken")
-        let headers: HTTPHeaders = ["Authorization": getToken!]
+//        let getToken =  KeychainWrapper.standard.string(forKey: "accessToken")
+//        let headers: HTTPHeaders = ["Authorization": getToken!]
         var rankingUsers = [RankingUser]()
         
-        Alamofire.request(RequestType.getRanking.url, method: .get, encoding: JSONEncoding.default, headers: headers)
+        Alamofire.request(RequestType.getRanking.url, method: .get, encoding: JSONEncoding.default, headers: getAuthorizationHeader())
             .validate(statusCode: 200..<300)
             .responseJSON(completionHandler: { (response:DataResponse<Any>) in
                 switch(response.result) {
@@ -190,7 +186,6 @@ class RequestManager {
                     }
                 case .failure(_):
                     if let error = response.result.error {
-                       // response.response?.statusCode
                         print("Status error code: \(String(describing: response.response?.statusCode))")
                         completion(false, nil, error)
                     }
@@ -199,9 +194,19 @@ class RequestManager {
     }
     
     
+}
+
+extension RequestManager {
     
-    
-    
+    func getAuthorizationHeader() -> HTTPHeaders {
+        if let token = KeychainWrapper.standard.string(forKey: "accessToken") {
+            let authHeader = ["Authorization": token ] as HTTPHeaders
+            return authHeader
+        } else {
+            print("Failed while getting auth token")
+            return ["":""]
+        }
+    }
 }
 
 

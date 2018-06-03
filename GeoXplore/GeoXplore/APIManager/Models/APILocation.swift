@@ -19,12 +19,12 @@ class APILocation: Mappable {
         self.longitude = longitude
     }
     
-     init?(map: Map) {
+    required init?(map: Map) {
         self.latitude = "0"
         self.longitude = "0"
     }
 
-    mutating func mapping(map: Map) {
+    func mapping(map: Map) {
         self.latitude <- map["latitude"]
         self.longitude <- map["longitude"]
     }
