@@ -30,12 +30,12 @@ struct Box: Mappable {
     }
     
     mutating func mapping(map: Map) {
+        id <- map["id"]
         longitude <- map["longitude"]
         latitude <- map["latitude"]
         opened <- map["opened"]
         dateCreated <- map["dateCreated"]
         dateFound <- map["dateFound"]
-        opened <- map["opened"]
         value <- map["value"]
     }
 }
