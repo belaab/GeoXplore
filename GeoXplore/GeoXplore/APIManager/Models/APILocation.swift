@@ -11,20 +11,21 @@ import ObjectMapper
 
 class APILocation: Mappable {
     
-    var longitude: Double?
-    var latitude: Double?
+    var latitude: String
+    var longitude: String
     
-    init(longitude: Double?, latitude: Double?) {
-        self.longitude = longitude
+    init(latitude: String, longitude: String) {
         self.latitude = latitude
+        self.longitude = longitude
     }
     
     required init?(map: Map) {
+        self.latitude = "0"
+        self.longitude = "0"
     }
-    
+
     func mapping(map: Map) {
-        self.longitude <- map["longitude"]
         self.latitude <- map["latitude"]
- 
+        self.longitude <- map["longitude"]
     }
 }

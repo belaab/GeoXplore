@@ -15,10 +15,13 @@ enum RequestType {
     case getBoxes
     case getStatistics
     case getRanking
+    case postOpenedChest(id: String)
+    case getHome
 }
 
+
 extension RequestType: TargetType {
-    
+
     var url: URL {
         switch self {
         case .login:
@@ -33,6 +36,10 @@ extension RequestType: TargetType {
             return URL(string: "https://geoxplore-api.herokuapp.com/user/my-statistics")!
         case .getRanking:
             return URL(string: "https://geoxplore-api.herokuapp.com/community/ranking")!
+        case .postOpenedChest(let id):
+            return URL(string: "https://geoxplore-api.herokuapp.com/user/open-chest/" + id)!
+        case .getHome:
+            return URL(string: "https://geoxplore-api.herokuapp.com/user/get-home")!
         }
         
     }

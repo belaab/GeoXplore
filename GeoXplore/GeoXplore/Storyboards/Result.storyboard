@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="ArialRoundedMTBold.ttf">
+            <string>ArialRoundedMTBold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Box Finder Result View Controller-->
+        <scene sceneID="VMm-Md-aID">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mtk-SW-qsS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="resultViewController" id="hAC-gF-Foa" customClass="BoxFinderResultViewController" customModule="GeoXplore" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2GD-8z-Bwd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="allCollectedBackground" translatesAutoresizingMaskIntoConstraints="NO" id="2pH-uy-Ih3">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="czA-uQ-igG">
+                                <rect key="frame" x="10" y="60" width="394" height="636"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONGRATULATIONS!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYn-iy-hYi">
+                                        <rect key="frame" x="20" y="0.0" width="354" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="TZ7-Oi-9iy"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="28"/>
+                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are close enough to unblock the chest. Click button to see the box and collect them." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tJS-UN-x9c">
+                                        <rect key="frame" x="47" y="122" width="300" height="110"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="Xve-a2-Nfb"/>
+                                            <constraint firstAttribute="height" constant="110" id="jYL-Oy-2wH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="22"/>
+                                        <color key="textColor" red="0.76683434322656563" green="0.95444263059701495" blue="0.916783206422219" alpha="0.88274372799295775" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="distanceOval" translatesAutoresizingMaskIntoConstraints="NO" id="z5z-T5-F6K">
+                                        <rect key="frame" x="87" y="294" width="220" height="220"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="220" id="8LK-Ue-stq"/>
+                                            <constraint firstAttribute="height" constant="220" id="q6G-Sh-Rk7"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q4W-gJ-EXu">
+                                        <rect key="frame" x="25" y="576" width="344" height="60"/>
+                                        <color key="backgroundColor" red="0.36804739599223141" green="0.72302938432835817" blue="0.60269073240643667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="0av-d3-qL8"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
+                                        <state key="normal" title="GO!">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="30"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="showNextView:" destination="hAC-gF-Foa" eventType="touchUpInside" id="WBh-ag-aGa"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="q4W-gJ-EXu" firstAttribute="leading" secondItem="czA-uQ-igG" secondAttribute="leading" constant="25" id="6AA-kX-YSM"/>
+                                    <constraint firstItem="pYn-iy-hYi" firstAttribute="leading" secondItem="czA-uQ-igG" secondAttribute="leading" constant="20" id="VTh-bl-sm5"/>
+                                    <constraint firstAttribute="trailing" secondItem="q4W-gJ-EXu" secondAttribute="trailing" constant="25" id="k4q-Iw-WY6"/>
+                                    <constraint firstAttribute="trailing" secondItem="pYn-iy-hYi" secondAttribute="trailing" constant="20" id="kkd-4l-l7m"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="unb-Rr-jCt">
+                                <rect key="frame" x="97" y="464.66666666666669" width="220" height="46.333333333333314"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="23m">
+                                        <attributes>
+                                            <color key="NSColor" red="0.97506248414845598" green="1" blue="0.97963048981939616" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="40" name="ArialRoundedMTBold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ziY-OW-flz">
+                                <rect key="frame" x="97" y="386" width="220" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="2hJ-E8-bSH"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="closest      chest distance:">
+                                        <attributes>
+                                            <color key="NSColor" red="0.93244709707299067" green="0.96314132462686564" blue="0.95735549727725677" alpha="0.61108054577464788" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="24" name="ArialRoundedMTBold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_box" translatesAutoresizingMaskIntoConstraints="NO" id="AT0-XN-YSK">
+                                <rect key="frame" x="117" y="383" width="180" height="180"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="viZ-KT-4xL" firstAttribute="leading" secondItem="czA-uQ-igG" secondAttribute="leading" constant="-10" id="02a-UR-Yzf"/>
+                            <constraint firstItem="unb-Rr-jCt" firstAttribute="leading" secondItem="z5z-T5-F6K" secondAttribute="leading" constant="0.16666666666674246" id="1q0-xa-etD"/>
+                            <constraint firstItem="2pH-uy-Ih3" firstAttribute="trailing" secondItem="2GD-8z-Bwd" secondAttribute="trailing" id="5Vn-Jx-kTA"/>
+                            <constraint firstItem="2pH-uy-Ih3" firstAttribute="leading" secondItem="2GD-8z-Bwd" secondAttribute="leading" id="COU-OK-TZ2"/>
+                            <constraint firstItem="ziY-OW-flz" firstAttribute="trailing" secondItem="z5z-T5-F6K" secondAttribute="trailing" id="Fxk-lc-EeC"/>
+                            <constraint firstItem="AT0-XN-YSK" firstAttribute="leading" secondItem="z5z-T5-F6K" secondAttribute="leading" constant="20" id="GL5-Ge-PtE"/>
+                            <constraint firstItem="viZ-KT-4xL" firstAttribute="bottom" secondItem="czA-uQ-igG" secondAttribute="bottom" constant="40" id="KMq-3I-atm"/>
+                            <constraint firstItem="AT0-XN-YSK" firstAttribute="trailing" secondItem="z5z-T5-F6K" secondAttribute="trailing" constant="-20" id="NHO-eG-Uln"/>
+                            <constraint firstItem="unb-Rr-jCt" firstAttribute="trailing" secondItem="z5z-T5-F6K" secondAttribute="trailing" constant="0.16666666666674246" id="Npp-rQ-JU0"/>
+                            <constraint firstItem="czA-uQ-igG" firstAttribute="top" secondItem="viZ-KT-4xL" secondAttribute="top" constant="40" id="Rom-IH-4eX"/>
+                            <constraint firstItem="AT0-XN-YSK" firstAttribute="bottom" secondItem="z5z-T5-F6K" secondAttribute="bottom" constant="-11" id="V9Y-Ly-KLj"/>
+                            <constraint firstItem="ziY-OW-flz" firstAttribute="top" secondItem="z5z-T5-F6K" secondAttribute="top" constant="32" id="Yak-uN-Ik1"/>
+                            <constraint firstItem="2pH-uy-Ih3" firstAttribute="bottom" secondItem="2GD-8z-Bwd" secondAttribute="bottom" id="aja-Rw-v68"/>
+                            <constraint firstItem="AT0-XN-YSK" firstAttribute="top" secondItem="z5z-T5-F6K" secondAttribute="top" constant="29" id="jwi-QQ-1eX"/>
+                            <constraint firstItem="viZ-KT-4xL" firstAttribute="trailing" secondItem="czA-uQ-igG" secondAttribute="trailing" constant="10" id="lTc-3K-hu9"/>
+                            <constraint firstItem="ziY-OW-flz" firstAttribute="leading" secondItem="z5z-T5-F6K" secondAttribute="leading" id="usL-MU-r6k"/>
+                            <constraint firstItem="unb-Rr-jCt" firstAttribute="bottom" secondItem="z5z-T5-F6K" secondAttribute="bottom" constant="-63" id="usj-OQ-Oc0"/>
+                            <constraint firstItem="2pH-uy-Ih3" firstAttribute="top" secondItem="2GD-8z-Bwd" secondAttribute="top" id="w9N-Pi-S3q"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="viZ-KT-4xL"/>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundImage" destination="2pH-uy-Ih3" id="UMI-gj-YQR"/>
+                        <outlet property="distanceLabel" destination="unb-Rr-jCt" id="Kun-tY-yVQ"/>
+                        <outlet property="distanceOval" destination="z5z-T5-F6K" id="XbX-cq-KOy"/>
+                        <outlet property="distanceTitleLabel" destination="ziY-OW-flz" id="VBl-di-Tqg"/>
+                        <outlet property="resultDescriptionLabel" destination="tJS-UN-x9c" id="L4v-ES-IKx"/>
+                        <outlet property="resultTitleLabel" destination="pYn-iy-hYi" id="uR0-am-Wss"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-1320.8" y="262.21889055472263"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="allCollectedBackground" width="1085" height="1920"/>
+        <image name="distanceOval" width="500" height="500"/>
+        <image name="white_box" width="128" height="128"/>
+    </resources>
+</document>

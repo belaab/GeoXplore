@@ -17,10 +17,11 @@
 		2B1DA10A20AB07380059E7E7 /* RankingViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B1DA10820AB07380059E7E7 /* RankingViewCell.xib */; };
 		2B1DA10C20AB104B0059E7E7 /* APIRankingUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1DA10B20AB104B0059E7E7 /* APIRankingUser.swift */; };
 		2B1DA10E20AB8C660059E7E7 /* ARBoxVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1DA10D20AB8C660059E7E7 /* ARBoxVIewController.swift */; };
-		2B1DA11020AB91E50059E7E7 /* boxScene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 2B1DA10F20AB91E50059E7E7 /* boxScene.scn */; };
 		2B1DA11220AB950F0059E7E7 /* ARBox.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B1DA11120AB950F0059E7E7 /* ARBox.storyboard */; };
 		2B1DA11620ABA0990059E7E7 /* Textures in Resources */ = {isa = PBXBuildFile; fileRef = 2B1DA11520ABA0990059E7E7 /* Textures */; };
 		2B1DA11920ABA1540059E7E7 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B1DA11820ABA1540059E7E7 /* art.scnassets */; };
+		2B3080EE20BD7A29007721EC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3080ED20BD7A29007721EC /* Constants.swift */; };
+		2B3080F020BD8018007721EC /* CustomPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3080EF20BD8018007721EC /* CustomPointAnnotation.swift */; };
 		2B32D14020834DC700642738 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B32D13F20834DC700642738 /* RequestManager.swift */; };
 		2B32D1442083523600642738 /* APIRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B32D1432083523600642738 /* APIRegister.swift */; };
 		2B3A03DA20A728EB00CF13A3 /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3A03D920A728EB00CF13A3 /* HideKeyboard.swift */; };
@@ -42,10 +43,15 @@
 		2BED38A82086085B00D734D7 /* BoxExplorer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BED38A72086085B00D734D7 /* BoxExplorer.storyboard */; };
 		2BED38AA20864E1700D734D7 /* BoxExplorerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BED38A920864E1700D734D7 /* BoxExplorerViewController.swift */; };
 		2BED38AC208653C600D734D7 /* APIBoxModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BED38AB208653C600D734D7 /* APIBoxModel.swift */; };
-		2BED38AE2086B13E00D734D7 /* CongratsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BED38AD2086B13E00D734D7 /* CongratsViewController.swift */; };
-		2BED38B02086B16700D734D7 /* Congrats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BED38AF2086B16700D734D7 /* Congrats.storyboard */; };
+		2BED38AE2086B13E00D734D7 /* BoxFinderResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BED38AD2086B13E00D734D7 /* BoxFinderResultViewController.swift */; };
+		2BED38B02086B16700D734D7 /* Result.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BED38AF2086B16700D734D7 /* Result.storyboard */; };
 		2BF567BB2084F3AA00F8E6CF /* SetLocation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BF567BA2084F3AA00F8E6CF /* SetLocation.storyboard */; };
 		2BF567BD2084F60E00F8E6CF /* SetLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF567BC2084F60E00F8E6CF /* SetLocationViewController.swift */; };
+		2BFF29D01EE1B7C50032648D /* ResultVCTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF29CF1EE1B7C50032648D /* ResultVCTypes.swift */; };
+		2BFF29D220C2F6FE0032648D /* DistanceConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF29D120C2F6FE0032648D /* DistanceConverter.swift */; };
+		2BFF354F20C1B9F100E3EFBF /* BoxFinderResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF354E20C1B9F100E3EFBF /* BoxFinderResult.swift */; };
+		2BFF355220C1DB8F00E3EFBF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BFF355120C1DB8F00E3EFBF /* Localizable.strings */; };
+		2BFF355420C1DED400E3EFBF /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF355320C1DED400E3EFBF /* LocalizedStrings.swift */; };
 		514D49B39D49978513EA0016 /* Pods_GeoXplore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C62D332798919C75732A4D6 /* Pods_GeoXplore.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,10 +67,11 @@
 		2B1DA10820AB07380059E7E7 /* RankingViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingViewCell.xib; sourceTree = "<group>"; };
 		2B1DA10B20AB104B0059E7E7 /* APIRankingUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRankingUser.swift; sourceTree = "<group>"; };
 		2B1DA10D20AB8C660059E7E7 /* ARBoxVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARBoxVIewController.swift; sourceTree = "<group>"; };
-		2B1DA10F20AB91E50059E7E7 /* boxScene.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = boxScene.scn; sourceTree = "<group>"; };
 		2B1DA11120AB950F0059E7E7 /* ARBox.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ARBox.storyboard; sourceTree = "<group>"; };
 		2B1DA11520ABA0990059E7E7 /* Textures */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Textures; sourceTree = "<group>"; };
 		2B1DA11820ABA1540059E7E7 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		2B3080ED20BD7A29007721EC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2B3080EF20BD8018007721EC /* CustomPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPointAnnotation.swift; sourceTree = "<group>"; };
 		2B32D13F20834DC700642738 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		2B32D1432083523600642738 /* APIRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRegister.swift; sourceTree = "<group>"; };
 		2B3A03D920A728EB00CF13A3 /* HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
@@ -88,10 +95,15 @@
 		2BED38A72086085B00D734D7 /* BoxExplorer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BoxExplorer.storyboard; sourceTree = "<group>"; };
 		2BED38A920864E1700D734D7 /* BoxExplorerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxExplorerViewController.swift; sourceTree = "<group>"; };
 		2BED38AB208653C600D734D7 /* APIBoxModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIBoxModel.swift; sourceTree = "<group>"; };
-		2BED38AD2086B13E00D734D7 /* CongratsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsViewController.swift; sourceTree = "<group>"; };
-		2BED38AF2086B16700D734D7 /* Congrats.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Congrats.storyboard; sourceTree = "<group>"; };
+		2BED38AD2086B13E00D734D7 /* BoxFinderResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxFinderResultViewController.swift; sourceTree = "<group>"; };
+		2BED38AF2086B16700D734D7 /* Result.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Result.storyboard; sourceTree = "<group>"; };
 		2BF567BA2084F3AA00F8E6CF /* SetLocation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetLocation.storyboard; sourceTree = "<group>"; };
 		2BF567BC2084F60E00F8E6CF /* SetLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLocationViewController.swift; sourceTree = "<group>"; };
+		2BFF29CF1EE1B7C50032648D /* ResultVCTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultVCTypes.swift; sourceTree = "<group>"; };
+		2BFF29D120C2F6FE0032648D /* DistanceConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceConverter.swift; sourceTree = "<group>"; };
+		2BFF354E20C1B9F100E3EFBF /* BoxFinderResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxFinderResult.swift; sourceTree = "<group>"; };
+		2BFF355120C1DB8F00E3EFBF /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		2BFF355320C1DED400E3EFBF /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
 		B2EF8CD55388AEB04B96C030 /* Pods-GeoXplore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoXplore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoXplore/Pods-GeoXplore.debug.xcconfig"; sourceTree = "<group>"; };
 		D9CEC8B3CA0ED479C07F28F2 /* Pods-GeoXplore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoXplore.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeoXplore/Pods-GeoXplore.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -155,7 +167,9 @@
 			children = (
 				2B3A03D920A728EB00CF13A3 /* HideKeyboard.swift */,
 				2B3A03DB20A72C0300CF13A3 /* ValidatingInputs.swift */,
+				2BFF355320C1DED400E3EFBF /* LocalizedStrings.swift */,
 				2B1DA10120AAE48A0059E7E7 /* DoubleToPercentages.swift */,
+				2BFF29D120C2F6FE0032648D /* DistanceConverter.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -166,7 +180,7 @@
 				2B1DA11120AB950F0059E7E7 /* ARBox.storyboard */,
 				2BF567BA2084F3AA00F8E6CF /* SetLocation.storyboard */,
 				2BED38A72086085B00D734D7 /* BoxExplorer.storyboard */,
-				2BED38AF2086B16700D734D7 /* Congrats.storyboard */,
+				2BED38AF2086B16700D734D7 /* Result.storyboard */,
 				2BC0CC5820784385001033B0 /* ChooseSignUpIn.storyboard */,
 				2BC0CC61207B736D001033B0 /* Register.storyboard */,
 				2BC0CC5920784386001033B0 /* Login.storyboard */,
@@ -198,6 +212,7 @@
 		2BC0CC3020778D0C001033B0 /* GeoXplore */ = {
 			isa = PBXGroup;
 			children = (
+				2BFF354D20C1B8D100E3EFBF /* Models */,
 				2B1DA0FB20AA139D0059E7E7 /* Statistics */,
 				2B3A03D820A728CA00CF13A3 /* Extensions */,
 				2B487E7C2090C1D800B81492 /* Storyboards */,
@@ -208,7 +223,6 @@
 				2BC0CC3120778D0C001033B0 /* AppDelegate.swift */,
 				2BC0CC3A20778D0C001033B0 /* LaunchScreen.storyboard */,
 				2BC0CC3D20778D0C001033B0 /* Info.plist */,
-				2B1DA10F20AB91E50059E7E7 /* boxScene.scn */,
 			);
 			path = GeoXplore;
 			sourceTree = "<group>";
@@ -231,6 +245,9 @@
 				2BD97C77207D41090033AA26 /* TargetType.swift */,
 				2B18832F20B48B7100E45E1B /* CustomTabBarController.swift */,
 				2B07ECFB20B59B82002FFEE7 /* Colors.swift */,
+				2B3080ED20BD7A29007721EC /* Constants.swift */,
+				2BFF355120C1DB8F00E3EFBF /* Localizable.strings */,
+				2BFF29CF1EE1B7C50032648D /* ResultVCTypes.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -240,9 +257,18 @@
 			children = (
 				2BF567BC2084F60E00F8E6CF /* SetLocationViewController.swift */,
 				2BED38A920864E1700D734D7 /* BoxExplorerViewController.swift */,
-				2BED38AD2086B13E00D734D7 /* CongratsViewController.swift */,
+				2BED38AD2086B13E00D734D7 /* BoxFinderResultViewController.swift */,
 			);
 			path = MapManagement;
+			sourceTree = "<group>";
+		};
+		2BFF354D20C1B8D100E3EFBF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2B3080EF20BD8018007721EC /* CustomPointAnnotation.swift */,
+				2BFF354E20C1B9F100E3EFBF /* BoxFinderResult.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		E72F4648A7B2298B1C06F5B0 /* Pods */ = {
@@ -323,9 +349,9 @@
 				2B1DA10A20AB07380059E7E7 /* RankingViewCell.xib in Resources */,
 				2B1DA11620ABA0990059E7E7 /* Textures in Resources */,
 				2BC0CC5C20784386001033B0 /* Login.storyboard in Resources */,
-				2BED38B02086B16700D734D7 /* Congrats.storyboard in Resources */,
+				2BED38B02086B16700D734D7 /* Result.storyboard in Resources */,
 				2BED38A82086085B00D734D7 /* BoxExplorer.storyboard in Resources */,
-				2B1DA11020AB91E50059E7E7 /* boxScene.scn in Resources */,
+				2BFF355220C1DB8F00E3EFBF /* Localizable.strings in Resources */,
 				2BC0CC5B20784386001033B0 /* ChooseSignUpIn.storyboard in Resources */,
 				2BED38A420854FB200D734D7 /* Assets.xcassets in Resources */,
 				2BC0CC62207B736D001033B0 /* Register.storyboard in Resources */,
@@ -403,11 +429,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BED38AE2086B13E00D734D7 /* CongratsViewController.swift in Sources */,
+				2BED38AE2086B13E00D734D7 /* BoxFinderResultViewController.swift in Sources */,
 				2B32D14020834DC700642738 /* RequestManager.swift in Sources */,
 				2BED38AA20864E1700D734D7 /* BoxExplorerViewController.swift in Sources */,
 				2B1DA10220AAE48A0059E7E7 /* DoubleToPercentages.swift in Sources */,
+				2BFF355420C1DED400E3EFBF /* LocalizedStrings.swift in Sources */,
 				2BC0CC5D20784386001033B0 /* ChooseSignUpInViewController.swift in Sources */,
+				2BFF354F20C1B9F100E3EFBF /* BoxFinderResult.swift in Sources */,
 				2BED38A220853A1500D734D7 /* GradientView.swift in Sources */,
 				2BED38A62085586600D734D7 /* APILocation.swift in Sources */,
 				2BD97C78207D41090033AA26 /* TargetType.swift in Sources */,
@@ -417,18 +445,22 @@
 				2B1DA10C20AB104B0059E7E7 /* APIRankingUser.swift in Sources */,
 				2B18833020B48B7100E45E1B /* CustomTabBarController.swift in Sources */,
 				2B3A03DA20A728EB00CF13A3 /* HideKeyboard.swift in Sources */,
+				2B3080F020BD8018007721EC /* CustomPointAnnotation.swift in Sources */,
 				2BC0CC60207AAC03001033B0 /* StoryboardManager.swift in Sources */,
 				2BC0CC66207B7D80001033B0 /* LoginViewController.swift in Sources */,
 				2BD97C7A207D41B60033AA26 /* UrlBuilder.swift in Sources */,
 				2B3A03DC20A72C0300CF13A3 /* ValidatingInputs.swift in Sources */,
+				2BFF29D220C2F6FE0032648D /* DistanceConverter.swift in Sources */,
 				2BC0CC64207B7CE3001033B0 /* RegisterViewController.swift in Sources */,
 				2B1DA10420AB062C0059E7E7 /* RankingViewController.swift in Sources */,
+				2BFF29D01EE1B7C50032648D /* ResultVCTypes.swift in Sources */,
 				2BF567BD2084F60E00F8E6CF /* SetLocationViewController.swift in Sources */,
 				2B07ECFC20B59B82002FFEE7 /* Colors.swift in Sources */,
 				2B1DA10920AB07380059E7E7 /* RankingViewCell.swift in Sources */,
 				2B32D1442083523600642738 /* APIRegister.swift in Sources */,
 				2BED38AC208653C600D734D7 /* APIBoxModel.swift in Sources */,
 				2B1DA10E20AB8C660059E7E7 /* ARBoxVIewController.swift in Sources */,
+				2B3080EE20BD7A29007721EC /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,6 +593,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K9ASVR2BY4;
 				INFOPLIST_FILE = GeoXplore/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ib.GeoXplore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -577,6 +610,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K9ASVR2BY4;
 				INFOPLIST_FILE = GeoXplore/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ib.GeoXplore;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  GeoXplore
+
+  Created by Izabela Brzeczek on 01.06.2018.
+  Copyright © 2018 Izabela Brzeczek. All rights reserved.
+*/
+
+//
+"successTitle" = "CONGRATULATIONS!";
+"successDescription" = "You are close enough to unblock the chest. Click button see the box and collect them.";
+
+"failTitle" = "NOT THIS TIME!";
+"failDescription" = "There is no chests to collect with your current position. Come closer to collect the box.";
+
+"allUnblockedTitle" = "WELL DONE!";
+"allUnblockedDesc" = "You have already collected all chests. Wait when new one appears!";

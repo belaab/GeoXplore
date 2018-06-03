@@ -8,20 +8,14 @@
 
 import UIKit
 import Mapbox
-//TODO: TODO: validating distance
 //TODO: TODO: handling errors
 
 class BoxExplorerViewController: UIViewController {
     
+    @IBOutlet weak var mapView: MGLMapView!
     var boxes = [Box]()
     var userLocation = CLLocation()
     var locationManager = CLLocationManager()
-    @IBOutlet weak var mapView: MGLMapView!
-    
-    @IBAction func checkLocation(_ sender: UIButton) {
-        checkingUserPosition()
-    }
-    
     
     override func viewDidLoad(){
         super.viewDidLoad()
@@ -34,14 +28,38 @@ class BoxExplorerViewController: UIViewController {
         determineMyCurrentLocation()
     }
     
-    private func getPositions(){
+    @IBAction func checkLocation(_ sender: UIButton) {
+        let resultViewController = StoryboardManager.resultViewController(model: configureResultModel())
+        self.present(resultViewController, animated: true, completion: nil)
+    }
+    
+    private func configureResultModel() -> BoxFinderResult {
+        
+        let(isUblockedBox, closestBoxDisnatce, unblockedBoxId) = checkingUserPosition()
+        let determineIfAlreadyOpened = closestBoxDisnatce.isLess(than: Constants.minimalDistanceToUnblockBox)
+        
+        switch (isUblockedBox, determineIfAlreadyOpened) {
+        
+        case (true, _): //means user reached minimal distance to box
+            return BoxFinderResult(boxID: unblockedBoxId, result: ResultVC.success.type, distance: closestBoxDisnatce, resultInfoText: "successTitle".localized(), resultDescription: "successDescription".localized())
+            
+        case (false, true): //means all boxes unblocked (user has not boxes to unblock; all boxes has been found: distance < 100)
+            return BoxFinderResult(boxID: 0, result: ResultVC.allUnblocked.type, distance: 0, resultInfoText: "allUnblockedTitle".localized(), resultDescription: "allUnblockedDesc".localized())
+            
+        case (false, false): //means no boxes reached with minimal distance
+            return BoxFinderResult(boxID: 0, result: ResultVC.failure.type, distance: closestBoxDisnatce, resultInfoText: "failTitle".localized(), resultDescription: "failDescription".localized())
+        }
+    }
+    
+
+    private func getPositions() {
         RequestManager.sharedInstance.getBoxesPositions { (success, boxesArray, error) in
             if success {
                 self.boxes = boxesArray
                 boxesArray.forEach({ box in
-                    let annotation = MGLPointAnnotation()
+                    let annotation = CustomPointAnnotation(id: box.id, dateCreated: box.dateCreated, dateFound: box.dateFound, opened: box.opened, value: box.value)
                     print(box.latitude,box.longitude)
-                    annotation.coordinate = CLLocationCoordinate2DMake(box.longitude, box.latitude)
+                    annotation.coordinate = CLLocationCoordinate2DMake(box.latitude, box.longitude)
                     switch box.opened {
                     case false:
                         annotation.title = "closed"
@@ -57,36 +75,40 @@ class BoxExplorerViewController: UIViewController {
     }
     
     
-    private func checkingUserPosition() {
+    private func checkingUserPosition() -> (isUnblockedBox: Bool, closestBoxDistance: Double, chestID: Int) {
         
-        guard let pins = mapView.annotations else { return }
+        guard let pins = mapView.annotations as? [CustomPointAnnotation] else { return (false, 0.0, 0) }
         let userCoordinate = CLLocation(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
+        var distancesToAllBoxes = [CLLocationDistance]()
+        let closedBoxes = pins.filter { $0.title != "opened" }
+        if closedBoxes.count == 0 { return (false, 0.0, 0)}
         
-        pins.forEach { pin in
-            let coordinate = CLLocation(latitude: pin.coordinate.latitude, longitude: pin.coordinate.longitude)
-            let distanceInMeters: CLLocationDistance = coordinate.distance(from: userCoordinate)
-            print("distanceInMeters: \(distanceInMeters)")
-            
-            if distanceInMeters < 100 {
-                let newPin = MGLPointAnnotation()
+        for pin in closedBoxes {
+            let pinCoordinate = CLLocation(latitude: pin.coordinate.latitude, longitude: pin.coordinate.longitude)
+            let distanceInMeters: CLLocationDistance = pinCoordinate.distance(from: userCoordinate)
+            print("Distance in meters: \(distanceInMeters)")
+        
+            if distanceInMeters < Constants.minimalDistanceToUnblockBox && (pin.title!) == "closed" {
+                let newPin = CustomPointAnnotation(id: pin.id, dateCreated: pin.dateCreated, dateFound: pin.dateFound, opened: pin.opened, value: pin.value)
                 newPin.coordinate = pin.coordinate
                 newPin.title = "opened"
                 mapView.removeAnnotation(pin)
                 mapView.addAnnotation(newPin)
-                
-                let congratsViewController = StoryboardManager.congratsViewController()
-                self.present(congratsViewController, animated: true, completion: nil)
+                return (true, distanceInMeters, pin.id)
+            } else if distanceInMeters > Constants.minimalDistanceToUnblockBox && (pin.title!) == "closed" {
+                distancesToAllBoxes.append(distanceInMeters)
             }
-        
         }
+        return (false, distancesToAllBoxes.sorted { $0 < $1 }.first!, 0)
     }
     
-    private func viewSetup(){
+    private func viewSetup() {
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.delegate = self
         view.addSubview(mapView)
         mapView.showsUserLocation = true
     }
+    
     
     private func determineMyCurrentLocation() {
         locationManager.delegate = self
