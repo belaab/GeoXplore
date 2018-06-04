@@ -10,7 +10,7 @@ GeoXplore is a university project game app for mobile platforms with [provided A
 - Unblock the boxes with Augumented Reality by reaching minimal distance between your location and box
 - Gain experience, collect badges
 
-![boxexplorer1](https://user-images.githubusercontent.com/17625089/40445438-5a10ec66-5ecc-11e8-978c-eb9a7bd3fa7a.gif)
+![homelocation](https://user-images.githubusercontent.com/17625089/40945962-564bbce4-685b-11e8-8efc-22d5dc71777b.gif)
 ![boxexplorer2](https://user-images.githubusercontent.com/17625089/40445130-8abd4496-5ecb-11e8-9317-ad47c6ee4822.gif)
 ![rankinggif](https://user-images.githubusercontent.com/17625089/40443507-d52e52c2-5ec6-11e8-9bb8-1336d003fac0.gif) 
 
