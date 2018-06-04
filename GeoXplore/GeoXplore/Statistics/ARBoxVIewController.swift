@@ -11,8 +11,16 @@ import ARKit
 
 class ARBoxVIewController: UIViewController {
 
+    @IBOutlet weak var sceneView: ARSCNView!
     private let configuration = ARWorldTrackingConfiguration()
     var unblockedBoxID: Int = 0
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.sceneView.session.run(configuration)
+        self.sceneView.autoenablesDefaultLighting = true
+        addARBox()
+    }
    
     @IBAction func dismiss(_ sender: UIButton) {
         sendOpenedChest(chestID: unblockedBoxID)
@@ -29,17 +37,7 @@ class ARBoxVIewController: UIViewController {
             }
         }
     }
-    
-    
-    @IBOutlet weak var sceneView: ARSCNView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.sceneView.session.run(configuration)
-        self.sceneView.autoenablesDefaultLighting = true
-        addARBox()
-    }
-    
+
     private func addARBox() {
        
         let spotLight = SCNNode()
@@ -69,6 +67,5 @@ class ARBoxVIewController: UIViewController {
         sceneView.scene.rootNode.addChildNode(spotLight)
         sceneView.scene.rootNode.addChildNode(systemNode)
     }
-
-
+    
 }
