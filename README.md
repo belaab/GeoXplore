@@ -11,7 +11,7 @@ GeoXplore is a university project game app for mobile platforms with [provided A
 - Gain experience, collect badges
 
 ![homelocation](https://user-images.githubusercontent.com/17625089/40945962-564bbce4-685b-11e8-8efc-22d5dc71777b.gif)
-![boxexplorer2](https://user-images.githubusercontent.com/17625089/40445130-8abd4496-5ecb-11e8-9317-ad47c6ee4822.gif)
+![boxxx](https://user-images.githubusercontent.com/17625089/40946296-1097cc40-685d-11e8-9571-667e3c1d4571.gif)
 ![rankinggif](https://user-images.githubusercontent.com/17625089/40443507-d52e52c2-5ec6-11e8-9bb8-1336d003fac0.gif) 
 
 
