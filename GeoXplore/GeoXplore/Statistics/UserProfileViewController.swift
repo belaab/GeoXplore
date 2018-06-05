@@ -24,6 +24,9 @@ class UserProfileViewController: UIViewController {
         getUserProfileInfo()
     }
     
+    @IBAction func edtitAvatarBtn(_ sender: UIButton) {
+    }
+    
     private func setupView() {
         userPhoto.layer.cornerRadius = self.userPhoto.frame.size.width / 2;
         userPhoto.clipsToBounds = true

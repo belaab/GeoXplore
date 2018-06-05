@@ -378,6 +378,9 @@
                                                 <constraint firstAttribute="height" constant="30" id="xgx-hE-qbn"/>
                                             </constraints>
                                             <state key="normal" image="editAvatar"/>
+                                            <connections>
+                                                <action selector="edtitAvatarBtn:" destination="WFT-sk-Hfl" eventType="touchUpInside" id="QXa-n5-jO4"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>

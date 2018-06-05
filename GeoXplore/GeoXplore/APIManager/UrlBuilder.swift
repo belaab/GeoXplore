@@ -17,6 +17,8 @@ enum RequestType {
     case getRanking
     case postOpenedChest(id: String)
     case getHome
+    case editAvatar
+    case downloadAvatar
 }
 
 
@@ -40,6 +42,10 @@ extension RequestType: TargetType {
             return URL(string: "https://geoxplore-api.herokuapp.com/user/open-chest/" + id)!
         case .getHome:
             return URL(string: "https://geoxplore-api.herokuapp.com/user/get-home")!
+        case .editAvatar:
+            return URL(string: "https://geoxplore-api.herokuapp.com/user/avatar")!
+        case .downloadAvatar:
+            return URL(string: "https://geoxplore-api.herokuapp.com/user/avatar")!
         }
         
     }
