@@ -96,7 +96,6 @@
                                 </connections>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="1Db-XO-X7l" firstAttribute="trailing" secondItem="aZa-ZG-2nH" secondAttribute="trailing" id="4Dj-ef-X3l"/>
                             <constraint firstItem="1Db-XO-X7l" firstAttribute="bottom" secondItem="aZa-ZG-2nH" secondAttribute="bottom" id="5Bz-3U-zVA"/>
@@ -119,7 +118,7 @@
             <objects>
                 <viewController id="WFT-sk-Hfl" customClass="UserProfileViewController" customModule="GeoXplore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lhx-Tu-MGJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smoothbackground" translatesAutoresizingMaskIntoConstraints="NO" id="EXU-zm-P0h">
@@ -391,7 +390,6 @@
                                 <blurEffect style="light"/>
                             </visualEffectView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="AEd-er-lkn" firstAttribute="top" secondItem="7wG-r1-g6k" secondAttribute="top" constant="-7" id="0TK-FP-XiY"/>
                             <constraint firstItem="L2N-KP-g4n" firstAttribute="leading" secondItem="CsP-4p-Lun" secondAttribute="leading" constant="16" id="0ax-md-ewC"/>
@@ -439,9 +437,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CsP-4p-Lun"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My profile" image="profile" id="PY5-mY-XcM">
-                        <color key="badgeColor" red="0.55006996268656716" green="0.15872212124214463" blue="0.096328395880356479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="My profile" image="profile" id="PY5-mY-XcM"/>
                     <connections>
                         <outlet property="UserExperience" destination="iGT-sE-cG1" id="5iK-nx-bmV"/>
                         <outlet property="toNextLevel" destination="hKn-fq-a2p" id="HOH-u9-sjF"/>
@@ -460,14 +456,14 @@
             <objects>
                 <viewController id="10J-Ra-Ruo" customClass="RankingViewController" customModule="GeoXplore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="07W-w3-8vQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smoothbackground" translatesAutoresizingMaskIntoConstraints="NO" id="JDm-3S-lTo">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="628"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ezi-1s-SDZ">
-                                <rect key="frame" x="4" y="60" width="367" height="558"/>
+                                <rect key="frame" x="4" y="60" width="367" height="607"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -478,7 +474,6 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ezi-1s-SDZ" firstAttribute="leading" secondItem="AcI-7j-un3" secondAttribute="leading" constant="4" id="TgB-zc-4hw"/>
                             <constraint firstItem="JDm-3S-lTo" firstAttribute="top" secondItem="07W-w3-8vQ" secondAttribute="top" id="VPl-um-oKW"/>
@@ -500,15 +495,16 @@
             </objects>
             <point key="canvasLocation" x="-220" y="1093.4032983508246"/>
         </scene>
-        <!--Custom Tab Bar Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="Juz-kK-KVA">
             <objects>
-                <tabBarController storyboardIdentifier="tabbarViewController" automaticallyAdjustsScrollViewInsets="NO" id="dbD-Ni-ajm" customClass="CustomTabBarController" customModule="GeoXplore" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabbarViewController" automaticallyAdjustsScrollViewInsets="NO" id="dbD-Ni-ajm" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="shq-fp-c2H">
+                    <tabBar key="tabBar" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backgroundImage="clear" itemPositioning="fill" id="shq-fp-c2H" customClass="CustomTabBar" customModule="GeoXplore" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.30351541999999998" green="0.70335820900000001" blue="0.53864003380000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.99773248484578658" green="0.99560485844081703" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.99773248479999999" green="0.99560485840000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="rQU-eb-MVY" kind="relationship" relationship="viewControllers" id="pdc-UK-EvL"/>
@@ -523,6 +519,7 @@
     </scenes>
     <resources>
         <image name="Oval" width="504" height="504"/>
+        <image name="clear" width="1" height="1"/>
         <image name="doge" width="534" height="550"/>
         <image name="editAvatar" width="64" height="64"/>
         <image name="greenBox" width="64" height="64"/>

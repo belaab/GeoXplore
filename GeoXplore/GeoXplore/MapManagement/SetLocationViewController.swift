@@ -101,6 +101,7 @@ class SetLocationViewController: UIViewController, NVActivityIndicatorViewable {
             if success {
                 print("Coordinates sent. longitude: \(longitude), latitude: \(latitude)")
                 self.activityIndicatorView.stopAnimating()
+                self.stopAnimating()
                 self.presentNewVC()
             } else {
                 print(error?.localizedDescription) //TODO

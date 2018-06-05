@@ -197,8 +197,11 @@ class RequestManager {
                     }
                 }
         })
-
     }
+    
+   // func editAvatar(completion: @escaping(Bool) -> Void) {
+//        Alamofire.request(RequestType.editAvatar.url, method: .post, parameters: , encoding: <#T##ParameterEncoding#>, headers: <#T##HTTPHeaders?#>)
+    //}
     
     
 }

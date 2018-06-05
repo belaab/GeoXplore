@@ -16,6 +16,8 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var userBoxesAmount: UILabel!
     @IBOutlet weak var toNextLevel: UILabel!
     @IBOutlet weak var userLevel: UILabel!
+    var chosenPhoto = UIImage()
+    var imagePicker = UIImagePickerController()
     
 
     override func viewDidLoad() {
@@ -25,6 +27,7 @@ class UserProfileViewController: UIViewController {
     }
     
     @IBAction func edtitAvatarBtn(_ sender: UIButton) {
+        showImagePicker()
     }
     
     private func setupView() {
@@ -58,6 +61,31 @@ class UserProfileViewController: UIViewController {
     }
 
  
+}
+
+extension UserProfileViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
+    private func showImagePicker() {
+        
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+            print("Button capture")
+            
+            imagePicker.delegate = self
+            imagePicker.sourceType = .savedPhotosAlbum;
+            imagePicker.allowsEditing = false
+            
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    private func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
+        self.dismiss(animated: true, completion: { () -> Void in
+            
+        })
+        
+        chosenPhoto = image
+        userPhoto.image = chosenPhoto
+    }
 }
 
 

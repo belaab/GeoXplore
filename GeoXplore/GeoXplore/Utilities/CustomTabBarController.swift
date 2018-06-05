@@ -12,7 +12,6 @@ class CustomTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        UITabBar.appearance().tintColor = Colors.loaderBackgroungPurple
-        UITabBar.appearance().barTintColor = Colors.tabBarSelectedItemColor
     }
+
 }

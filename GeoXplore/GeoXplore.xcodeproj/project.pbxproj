@@ -26,6 +26,9 @@
 		2B32D1442083523600642738 /* APIRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B32D1432083523600642738 /* APIRegister.swift */; };
 		2B3A03DA20A728EB00CF13A3 /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3A03D920A728EB00CF13A3 /* HideKeyboard.swift */; };
 		2B3A03DC20A72C0300CF13A3 /* ValidatingInputs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3A03DB20A72C0300CF13A3 /* ValidatingInputs.swift */; };
+		2BB8B7AC20C6D0AA0030BDAA /* AvatarSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB8B7AB20C6D0AA0030BDAA /* AvatarSearchController.swift */; };
+		2BB8B7AE20C6F92B0030BDAA /* ImageWithColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB8B7AD20C6F92B0030BDAA /* ImageWithColor.swift */; };
+		2BB8B7B220C7011E0030BDAA /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB8B7B120C7011E0030BDAA /* CustomTabBar.swift */; };
 		2BC0CC3220778D0C001033B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC0CC3120778D0C001033B0 /* AppDelegate.swift */; };
 		2BC0CC3C20778D0C001033B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BC0CC3A20778D0C001033B0 /* LaunchScreen.storyboard */; };
 		2BC0CC5B20784386001033B0 /* ChooseSignUpIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BC0CC5820784385001033B0 /* ChooseSignUpIn.storyboard */; };
@@ -76,6 +79,9 @@
 		2B32D1432083523600642738 /* APIRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRegister.swift; sourceTree = "<group>"; };
 		2B3A03D920A728EB00CF13A3 /* HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
 		2B3A03DB20A72C0300CF13A3 /* ValidatingInputs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatingInputs.swift; sourceTree = "<group>"; };
+		2BB8B7AB20C6D0AA0030BDAA /* AvatarSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarSearchController.swift; sourceTree = "<group>"; };
+		2BB8B7AD20C6F92B0030BDAA /* ImageWithColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageWithColor.swift; sourceTree = "<group>"; };
+		2BB8B7B120C7011E0030BDAA /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		2BC0CC2E20778D0C001033B0 /* GeoXplore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoXplore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BC0CC3120778D0C001033B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BC0CC3B20778D0C001033B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -170,6 +176,7 @@
 				2BFF355320C1DED400E3EFBF /* LocalizedStrings.swift */,
 				2B1DA10120AAE48A0059E7E7 /* DoubleToPercentages.swift */,
 				2BFF29D120C2F6FE0032648D /* DistanceConverter.swift */,
+				2BB8B7AD20C6F92B0030BDAA /* ImageWithColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -248,6 +255,7 @@
 				2B3080ED20BD7A29007721EC /* Constants.swift */,
 				2BFF355120C1DB8F00E3EFBF /* Localizable.strings */,
 				2BFF29CF1EE1B7C50032648D /* ResultVCTypes.swift */,
+				2BB8B7B120C7011E0030BDAA /* CustomTabBar.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -267,6 +275,7 @@
 			children = (
 				2B3080EF20BD8018007721EC /* CustomPointAnnotation.swift */,
 				2BFF354E20C1B9F100E3EFBF /* BoxFinderResult.swift */,
+				2BB8B7AB20C6D0AA0030BDAA /* AvatarSearchController.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -431,6 +440,7 @@
 			files = (
 				2BED38AE2086B13E00D734D7 /* BoxFinderResultViewController.swift in Sources */,
 				2B32D14020834DC700642738 /* RequestManager.swift in Sources */,
+				2BB8B7AC20C6D0AA0030BDAA /* AvatarSearchController.swift in Sources */,
 				2BED38AA20864E1700D734D7 /* BoxExplorerViewController.swift in Sources */,
 				2B1DA10220AAE48A0059E7E7 /* DoubleToPercentages.swift in Sources */,
 				2BFF355420C1DED400E3EFBF /* LocalizedStrings.swift in Sources */,
@@ -439,8 +449,10 @@
 				2BED38A220853A1500D734D7 /* GradientView.swift in Sources */,
 				2BED38A62085586600D734D7 /* APILocation.swift in Sources */,
 				2BD97C78207D41090033AA26 /* TargetType.swift in Sources */,
+				2BB8B7B220C7011E0030BDAA /* CustomTabBar.swift in Sources */,
 				2B1DA10020AA19680059E7E7 /* APIUserProfile.swift in Sources */,
 				2B1DA0FE20AA14020059E7E7 /* UserProfileViewController.swift in Sources */,
+				2BB8B7AE20C6F92B0030BDAA /* ImageWithColor.swift in Sources */,
 				2BC0CC3220778D0C001033B0 /* AppDelegate.swift in Sources */,
 				2B1DA10C20AB104B0059E7E7 /* APIRankingUser.swift in Sources */,
 				2B18833020B48B7100E45E1B /* CustomTabBarController.swift in Sources */,
