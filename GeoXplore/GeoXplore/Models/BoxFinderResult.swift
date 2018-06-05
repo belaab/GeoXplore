@@ -15,12 +15,15 @@ class BoxFinderResult {
     var distance: Double
     var resultInfoText: String
     var resultDescription: String
+    var value: Int
     
-    init(boxID: Int, result: String, distance: Double, resultInfoText: String, resultDescription: String) {
+    
+    init(boxID: Int, result: String, distance: Double, resultInfoText: String, resultDescription: String, value: Int) {
         self.boxID = boxID
         self.distance = distance
         self.result = result
         self.resultInfoText = resultInfoText
         self.resultDescription = resultDescription
+        self.value = value
     }
 }

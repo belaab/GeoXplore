@@ -14,12 +14,13 @@ class ARBoxVIewController: UIViewController {
     @IBOutlet weak var sceneView: ARSCNView!
     private let configuration = ARWorldTrackingConfiguration()
     var unblockedBoxID: Int = 0
+    var boxValue: Int = 0 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.sceneView.session.run(configuration)
         self.sceneView.autoenablesDefaultLighting = true
-        addARBox()
+        addARBox(chestValue: boxValue)
     }
    
     @IBAction func dismiss(_ sender: UIButton) {
@@ -38,10 +39,25 @@ class ARBoxVIewController: UIViewController {
         }
     }
 
-    private func addARBox() {
-       
+    private func addARBox(chestValue: Int) {
+        
+        var reactorFileType: String = ""
         let spotLight = SCNNode()
-        let particleSystem = SCNParticleSystem(named: "Reactor", inDirectory: "art.scnassets")
+        
+        switch (chestValue) {
+        case 1:
+            reactorFileType = "Reactor1"
+        case 2:
+            reactorFileType = "Reactor2"
+        case 3:
+            reactorFileType = "Reactor3"
+        case 4:
+            reactorFileType = "Reactor4"
+        default:
+            reactorFileType = "Reactor1"
+        }
+        
+        let particleSystem = SCNParticleSystem(named: reactorFileType, inDirectory: "art.scnassets")
         let systemNode = SCNNode()
         
         let boxScene = SCNScene(named: "art.scnassets/Chest.scn")
