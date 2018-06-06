@@ -71,7 +71,7 @@ class UserProfileViewController: UIViewController {
                         let userExperience = profile?.experience,
                         let userLevel = profile?.level,
                         let toNextLevel = profile?.toNextLevel,
-                        let userOpenedChests = profile?.openedChests else {return}
+                        let userOpenedChests = profile?.openedOverallChests else { return }
                     
                         self.userNick.text = userNick
                         self.userBoxesAmount.text = String(describing: userOpenedChests)
