@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//MARK: temporary placeholder view
+
 
 class BoxFinderResultViewController: UIViewController {
     

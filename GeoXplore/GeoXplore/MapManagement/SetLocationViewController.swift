@@ -42,7 +42,7 @@ class SetLocationViewController: UIViewController, NVActivityIndicatorViewable {
     
     private func setupActivityIndicator() {
         activityIndicatorView.backgroundColor = Colors.loaderBackgroungPurple
-        view.addSubview(activityIndicatorView)
+      //  view.addSubview(activityIndicatorView)
     }
     
     private func viewSetup() {
@@ -105,7 +105,7 @@ class SetLocationViewController: UIViewController, NVActivityIndicatorViewable {
                 self.presentNewVC()
             } else {
                 print(error?.localizedDescription) //TODO
-                self.stopAnimating()
+                self.activityIndicatorView.stopAnimating()
                 let alert = UIAlertController(title: "Sending location failure", message: "Sorry, please try again.", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
                     switch action.style{

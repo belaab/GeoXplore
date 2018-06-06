@@ -42,14 +42,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
               email.matchesRegex(regex: Regex.email.rawValue),
               password == repeatedPassword].contains(false)
         
-        if validationResult {
-            registerButton.isEnabled = true
-            registerButton.alpha = 1.0
-        } else {
-            registerButton.isEnabled = false
-            registerButton.alpha = 0.5
-        }
-        
+        registerButton.isEnabled = validationResult ? true : false
+        registerButton.alpha = validationResult ? 1.0 : 0.5
     }
     
     private func registerButtonPressed() {

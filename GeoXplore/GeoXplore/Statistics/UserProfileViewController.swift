@@ -49,7 +49,20 @@ class UserProfileViewController: UIViewController {
     }
     
     private func getUserProfileInfo() {
-       
+        
+        RequestManager.sharedInstance.downloadAvatarImage { (avatar, result) in
+            switch result {
+            case true:
+                if let userAvatar = avatar {
+                    self.userPhoto.image = userAvatar
+                } else {
+                    print("Eror while applying downloaded image")
+                }
+            case false:
+                print("Downloading image request ended with failure")
+            }
+        }
+        
         RequestManager.sharedInstance.getUserStatistics { (success, profile, error) in
             switch success {
             case true:

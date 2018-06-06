@@ -199,6 +199,34 @@ class RequestManager {
         })
     }
     
+    func downloadAvatarImage(completion: @escaping(UIImage?, Bool) -> Void) {
+        
+        Alamofire.request(RequestType.downloadAvatar.url, method: .get, encoding: JSONEncoding.default, headers: getAuthorizationHeader())
+            .validate(statusCode: 200..<300)
+            .responseData(completionHandler: { (response) in
+                switch (response.result) {
+                case .success(_):
+                    guard let data = response.data else { print("Error while getting data from response: \(String(describing: response.result.error))"); return }
+                    let image = UIImage(data: data)
+                    completion(image, true)
+                case .failure(_):
+                    print("Failure \(String(describing: response.result.error))")
+                    completion(nil, false)
+                }
+            })
+//        (completionHandler: { (response:DataResponse<Any>)  in
+//                switch (response.result) {
+//                case .success(_):
+//                    guard let data = response.data else { print("Error while getting data from response: \(String(describing: response.result.error))"); return }
+//                    let image = UIImage(data: data)
+//                    completion(image, true)
+//                case .failure(_):
+//                    print("Failure \(String(describing: response.result.error))")
+//                    completion(nil, false)
+//                }
+//        })
+    }
+    
     func postAvatarImage(image: UIImage, progressCompletion: @escaping(_ percent: Float) -> Void, completion: @escaping(Bool) -> Void) {
         
         guard let imageData = UIImagePNGRepresentation(image) else {
@@ -223,7 +251,7 @@ class RequestManager {
                                 upload.responseJSON { response in
                                     switch response.result {
                                     case .success(_):
-                                        guard let value = response.result.value else {
+                                        guard response.result.value != nil else {
                                                 print("Error while uploading file: \(String(describing: response.result.error))")
                                                 completion(false)
                                                 return

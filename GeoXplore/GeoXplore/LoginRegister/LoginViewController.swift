@@ -28,22 +28,26 @@ class LoginViewController: UIViewController, NVActivityIndicatorViewable, UIText
     
     @IBAction func loginButton(_ sender: UIButton) {
         dismissKeyboard()
-        loginButtonPressed()
         showActivityIndicator()
+        loginButtonPressed()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTextFields()
+        loginButtonConfiguration(isEnabled: false, alpha: 0.5)
+        hideKeyboard()
+        setupActivityIndicator()
+    }
+    
+    private func setupTextFields() {
         [self.loginTextField, self.passwordTextField].forEach {
             $0.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)}
-        loginButtonConfiguration(isEnabled: false, alpha: 0.5)
-        self.hideKeyboard()
-        setupActivityIndicator()
     }
     
     private func setupActivityIndicator() {
         activityIndicatorView.backgroundColor = Colors.loaderBackgroungPurple
-        view.addSubview(activityIndicatorView)
+        //view.addSubview(activityIndicatorView)
     }
     
     private func loginButtonPressed() {
@@ -52,13 +56,13 @@ class LoginViewController: UIViewController, NVActivityIndicatorViewable, UIText
         
         RequestManager.sharedInstance.login(username: username, password: password) { (success, token, error) in
             if success {
+                self.activityIndicatorView.stopAnimating()
                 let saveAccessToken: Bool = KeychainWrapper.standard.set(token!, forKey: "accessToken")
                 print("Acces token save result: \(saveAccessToken)")
                 let setLocationViewController = StoryboardManager.setLocationViewController()
-                self.activityIndicatorView.stopAnimating()
                 self.present(setLocationViewController, animated: true, completion: nil)
             } else {
-                self.stopAnimating()
+                self.activityIndicatorView.stopAnimating()
                 let alert = UIAlertController(title: "Login failure", message: "Sorry, some error occured. Validate data and try again.", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
                     switch action.style{
@@ -74,7 +78,7 @@ class LoginViewController: UIViewController, NVActivityIndicatorViewable, UIText
         }
     }
     
-    
+
     @objc func textFieldDidChange(_ textField: UITextField) {
         
         guard let username = loginTextField.text,  let password = passwordTextField.text
