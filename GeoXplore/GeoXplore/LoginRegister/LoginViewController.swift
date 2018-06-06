@@ -55,8 +55,8 @@ class LoginViewController: UIViewController, NVActivityIndicatorViewable, UIText
                 let saveAccessToken: Bool = KeychainWrapper.standard.set(token!, forKey: "accessToken")
                 print("Acces token save result: \(saveAccessToken)")
                 let setLocationViewController = StoryboardManager.setLocationViewController()
-                self.present(setLocationViewController, animated: true, completion: nil)
                 self.activityIndicatorView.stopAnimating()
+                self.present(setLocationViewController, animated: true, completion: nil)
             } else {
                 self.stopAnimating()
                 let alert = UIAlertController(title: "Login failure", message: "Sorry, some error occured. Validate data and try again.", preferredStyle: UIAlertControllerStyle.alert)

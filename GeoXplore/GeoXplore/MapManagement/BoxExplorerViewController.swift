@@ -127,8 +127,8 @@ extension BoxExplorerViewController: CLLocationManagerDelegate, MGLMapViewDelega
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         userLocation = locations[0] as CLLocation
-        print("user latitude = \(userLocation.coordinate.latitude)")
-        print("user longitude = \(userLocation.coordinate.longitude)")
+//        print("user latitude = \(userLocation.coordinate.latitude)")
+//        print("user longitude = \(userLocation.coordinate.longitude)")
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

@@ -199,10 +199,47 @@ class RequestManager {
         })
     }
     
-   // func editAvatar(completion: @escaping(Bool) -> Void) {
-//        Alamofire.request(RequestType.editAvatar.url, method: .post, parameters: , encoding: <#T##ParameterEncoding#>, headers: <#T##HTTPHeaders?#>)
-    //}
-    
+    func postAvatarImage(image: UIImage, progressCompletion: @escaping(_ percent: Float) -> Void, completion: @escaping(Bool) -> Void) {
+        
+        guard let imageData = UIImagePNGRepresentation(image) else {
+            print("Error while getting PNG representation")
+            return
+        }
+        
+        Alamofire.upload(multipartFormData: { multipartFormData in
+            multipartFormData.append(imageData, withName: "file",
+                                     fileName: "file.png",
+                                     mimeType: "file/png")},
+                         to: RequestType.editAvatar.url,
+                         headers: getAuthorizationHeader(),
+                         encodingCompletion: { encodingResult in
+                            
+                            switch encodingResult {
+                            case .success(let upload, _, _):
+                                upload.uploadProgress { progress in
+                                    progressCompletion(Float(progress.fractionCompleted))
+                                }
+                                upload.validate()
+                                upload.responseJSON { response in
+                                    switch response.result {
+                                    case .success(_):
+                                        guard let value = response.result.value else {
+                                                print("Error while uploading file: \(String(describing: response.result.error))")
+                                                completion(false)
+                                                return
+                                        }
+                                        completion(true)
+                                    case .failure(_):
+                                        print("failure")
+                                        print(String(describing: response.result.error))
+                                        completion(false)
+                                    }
+                                }
+                            case .failure(let encodingError):
+                                print(encodingError)
+                            }
+        })
+    }
     
 }
 

@@ -24,6 +24,8 @@
 	<string>pk.eyJ1IjoiYmVsYWFiIiwiYSI6ImNqZjhucjI1bTFiNngycGxwb3hiYmhoM2kifQ.5OzaHrEAHwGUiiH-X4jKvA</string>
 	<key>UIMainStoryboardFile</key>
 	<string>ChooseSignUpIn</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>need access for photos</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -49,7 +51,5 @@
 	</array>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Allow camera roll</string>
 </dict>
 </plist>

@@ -35,6 +35,19 @@ class UserProfileViewController: UIViewController {
         userPhoto.clipsToBounds = true
     }
     
+    private func uploadAvatar(image: UIImage) {
+        RequestManager.sharedInstance.postAvatarImage(image: image, progressCompletion: { (progress) in
+            print(progress)
+        }) { (success) in
+            switch success{
+            case true:
+                print("Upload success")
+            case false:
+                print("Upload error")
+            }
+        }
+    }
+    
     private func getUserProfileInfo() {
        
         RequestManager.sharedInstance.getUserStatistics { (success, profile, error) in
@@ -71,21 +84,28 @@ extension UserProfileViewController: UINavigationControllerDelegate, UIImagePick
             print("Button capture")
             
             imagePicker.delegate = self
-            imagePicker.sourceType = .savedPhotosAlbum;
+            imagePicker.sourceType = .photoLibrary;
             imagePicker.allowsEditing = false
             
             self.present(imagePicker, animated: true, completion: nil)
         }
     }
     
-    private func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
-        self.dismiss(animated: true, completion: { () -> Void in
-            
-        })
+    
+     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+                self.dismiss(animated: true, completion: { () -> Void in
         
-        chosenPhoto = image
-        userPhoto.image = chosenPhoto
+                })
+        
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            chosenPhoto = pickedImage
+            userPhoto.image = chosenPhoto
+            uploadAvatar(image: chosenPhoto)
+        } else {
+            print("error while picking image from library")
+        }
     }
+    
 }
 
 
