@@ -216,6 +216,7 @@ class RequestManager {
             })
     }
     
+    
     func postAvatarImage(image: UIImage, progressCompletion: @escaping(_ percent: Float) -> Void, completion: @escaping(Bool) -> Void) {
         
         guard let imageData = UIImagePNGRepresentation(image) else {
@@ -257,6 +258,27 @@ class RequestManager {
                             }
         })
     }
+    
+    
+    func downloadAvatarImage(name: String, completion: @escaping(UIImage?, Bool) -> Void) {
+        
+        print(RequestType.getRankingAvatarFor(username: name).url)
+        
+        Alamofire.request(RequestType.getRankingAvatarFor(username: name).url, method: .get, encoding: JSONEncoding.default)
+            .validate(statusCode: 200..<300)
+            .responseData(completionHandler: { (response) in
+                switch (response.result) {
+                case .success(_):
+                    guard let data = response.data else { print("Error while getting data from response: \(String(describing: response.result.error))"); return }
+                    let image = UIImage(data: data)
+                    completion(image, true)
+                case .failure(_):
+                    print("Failure \(String(describing: response.result.error))")
+                    completion(nil, false)
+                }
+            })
+    }
+    
     
 }
 

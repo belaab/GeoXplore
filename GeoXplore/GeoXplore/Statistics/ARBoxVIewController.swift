@@ -34,7 +34,7 @@ class ARBoxVIewController: UIViewController {
             if success {
                 print("experienceGained: \(experienceGained)")
             } else {
-                print("Erroe status code: \(statusCode)")
+                print("Error status code: \(statusCode)")
             }
         }
     }

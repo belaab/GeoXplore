@@ -44,6 +44,23 @@ class RankingViewController: UIViewController {
     }
     
 
+//    private func getAvatarFor(username: String) -> UIImage {
+//        var rankingImage = UIImage(named: "doge")
+//
+//        RequestManager.sharedInstance.downloadAvatarImage(name: username) { (image, success) in
+//            switch success {
+//            case true:
+//                guard let img = image else { return }
+//                rankingImage = img
+//            case false:
+//                print("Could not dowload image")
+//               // rankingImage = UIImage(named: "doge")!
+//            }
+//        }
+//
+//        return rankingImage!
+//    }
+
     
 }
 
@@ -68,7 +85,17 @@ extension RankingViewController: UITableViewDelegate, UITableViewDataSource {
         cell.username.text = rankingUsers[row].username.uppercased()
         cell.level.text = String(describing: rankingUsers[row].level)
         cell.openedChests.text = String(describing: rankingUsers[row].openedChests)
-    
+        print(rankingUsers[row].username)
+        RequestManager.sharedInstance.downloadAvatarImage(name: rankingUsers[row].username) { (image, result) in
+            switch result {
+            case true:
+                cell.profileImage.image = image
+            case false:
+                cell.profileImage.image = UIImage(named: "doge")
+            }
+        }
+        //cell.profileImage.image = getAvatarFor(username: rankingUsers[row].username)
+       
         return cell
     }
 
