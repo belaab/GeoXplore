@@ -15,6 +15,7 @@ class SetLocationViewController: UIViewController, NVActivityIndicatorViewable {
     @IBOutlet weak var mapView: MGLMapView!
     @IBOutlet weak var viewTitleLabel: UILabel!
     @IBOutlet weak var viewDescriptionLabel: UILabel!
+    @IBOutlet weak var blurEffectView: UIVisualEffectView!
     private let annotation = MGLPointAnnotation()
     private var isHomeLocationSet: Bool = true
     private let activityIndicatorView =
@@ -51,6 +52,8 @@ class SetLocationViewController: UIViewController, NVActivityIndicatorViewable {
         view.addSubview(mapView)
         mapView.showsUserLocation = true
         playButtonReady.isEnabled = false
+        blurEffectView.layer.cornerRadius = 25
+        blurEffectView.clipsToBounds = true
         playButtonReady.alpha = 0.8
         mapView.alpha = 0.95
         

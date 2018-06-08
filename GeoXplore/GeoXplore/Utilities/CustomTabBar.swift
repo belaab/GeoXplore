@@ -12,7 +12,7 @@ class CustomTabBar: UITabBar {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        let frost = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+        let frost = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
         frost.frame = bounds
         frost.autoresizingMask = .flexibleWidth
         insertSubview(frost, at: 0)
