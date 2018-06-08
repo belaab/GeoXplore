@@ -43,25 +43,6 @@ class RankingViewController: UIViewController {
 
     }
     
-
-//    private func getAvatarFor(username: String) -> UIImage {
-//        var rankingImage = UIImage(named: "doge")
-//
-//        RequestManager.sharedInstance.downloadAvatarImage(name: username) { (image, success) in
-//            switch success {
-//            case true:
-//                guard let img = image else { return }
-//                rankingImage = img
-//            case false:
-//                print("Could not dowload image")
-//               // rankingImage = UIImage(named: "doge")!
-//            }
-//        }
-//
-//        return rankingImage!
-//    }
-
-    
 }
 
 
