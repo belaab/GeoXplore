@@ -94,7 +94,6 @@ extension RankingViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.profileImage.image = UIImage(named: "doge")
             }
         }
-        //cell.profileImage.image = getAvatarFor(username: rankingUsers[row].username)
        
         return cell
     }
