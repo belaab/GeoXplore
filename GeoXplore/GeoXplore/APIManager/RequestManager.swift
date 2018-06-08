@@ -214,17 +214,6 @@ class RequestManager {
                     completion(nil, false)
                 }
             })
-//        (completionHandler: { (response:DataResponse<Any>)  in
-//                switch (response.result) {
-//                case .success(_):
-//                    guard let data = response.data else { print("Error while getting data from response: \(String(describing: response.result.error))"); return }
-//                    let image = UIImage(data: data)
-//                    completion(image, true)
-//                case .failure(_):
-//                    print("Failure \(String(describing: response.result.error))")
-//                    completion(nil, false)
-//                }
-//        })
     }
     
     func postAvatarImage(image: UIImage, progressCompletion: @escaping(_ percent: Float) -> Void, completion: @escaping(Bool) -> Void) {
