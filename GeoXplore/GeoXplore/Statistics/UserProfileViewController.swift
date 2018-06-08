@@ -16,6 +16,7 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var userBoxesAmount: UILabel!
     @IBOutlet weak var toNextLevel: UILabel!
     @IBOutlet weak var userLevel: UILabel!
+    @IBOutlet weak var friendsLabel: UILabel!
     var chosenPhoto = UIImage()
     var imagePicker = UIImagePickerController()
     
@@ -71,13 +72,15 @@ class UserProfileViewController: UIViewController {
                         let userExperience = profile?.experience,
                         let userLevel = profile?.level,
                         let toNextLevel = profile?.toNextLevel,
-                        let userOpenedChests = profile?.openedOverallChests else { return }
+                        let userOpenedChests = profile?.openedOverallChests,
+                        let friends = profile?.friends else { return }
                     
                         self.userNick.text = userNick
                         self.userBoxesAmount.text = String(describing: userOpenedChests)
                         self.toNextLevel.text = toNextLevel.toPercentages()
                         self.userExperience.text = String(describing: userExperience)
                         self.userLevel.text = String(describing: userLevel)
+                        self.friendsLabel.text = String(describing: friends)
                 }
             case false:
                 print("Error while initializing user profile")

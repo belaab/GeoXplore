@@ -389,6 +389,7 @@
                                 <blurEffect style="regular"/>
                             </visualEffectView>
                         </subviews>
+                        <color key="backgroundColor" red="0.97565494063622482" green="1" blue="0.9725942279679014" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="AEd-er-lkn" firstAttribute="top" secondItem="7wG-r1-g6k" secondAttribute="top" constant="-7" id="0TK-FP-XiY"/>
                             <constraint firstItem="L2N-KP-g4n" firstAttribute="leading" secondItem="CsP-4p-Lun" secondAttribute="leading" constant="16" id="0ax-md-ewC"/>
@@ -439,6 +440,7 @@
                     <tabBarItem key="tabBarItem" title="My profile" image="profile" id="PY5-mY-XcM"/>
                     <connections>
                         <outlet property="UserExperience" destination="iGT-sE-cG1" id="5iK-nx-bmV"/>
+                        <outlet property="friendsLabel" destination="3BJ-7Y-l3V" id="Xyv-cx-TeH"/>
                         <outlet property="toNextLevel" destination="hKn-fq-a2p" id="HOH-u9-sjF"/>
                         <outlet property="userBoxesAmount" destination="bES-jG-fcL" id="N7h-oI-hrc"/>
                         <outlet property="userLevel" destination="bSQ-dK-Ee7" id="XGI-Hq-lnp"/>
@@ -460,6 +462,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smoothbackground" translatesAutoresizingMaskIntoConstraints="NO" id="JDm-3S-lTo">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="628"/>
+                                <color key="backgroundColor" red="0.97565494063622482" green="1" blue="0.9725942279679014" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ezi-1s-SDZ">
                                 <rect key="frame" x="4" y="60" width="367" height="607"/>

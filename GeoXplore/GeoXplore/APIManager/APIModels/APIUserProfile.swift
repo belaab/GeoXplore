@@ -15,14 +15,16 @@ class UserProfile: Mappable {
     var experience: Int
     var level: Int
     var toNextLevel: Double
+    var friends: Int
     var openedOverallChests: Int
 
     
-    init(username: String, experience: Int, level: Int, toNextLevel: Double, openedOverallChests: Int) {
+    init(username: String, experience: Int, level: Int, toNextLevel: Double, friends: Int, openedOverallChests: Int) {
         self.username = username
         self.experience = experience
         self.level = level
         self.toNextLevel = toNextLevel
+        self.friends = friends
         self.openedOverallChests = openedOverallChests
     }
     
@@ -31,6 +33,7 @@ class UserProfile: Mappable {
         self.experience = 0
         self.level = 0
         self.toNextLevel = 0.0
+        self.friends = 0
         self.openedOverallChests = 0
     }
     
@@ -40,6 +43,7 @@ class UserProfile: Mappable {
         self.experience <- map["experience"]
         self.level <- map["level"]
         self.toNextLevel <- map["toNextLevel"]
+        self.friends <- map["friends"]
         self.openedOverallChests <- map["openedOverallChests"]
     }
 }

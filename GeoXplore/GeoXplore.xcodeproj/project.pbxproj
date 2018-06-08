@@ -151,12 +151,12 @@
 			children = (
 				2B32D13F20834DC700642738 /* RequestManager.swift */,
 				2BD97C79207D41B60033AA26 /* UrlBuilder.swift */,
-				2B32D1422083521B00642738 /* Models */,
+				2B32D1422083521B00642738 /* APIModels */,
 			);
 			path = APIManager;
 			sourceTree = "<group>";
 		};
-		2B32D1422083521B00642738 /* Models */ = {
+		2B32D1422083521B00642738 /* APIModels */ = {
 			isa = PBXGroup;
 			children = (
 				2B32D1432083523600642738 /* APIRegister.swift */,
@@ -165,7 +165,7 @@
 				2B1DA0FF20AA19680059E7E7 /* APIUserProfile.swift */,
 				2B1DA10B20AB104B0059E7E7 /* APIRankingUser.swift */,
 			);
-			path = Models;
+			path = APIModels;
 			sourceTree = "<group>";
 		};
 		2B3A03D820A728CA00CF13A3 /* Extensions */ = {
