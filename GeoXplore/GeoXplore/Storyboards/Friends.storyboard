@@ -45,7 +45,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RzT-rM-xcO">
-                                <rect key="frame" x="16" y="95" width="343" height="508"/>
+                                <rect key="frame" x="16" y="106" width="343" height="497"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XCt-p0-Jx8">
@@ -66,9 +66,12 @@
                                     <constraint firstAttribute="height" constant="30" id="QDf-ws-wZS"/>
                                 </constraints>
                                 <state key="normal" image="cancel"/>
+                                <connections>
+                                    <action selector="dismissView:" destination="T0Y-7M-6S6" eventType="touchUpInside" id="nda-vd-Qjp"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Friends" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgu-dQ-FCU">
-                                <rect key="frame" x="16" y="50" width="343" height="40"/>
+                                <rect key="frame" x="16" y="54" width="343" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="XUt-3p-3hy"/>
                                 </constraints>
@@ -90,10 +93,10 @@
                             <constraint firstItem="0IN-Nf-TIW" firstAttribute="trailing" secondItem="6fs-9A-3Sw" secondAttribute="trailing" id="OGQ-OE-t3B"/>
                             <constraint firstItem="6fs-9A-3Sw" firstAttribute="trailing" secondItem="RzT-rM-xcO" secondAttribute="trailing" constant="16" id="Py9-VS-0VX"/>
                             <constraint firstItem="6fs-9A-3Sw" firstAttribute="trailing" secondItem="lgu-dQ-FCU" secondAttribute="trailing" constant="16" id="Qge-md-s4P"/>
-                            <constraint firstItem="lgu-dQ-FCU" firstAttribute="top" secondItem="4qa-aQ-jAs" secondAttribute="top" constant="50" id="Z5a-6D-vSX"/>
+                            <constraint firstItem="lgu-dQ-FCU" firstAttribute="top" secondItem="4qa-aQ-jAs" secondAttribute="top" constant="54" id="Z5a-6D-vSX"/>
                             <constraint firstItem="RzT-rM-xcO" firstAttribute="leading" secondItem="6fs-9A-3Sw" secondAttribute="leading" constant="16" id="j7Z-NY-xoL"/>
                             <constraint firstItem="FcV-M7-95k" firstAttribute="leading" secondItem="6fs-9A-3Sw" secondAttribute="leading" constant="16" id="p3f-Jx-9Hc"/>
-                            <constraint firstItem="RzT-rM-xcO" firstAttribute="top" secondItem="lgu-dQ-FCU" secondAttribute="bottom" constant="5" id="rLu-7R-y5Q"/>
+                            <constraint firstItem="RzT-rM-xcO" firstAttribute="top" secondItem="lgu-dQ-FCU" secondAttribute="bottom" constant="12" id="rLu-7R-y5Q"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6fs-9A-3Sw"/>
                     </view>
@@ -101,6 +104,7 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="M7d-qL-Bcq"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="friendsTableView" destination="RzT-rM-xcO" id="Bjo-3j-xvt"/>
                         <segue destination="PXN-de-hLH" kind="show" id="4G1-sG-s6u"/>
                     </connections>
                 </viewController>
@@ -120,10 +124,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" red="0.94706529083128632" green="0.9610307835820896" blue="0.81530294162295769" alpha="0.931214238556338" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="largeBox" translatesAutoresizingMaskIntoConstraints="NO" id="gVY-fX-rjA">
+                            <imageView userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="largeBox" translatesAutoresizingMaskIntoConstraints="NO" id="gVY-fX-rjA">
                                 <rect key="frame" x="10" y="42" width="355" height="442.5"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add friend" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGY-fh-d6b">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add friend" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGY-fh-d6b">
                                 <rect key="frame" x="26" y="62" width="329" height="159"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="29"/>
                                 <color key="textColor" red="0.36011962752976823" green="0.3715501468711408" blue="0.48643889925373129" alpha="0.75" colorSpace="custom" customColorSpace="sRGB"/>
