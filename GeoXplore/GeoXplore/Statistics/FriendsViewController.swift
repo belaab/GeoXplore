@@ -15,6 +15,7 @@ class FriendsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        friendsTableView.register(UINib(nibName: "RankingViewCell", bundle: nil), forCellReuseIdentifier: "RankingViewCell")
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.backItem?.title = ""
         friendsTableView.estimatedRowHeight = 260
@@ -22,6 +23,7 @@ class FriendsViewController: UIViewController {
         friendsTableView.delegate = self
         friendsTableView.dataSource = self
         friendsTableView.backgroundColor = UIColor.clear
+        getUserFriends()
     }
     
     @IBAction func dismissView(_ sender: UIButton) {
@@ -29,14 +31,26 @@ class FriendsViewController: UIViewController {
     }
     
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewDidLoad()
-//        self.navigationController?.isNavigationBarHidden = true
-//        self.navigationController?.navigationBar.backItem?.title = " "
-//
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.navigationBar.backItem?.title = " "
+
+    }
     
     
+    private func getUserFriends() {
+        RequestManager.sharedInstance.getFriends { (success, friends, error) in
+            switch success {
+            case true:
+                guard let userFriends = friends else { return }
+                self.friendsArray = userFriends
+            case false:
+                print("Error while fetching friends")
+            }
+            self.friendsTableView.reloadData()
+        }
+    }
     
 
     
@@ -68,6 +82,13 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+        UIView.animate(withDuration: 0.4) {
+            cell.transform = CGAffineTransform.identity
+        }
     }
 
 

@@ -192,8 +192,10 @@ class RequestManager {
                         guard let jsonArray = json as? [[String: AnyObject]] else {return}
                         for item in jsonArray {
                             guard let singleFriend = Mapper<FriendUser>().map(JSON: item) else {return}
+                            print(singleFriend.username, singleFriend.level, singleFriend.openedChests)
                             friends.append(singleFriend)
                         }
+
                         completion(true, friends, nil)
                     }
                 case .failure(_):
