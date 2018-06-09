@@ -30,6 +30,7 @@
 		2B6D037D20CB255500195234 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D037C20CB255500195234 /* FriendsViewController.swift */; };
 		2B6D037F20CB256B00195234 /* Friends.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B6D037E20CB256B00195234 /* Friends.storyboard */; };
 		2B6D038120CB385A00195234 /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D038020CB385A00195234 /* AddFriendViewController.swift */; };
+		2B6D038320CC508900195234 /* APIChestsStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D038220CC508900195234 /* APIChestsStats.swift */; };
 		2BB8B7AC20C6D0AA0030BDAA /* AvatarSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB8B7AB20C6D0AA0030BDAA /* AvatarSearchController.swift */; };
 		2BB8B7AE20C6F92B0030BDAA /* ImageWithColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB8B7AD20C6F92B0030BDAA /* ImageWithColor.swift */; };
 		2BB8B7B220C7011E0030BDAA /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB8B7B120C7011E0030BDAA /* CustomTabBar.swift */; };
@@ -87,6 +88,7 @@
 		2B6D037C20CB255500195234 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		2B6D037E20CB256B00195234 /* Friends.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Friends.storyboard; sourceTree = "<group>"; };
 		2B6D038020CB385A00195234 /* AddFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
+		2B6D038220CC508900195234 /* APIChestsStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIChestsStats.swift; sourceTree = "<group>"; };
 		2BB8B7AB20C6D0AA0030BDAA /* AvatarSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarSearchController.swift; sourceTree = "<group>"; };
 		2BB8B7AD20C6F92B0030BDAA /* ImageWithColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageWithColor.swift; sourceTree = "<group>"; };
 		2BB8B7B120C7011E0030BDAA /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				2B1DA0FF20AA19680059E7E7 /* APIUserProfile.swift */,
 				2B1DA10B20AB104B0059E7E7 /* APIRankingUser.swift */,
 				2B6D037A20CB232000195234 /* APIFriendUser.swift */,
+				2B6D038220CC508900195234 /* APIChestsStats.swift */,
 			);
 			path = APIModels;
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 				2B18833020B48B7100E45E1B /* CustomTabBarController.swift in Sources */,
 				2B3A03DA20A728EB00CF13A3 /* HideKeyboard.swift in Sources */,
 				2B3080F020BD8018007721EC /* CustomPointAnnotation.swift in Sources */,
+				2B6D038320CC508900195234 /* APIChestsStats.swift in Sources */,
 				2BC0CC60207AAC03001033B0 /* StoryboardManager.swift in Sources */,
 				2B6D037D20CB255500195234 /* FriendsViewController.swift in Sources */,
 				2BC0CC66207B7D80001033B0 /* LoginViewController.swift in Sources */,

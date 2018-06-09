@@ -12,11 +12,15 @@ class UserProfileViewController: UIViewController {
   
     @IBOutlet weak var userNick: UILabel!
     @IBOutlet weak var userPhoto: UIImageView!
-    @IBOutlet weak var userExperience: UILabel!
     @IBOutlet weak var userBoxesAmount: UILabel!
     @IBOutlet weak var toNextLevel: UILabel!
     @IBOutlet weak var userLevel: UILabel!
     @IBOutlet weak var friendsAmount: UIButton!
+    @IBOutlet weak var commonChestLbl: UILabel!
+    @IBOutlet weak var rareChestLbl: UILabel!
+    @IBOutlet weak var epicChestLbl: UILabel!
+    @IBOutlet weak var legendaryChestLbl: UILabel!
+    
     
     var chosenPhoto = UIImage()
     var imagePicker = UIImagePickerController()

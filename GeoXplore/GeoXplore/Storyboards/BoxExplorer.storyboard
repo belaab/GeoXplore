@@ -256,19 +256,19 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="UCb-fK-5Tm">
                                         <rect key="frame" x="10" y="27" width="323" height="50"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yellowBox" translatesAutoresizingMaskIntoConstraints="NO" id="oS0-zF-U62">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_box" translatesAutoresizingMaskIntoConstraints="NO" id="oS0-zF-U62">
                                                 <rect key="frame" x="0.0" y="0.0" width="59" height="50"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenBox" translatesAutoresizingMaskIntoConstraints="NO" id="pWK-CT-KpT">
                                                 <rect key="frame" x="88" y="0.0" width="59" height="50"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_box" translatesAutoresizingMaskIntoConstraints="NO" id="jpF-0C-iAM">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pinkBox" translatesAutoresizingMaskIntoConstraints="NO" id="jpF-0C-iAM">
                                                 <rect key="frame" x="176" y="0.0" width="59" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="jpF-0C-iAM" secondAttribute="height" multiplier="59:50" id="YCH-DB-1SD"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pinkBox" translatesAutoresizingMaskIntoConstraints="NO" id="wWO-b5-twF">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yellowBox" translatesAutoresizingMaskIntoConstraints="NO" id="wWO-b5-twF">
                                                 <rect key="frame" x="264" y="0.0" width="59" height="50"/>
                                             </imageView>
                                         </subviews>
@@ -443,7 +443,11 @@
                     <tabBarItem key="tabBarItem" title="My profile" image="profile" id="PY5-mY-XcM"/>
                     <connections>
                         <outlet property="UserExperience" destination="iGT-sE-cG1" id="5iK-nx-bmV"/>
+                        <outlet property="commonChestLbl" destination="wcu-GP-lw0" id="Idy-VB-Z0L"/>
+                        <outlet property="epicChestLbl" destination="jh4-Tv-1Xl" id="k9W-Tg-VWZ"/>
                         <outlet property="friendsAmount" destination="iiR-CZ-Qud" id="x2L-n3-WHA"/>
+                        <outlet property="legendaryChestLbl" destination="Dpq-PA-xJt" id="K5c-Yf-wMv"/>
+                        <outlet property="rareChestLbl" destination="bEP-3i-aWG" id="7vv-5l-9Ca"/>
                         <outlet property="toNextLevel" destination="hKn-fq-a2p" id="HOH-u9-sjF"/>
                         <outlet property="userBoxesAmount" destination="bES-jG-fcL" id="N7h-oI-hrc"/>
                         <outlet property="userLevel" destination="bSQ-dK-Ee7" id="XGI-Hq-lnp"/>
