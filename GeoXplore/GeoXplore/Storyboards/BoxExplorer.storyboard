@@ -259,16 +259,16 @@
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_box" translatesAutoresizingMaskIntoConstraints="NO" id="oS0-zF-U62">
                                                 <rect key="frame" x="0.0" y="0.0" width="59" height="50"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenBox" translatesAutoresizingMaskIntoConstraints="NO" id="pWK-CT-KpT">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="pWK-CT-KpT">
                                                 <rect key="frame" x="88" y="0.0" width="59" height="50"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pinkBox" translatesAutoresizingMaskIntoConstraints="NO" id="jpF-0C-iAM">
+                                            <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="jpF-0C-iAM">
                                                 <rect key="frame" x="176" y="0.0" width="59" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="jpF-0C-iAM" secondAttribute="height" multiplier="59:50" id="YCH-DB-1SD"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yellowBox" translatesAutoresizingMaskIntoConstraints="NO" id="wWO-b5-twF">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4" translatesAutoresizingMaskIntoConstraints="NO" id="wWO-b5-twF">
                                                 <rect key="frame" x="264" y="0.0" width="59" height="50"/>
                                             </imageView>
                                         </subviews>
@@ -558,18 +558,18 @@
         </scene>
     </scenes>
     <resources>
+        <image name="2" width="64" height="64"/>
+        <image name="3" width="64" height="64"/>
+        <image name="4" width="64" height="64"/>
         <image name="Oval" width="504" height="504"/>
         <image name="clear" width="1" height="1"/>
         <image name="doge" width="534" height="550"/>
         <image name="editAvatar" width="64" height="64"/>
-        <image name="greenBox" width="64" height="64"/>
         <image name="line" width="253" height="1"/>
         <image name="map" width="32" height="32"/>
-        <image name="pinkBox" width="64" height="64"/>
         <image name="profile" width="32" height="32"/>
         <image name="ranking" width="32" height="32"/>
         <image name="smoothbackground" width="318" height="567"/>
         <image name="white_box" width="128" height="128"/>
-        <image name="yellowBox" width="64" height="64"/>
     </resources>
 </document>

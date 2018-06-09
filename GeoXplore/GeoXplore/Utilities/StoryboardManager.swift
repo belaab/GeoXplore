@@ -86,18 +86,9 @@ struct StoryboardManager {
         return arVC
     }
     
-//    static func friendsViewController() -> FriendsViewController {
-//        let friendsVC = self.viewController(ViewControllerTypes().friends, withIdentifier: ViewControllerIdentifiers.friendsViewController.rawValue, fromStoryboard: StoryboardNames.Friends.rawValue)
-//
-//            friendsVC.navigationController?.isNavigationBarHidden = false.
-//
-//        return friendsVC
-//    }
 
     static func friendsViewController() -> UINavigationController {
         let friendsVC = self.viewController(ViewControllerTypes().nav, withIdentifier: ViewControllerIdentifiers.navigationController.rawValue, fromStoryboard: StoryboardNames.Friends.rawValue)
-        
-        //friendsVC.navigationController?.isNavigationBarHidden = false.
         
         return friendsVC
     }
