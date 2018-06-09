@@ -179,6 +179,32 @@ class RequestManager {
             })
     }
     
+    func getFriends(completion: @escaping(Bool, [FriendUser]?, Error?) -> Void) {
+        
+        var friends = [FriendUser]()
+        
+        Alamofire.request(RequestType.getFriends.url, method: .get, encoding: JSONEncoding.default, headers: getAuthorizationHeader())
+            .validate(statusCode: 200..<300)
+            .responseJSON(completionHandler: { (response:DataResponse<Any>) in
+                switch(response.result) {
+                case .success(_):
+                    if let json = response.result.value {
+                        guard let jsonArray = json as? [[String: AnyObject]] else {return}
+                        for item in jsonArray {
+                            guard let singleFriend = Mapper<FriendUser>().map(JSON: item) else {return}
+                            friends.append(singleFriend)
+                        }
+                        completion(true, friends, nil)
+                    }
+                case .failure(_):
+                    if let error = response.result.error {
+                        print("Status error code: \(String(describing: response.response?.statusCode))")
+                        completion(false, nil, error)
+                    }
+                }
+            })
+    }
+    
     func postOpenedChest(chestID: String, completion: @escaping(Bool, Int, Int) -> Void) {
         
         Alamofire.request(RequestType.postOpenedChest(id: chestID).url,  method: .post, encoding: JSONEncoding.default, headers: getAuthorizationHeader())
@@ -197,6 +223,23 @@ class RequestManager {
                     }
                 }
         })
+    }
+    
+    func addFriend(withUsername: String, completion: @escaping(Bool) -> Void) {
+        
+        Alamofire.request(RequestType.addFriend(username: withUsername).url,  method: .post, encoding: JSONEncoding.default, headers: getAuthorizationHeader())
+            .validate(statusCode: 200..<300)
+            .responseJSON(completionHandler: { (response:DataResponse<Any>)  in
+                switch(response.result) {
+                case .success(_):
+                    guard let json = response.result.value else { return }
+                    print(json)
+                    completion(true)
+                case .failure(_):
+                    if let error = response.result.error { print(error) }
+                    completion(false)
+                }
+            })
     }
     
     func downloadAvatarImage(completion: @escaping(UIImage?, Bool) -> Void) {
