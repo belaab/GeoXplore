@@ -87,7 +87,9 @@ class UserProfileViewController: UIViewController {
                         self.toNextLevel.text = toNextLevel.toPercentages()
                         self.userExperience.text = String(describing: userExperience)
                         self.userLevel.text = String(describing: userLevel)
-                        self.friendsAmount.titleLabel?.text = String(describing: friends)
+                       // self.friendsAmount.titleLabel?.text = String(describing: friends)
+                    self.friendsAmount.setAttributedTitle(self.configureButtonTitleFor(friendsNumber: friends), for: .normal)
+                        //self.friendsAmount.setTitle(String(describing: friends), for: .normal)
                 }
             case false:
                 print("Error while initializing user profile")
@@ -95,8 +97,17 @@ class UserProfileViewController: UIViewController {
             }
         }
     }
+    
+    func configureButtonTitleFor(friendsNumber: Int) -> NSAttributedString {
+        
+        let stringNumber = String(describing: friendsNumber)
+        let attributes = [NSAttributedStringKey.font : UIFont(name: "Arial Rounded MT Bold", size: 25)!, NSAttributedStringKey.foregroundColor: UIColor.white]
 
- 
+        let attributedString : NSAttributedString = NSAttributedString(string: stringNumber, attributes: attributes)
+        
+        return attributedString
+        
+    }
 }
 
 extension UserProfileViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {

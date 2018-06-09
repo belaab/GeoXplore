@@ -128,13 +128,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" red="0.94706529083128632" green="0.9610307835820896" blue="0.81530294162295769" alpha="0.931214238556338" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="largeBox" translatesAutoresizingMaskIntoConstraints="NO" id="gVY-fX-rjA">
+                            <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="largeBox" translatesAutoresizingMaskIntoConstraints="NO" id="gVY-fX-rjA">
                                 <rect key="frame" x="10" y="42" width="355" height="442.5"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add friend" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGY-fh-d6b">
                                 <rect key="frame" x="26" y="62" width="329" height="159"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="29"/>
-                                <color key="textColor" red="0.36011962752976823" green="0.3715501468711408" blue="0.48643889925373129" alpha="0.75" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.60682958623555905" green="0.85745102611940305" blue="0.8022492193906855" alpha="0.912659551056338" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cko-gi-UEr">
@@ -170,10 +170,10 @@
                                             <constraint firstAttribute="height" constant="20" id="KP7-ps-qKA"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="18"/>
-                                        <color key="textColor" red="0.36011962752976823" green="0.3715501468711408" blue="0.48643889925373129" alpha="0.75" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.60682958623555905" green="0.85745102611940305" blue="0.8022492193906855" alpha="0.912659551056338" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JKC-6I-vNB">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JKC-6I-vNB">
                                         <rect key="frame" x="40" y="148" width="235" height="45"/>
                                         <color key="backgroundColor" red="0.88812877445562166" green="0.88243196707154503" blue="0.93200792910447761" alpha="0.41906910211267606" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -184,7 +184,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <real key="value" value="22.5"/>
+                                                <integer key="value" value="0"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>

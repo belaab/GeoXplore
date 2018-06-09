@@ -66,11 +66,11 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
         
         guard let cell = friendsTableView.dequeueReusableCell(withIdentifier: "RankingViewCell", for: indexPath) as? RankingViewCell else { return UITableViewCell() }
         
+        cell.openedChests.textColor = UIColor(red: 132.0/255, green: 230/255, blue: 255.0/255, alpha: 1.0)
         let row = indexPath.row
         cell.username.text = friendsArray[row].username.uppercased()
         cell.level.text = String(describing: friendsArray[row].level)
         cell.openedChests.text = String(describing: friendsArray[row].openedChests)
-        print(friendsArray[row].username)
        
         RequestManager.sharedInstance.downloadAvatarImage(name: friendsArray[row].username) { (image, result) in
             switch result {
