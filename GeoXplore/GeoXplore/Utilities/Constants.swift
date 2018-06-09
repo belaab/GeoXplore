@@ -9,5 +9,5 @@
 import Foundation
 
 struct Constants {
-    static let minimalDistanceToUnblockBox: Double = 100.0
+    static let minimalDistanceToUnblockBox: Double = 1000.0
 }

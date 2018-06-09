@@ -15,6 +15,7 @@ class SetLocationViewController: UIViewController, NVActivityIndicatorViewable {
     @IBOutlet weak var mapView: MGLMapView!
     @IBOutlet weak var viewTitleLabel: UILabel!
     @IBOutlet weak var viewDescriptionLabel: UILabel!
+    @IBOutlet weak var blurEffectView: UIVisualEffectView!
     private let annotation = MGLPointAnnotation()
     private var isHomeLocationSet: Bool = true
     private let activityIndicatorView =
@@ -42,7 +43,7 @@ class SetLocationViewController: UIViewController, NVActivityIndicatorViewable {
     
     private func setupActivityIndicator() {
         activityIndicatorView.backgroundColor = Colors.loaderBackgroungPurple
-        view.addSubview(activityIndicatorView)
+      //  view.addSubview(activityIndicatorView)
     }
     
     private func viewSetup() {
@@ -51,6 +52,8 @@ class SetLocationViewController: UIViewController, NVActivityIndicatorViewable {
         view.addSubview(mapView)
         mapView.showsUserLocation = true
         playButtonReady.isEnabled = false
+        blurEffectView.layer.cornerRadius = 25
+        blurEffectView.clipsToBounds = true
         playButtonReady.alpha = 0.8
         mapView.alpha = 0.95
         
@@ -101,10 +104,12 @@ class SetLocationViewController: UIViewController, NVActivityIndicatorViewable {
             if success {
                 print("Coordinates sent. longitude: \(longitude), latitude: \(latitude)")
                 self.activityIndicatorView.stopAnimating()
+                self.activityIndicatorView.removeFromSuperview()
+                self.stopAnimating()
                 self.presentNewVC()
             } else {
                 print(error?.localizedDescription) //TODO
-                self.stopAnimating()
+                self.activityIndicatorView.stopAnimating()
                 let alert = UIAlertController(title: "Sending location failure", message: "Sorry, please try again.", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
                     switch action.style{

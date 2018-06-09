@@ -11,40 +11,53 @@ import ARKit
 
 class ARBoxVIewController: UIViewController {
 
+    @IBOutlet weak var sceneView: ARSCNView!
     private let configuration = ARWorldTrackingConfiguration()
     var unblockedBoxID: Int = 0
-   
-    @IBAction func dismiss(_ sender: UIButton) {
-        postOpenedChest(chestID: unblockedBoxID)
-        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
-        
-    }
-    
-    private func postOpenedChest(chestID: Int) {
-        let id = String(describing: chestID)
-        RequestManager.sharedInstance.postOpenedChest(chestID: id) { (success, experienceGained, statusCode ) in
-            if success {
-                print("experienceGained: \(experienceGained)")
-            } else {
-                print("statusCode: \(statusCode)")
-            }
-        }
-    }
-    
-    
-    @IBOutlet weak var sceneView: ARSCNView!
+    var boxValue: Int = 0 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.sceneView.session.run(configuration)
         self.sceneView.autoenablesDefaultLighting = true
-        addARBox()
+        addARBox(chestValue: boxValue)
+    }
+   
+    @IBAction func dismiss(_ sender: UIButton) {
+        sendOpenedChest(chestID: unblockedBoxID)
+        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
-    private func addARBox() {
-       
+    private func sendOpenedChest(chestID: Int) {
+        let id = String(describing: chestID)
+        RequestManager.sharedInstance.postOpenedChest(chestID: id) { (success, experienceGained, statusCode )  in
+            if success {
+                print("experienceGained: \(experienceGained)")
+            } else {
+                print("Error status code: \(statusCode)")
+            }
+        }
+    }
+
+    private func addARBox(chestValue: Int) {
+        
+        var reactorFileType: String = ""
         let spotLight = SCNNode()
-        let particleSystem = SCNParticleSystem(named: "Reactor", inDirectory: "art.scnassets")
+        
+        switch (chestValue) {
+        case 1:
+            reactorFileType = "Reactor1"
+        case 2:
+            reactorFileType = "Reactor2"
+        case 3:
+            reactorFileType = "Reactor3"
+        case 4:
+            reactorFileType = "Reactor4"
+        default:
+            reactorFileType = "Reactor1"
+        }
+        
+        let particleSystem = SCNParticleSystem(named: reactorFileType, inDirectory: "art.scnassets")
         let systemNode = SCNNode()
         
         let boxScene = SCNScene(named: "art.scnassets/Chest.scn")
@@ -70,6 +83,5 @@ class ARBoxVIewController: UIViewController {
         sceneView.scene.rootNode.addChildNode(spotLight)
         sceneView.scene.rootNode.addChildNode(systemNode)
     }
-
-
+    
 }

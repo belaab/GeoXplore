@@ -27,6 +27,8 @@ struct StoryboardManager {
         let result = BoxFinderResultViewController.self
         let tabbar = UITabBarController.self
         let ar = ARBoxVIewController.self
+        let friends = FriendsViewController.self
+        let nav = UINavigationController.self
     }
     
     enum StoryboardNames: String {
@@ -36,6 +38,7 @@ struct StoryboardManager {
         case BoxExplorer
         case Result
         case ARBox
+        case Friends
     }
     
     enum ViewControllerIdentifiers: String {
@@ -46,6 +49,8 @@ struct StoryboardManager {
         case resultViewController
         case tabbarViewController
         case arBoxViewController
+        case friendsViewController
+        case navigationController
     }
     
     static func loginViewController() -> LoginViewController {
@@ -74,13 +79,19 @@ struct StoryboardManager {
         return resultVC
     }
     
-    
-    
-    static func arBoxViewController(unblockedBoxID: Int) -> ARBoxVIewController {
+    static func arBoxViewController(unblockedBoxID: Int, boxValue: Int) -> ARBoxVIewController {
         let arVC = self.viewController(ViewControllerTypes().ar, withIdentifier: ViewControllerIdentifiers.arBoxViewController.rawValue, fromStoryboard: StoryboardNames.ARBox.rawValue)
         arVC.unblockedBoxID = unblockedBoxID
+        arVC.boxValue = boxValue
         return arVC
     }
+    
 
+    static func friendsViewController() -> UINavigationController {
+        let friendsVC = self.viewController(ViewControllerTypes().nav, withIdentifier: ViewControllerIdentifiers.navigationController.rawValue, fromStoryboard: StoryboardNames.Friends.rawValue)
+        
+        return friendsVC
+    }
+    
 }
 

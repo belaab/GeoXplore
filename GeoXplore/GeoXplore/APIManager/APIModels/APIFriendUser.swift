@@ -1,20 +1,19 @@
 //
-//  APIRankingUser.swift
+//  APIFriendUser.swift
 //  GeoXplore
 //
-//  Created by Izabela Brzeczek on 15.05.2018.
+//  Created by Izabela Brzeczek on 08.06.2018.
 //  Copyright © 2018 Izabela Brzeczek. All rights reserved.
 //
 
 import Foundation
 import ObjectMapper
 
-class RankingUser: Mappable {
-   
+class FriendUser: Mappable {
+    
     var username: String
     var level: Int
     var openedChests: Int
-    
     
     required init?(map: Map) {
         self.username = ""
@@ -29,4 +28,3 @@ class RankingUser: Mappable {
     }
     
 }
-

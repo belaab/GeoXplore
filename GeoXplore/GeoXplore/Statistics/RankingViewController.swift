@@ -43,8 +43,6 @@ class RankingViewController: UIViewController {
 
     }
     
-
-    
 }
 
 
@@ -68,7 +66,16 @@ extension RankingViewController: UITableViewDelegate, UITableViewDataSource {
         cell.username.text = rankingUsers[row].username.uppercased()
         cell.level.text = String(describing: rankingUsers[row].level)
         cell.openedChests.text = String(describing: rankingUsers[row].openedChests)
-    
+        print(rankingUsers[row].username)
+        RequestManager.sharedInstance.downloadAvatarImage(name: rankingUsers[row].username) { (image, result) in
+            switch result {
+            case true:
+                cell.profileImage.image = image
+            case false:
+                cell.profileImage.image = UIImage(named: "doge")
+            }
+        }
+       
         return cell
     }
 

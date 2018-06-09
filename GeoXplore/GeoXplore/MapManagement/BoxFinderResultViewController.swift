@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//MARK: temporary placeholder view
+
 
 class BoxFinderResultViewController: UIViewController {
     
@@ -29,7 +29,7 @@ class BoxFinderResultViewController: UIViewController {
     @IBAction func showNextView(_ sender: UIButton) {
         if isSuccessVCType {
             self.removeFromParentViewController()
-            let arBoxViewController = StoryboardManager.arBoxViewController(unblockedBoxID: (resultModel?.boxID)!)
+            let arBoxViewController = StoryboardManager.arBoxViewController(unblockedBoxID: (resultModel?.boxID)!, boxValue: (resultModel?.value)!)
             self.present(arBoxViewController, animated: true, completion: nil)
         } else {
             self.dismiss(animated: true, completion: nil)
@@ -54,7 +54,7 @@ class BoxFinderResultViewController: UIViewController {
             distanceTitleLabel.text = "found  chest distance:"
         case "allUnblocked":
             backgroundImage.image = UIImage(named: "allCollectedBackground.png")
-            distanceOval.alpha = 0.5
+            distanceOval.alpha = 1.0
             distanceLabel.isHidden = true
             distanceTitleLabel.isHidden = true
         default:

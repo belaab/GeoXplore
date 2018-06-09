@@ -32,6 +32,9 @@
                             <constraint firstAttribute="height" constant="80" id="b9J-KN-K2g"/>
                         </constraints>
                     </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Oval" translatesAutoresizingMaskIntoConstraints="NO" id="hyw-Sf-EzP">
+                        <rect key="frame" x="16" y="12" width="88" height="88"/>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USERNAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mMH-2s-Xd4">
                         <rect key="frame" x="108" y="16" width="198" height="31"/>
                         <constraints>
@@ -62,7 +65,7 @@
                         <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vrg-sV-g4r">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vrg-sV-g4r">
                         <rect key="frame" x="157" y="68" width="50" height="28"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="28" id="odk-0W-l5Z"/>
@@ -86,12 +89,16 @@
                 <constraints>
                     <constraint firstItem="6Fm-4U-gCq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="67" id="3Ry-kD-nQM"/>
                     <constraint firstAttribute="trailing" secondItem="PCz-xN-Dez" secondAttribute="trailing" constant="5" id="Fgy-WU-NZ8"/>
+                    <constraint firstItem="hyw-Sf-EzP" firstAttribute="bottom" secondItem="ouf-ct-UV0" secondAttribute="bottom" constant="4" id="G1K-ho-BqE"/>
                     <constraint firstAttribute="trailing" secondItem="3UA-n4-Zha" secondAttribute="trailing" constant="35" id="GeQ-aV-mU9"/>
+                    <constraint firstItem="hyw-Sf-EzP" firstAttribute="trailing" secondItem="ouf-ct-UV0" secondAttribute="trailing" constant="4" id="K8T-lV-pyT"/>
                     <constraint firstItem="Vrg-sV-g4r" firstAttribute="leading" secondItem="6Fm-4U-gCq" secondAttribute="trailing" id="L9e-1K-Q6y"/>
                     <constraint firstItem="Vrg-sV-g4r" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="68" id="PFX-3v-13n"/>
                     <constraint firstItem="PCz-xN-Dez" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="72" id="Qhk-Pk-7Yv"/>
+                    <constraint firstItem="hyw-Sf-EzP" firstAttribute="top" secondItem="ouf-ct-UV0" secondAttribute="top" constant="-4" id="bfV-jV-1fp"/>
                     <constraint firstItem="ouf-ct-UV0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="dRm-hc-0ki"/>
                     <constraint firstItem="6Fm-4U-gCq" firstAttribute="leading" secondItem="ouf-ct-UV0" secondAttribute="trailing" constant="8" id="emn-Wm-ZLm"/>
+                    <constraint firstItem="hyw-Sf-EzP" firstAttribute="leading" secondItem="ouf-ct-UV0" secondAttribute="leading" constant="-4" id="fOI-xQ-Bb6"/>
                     <constraint firstItem="3UA-n4-Zha" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="lTz-9H-VuM"/>
                     <constraint firstItem="ouf-ct-UV0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="nCn-9k-D2b"/>
                     <constraint firstAttribute="bottom" secondItem="ouf-ct-UV0" secondAttribute="bottom" constant="16" id="uLB-1W-Don"/>
@@ -110,6 +117,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="Oval" width="504" height="504"/>
         <image name="doge" width="534" height="550"/>
     </resources>
 </document>

@@ -130,7 +130,7 @@ class RequestManager {
         })
     }
     
-    func getUserStatistics(completion: @escaping(Bool, UserProfile?, Error?) -> Void) {
+    func getUserStatistics(completion: @escaping(Bool, UserProfile?, ChestStats?, Error?) -> Void) {
         
         Alamofire.request(RequestType.getStatistics.url, method: .get, encoding: JSONEncoding.default, headers: getAuthorizationHeader())
             .validate(statusCode: 200..<300)
@@ -138,15 +138,17 @@ class RequestManager {
                 switch(response.result) {
                 case .success(_):
                     if let json = response.result.value {
-                        guard let jsonArray = json as? [String: Any] else {return}
-                        guard let userProfileModel = Mapper<UserProfile>().map(JSON: jsonArray) else {return}
-                        completion(true, userProfileModel, nil)
+                        guard let jsonArray = json as? [String: Any] else { return }
+                        guard let chestsStats = jsonArray["chestStats"] as? [String : AnyObject],
+                            let chestModel = Mapper<ChestStats>().map(JSON: chestsStats) else { return }
+                        guard let userProfileModel = Mapper<UserProfile>().map(JSON: jsonArray) else { return }
+                        completion(true, userProfileModel, chestModel, nil)
                     }
                 case .failure(_):
                     if let error = response.result.error {
                         print(error)
                         print(response.response!.statusCode)
-                        completion(false, nil, error)
+                        completion(false, nil, nil, error)
                     }
                 }
             })
@@ -179,25 +181,149 @@ class RequestManager {
             })
     }
     
-    func postOpenedChest(chestID: String, completion: @escaping(Bool, String, Int) -> Void) {
+    func getFriends(completion: @escaping(Bool, [FriendUser]?, Error?) -> Void) {
+        
+        var friends = [FriendUser]()
+        
+        Alamofire.request(RequestType.getFriends.url, method: .get, encoding: JSONEncoding.default, headers: getAuthorizationHeader())
+            .validate(statusCode: 200..<300)
+            .responseJSON(completionHandler: { (response:DataResponse<Any>) in
+                switch(response.result) {
+                case .success(_):
+                    if let json = response.result.value {
+                        guard let jsonArray = json as? [[String: AnyObject]] else {return}
+                        for item in jsonArray {
+                            guard let singleFriend = Mapper<FriendUser>().map(JSON: item) else {return}
+                            print(singleFriend.username, singleFriend.level, singleFriend.openedChests)
+                            friends.append(singleFriend)
+                        }
+
+                        completion(true, friends, nil)
+                    }
+                case .failure(_):
+                    if let error = response.result.error {
+                        print("Status error code: \(String(describing: response.response?.statusCode))")
+                        completion(false, nil, error)
+                    }
+                }
+            })
+    }
+    
+    func postOpenedChest(chestID: String, completion: @escaping(Bool, Int, Int) -> Void) {
         
         Alamofire.request(RequestType.postOpenedChest(id: chestID).url,  method: .post, encoding: JSONEncoding.default, headers: getAuthorizationHeader())
             .validate(statusCode: 200..<300)
-            .responseJSON { (response) in
+            .responseJSON(completionHandler: { (response:DataResponse<Any>)  in
                 switch(response.result) {
                 case .success(_):
                     if let json = response.result.value {
                         guard let jsonArray = json as? [String: Any],
-                            let experienceGained = jsonArray["expGained"] as? String else { return }
+                            let experienceGained = jsonArray["expGained"] as? Int else { return }
                          completion(true, experienceGained, (response.response?.statusCode)!)
                     }
                 case .failure(_):
                     if let error = response.result.error {
-                        completion(false, response.result.description, (response.response?.statusCode)!)
+                        completion(false, 0, (response.response?.statusCode)!)
                     }
                 }
+        })
+    }
+    
+    func addFriend(withUsername: String, completion: @escaping(Bool) -> Void) {
+        
+        Alamofire.request(RequestType.addFriend(username: withUsername).url,  method: .post, encoding: JSONEncoding.default, headers: getAuthorizationHeader())
+            .validate(statusCode: 200..<300)
+            .responseJSON(completionHandler: { (response:DataResponse<Any>)  in
+                switch(response.result) {
+                case .success(_):
+                    guard let json = response.result.value else { return }
+                    print(json)
+                    completion(true)
+                case .failure(_):
+                    if let error = response.result.error { print(error) }
+                    completion(false)
+                }
+            })
+    }
+    
+    func downloadAvatarImage(completion: @escaping(UIImage?, Bool) -> Void) {
+        
+        Alamofire.request(RequestType.downloadAvatar.url, method: .get, encoding: JSONEncoding.default, headers: getAuthorizationHeader())
+            .validate(statusCode: 200..<300)
+            .responseData(completionHandler: { (response) in
+                switch (response.result) {
+                case .success(_):
+                    guard let data = response.data else { print("Error while getting data from response: \(String(describing: response.result.error))"); return }
+                    let image = UIImage(data: data)
+                    completion(image, true)
+                case .failure(_):
+                    print("Failure \(String(describing: response.result.error))")
+                    completion(nil, false)
+                }
+            })
+    }
+    
+    
+    func postAvatarImage(image: UIImage, progressCompletion: @escaping(_ percent: Float) -> Void, completion: @escaping(Bool) -> Void) {
+        
+        guard let imageData = UIImagePNGRepresentation(image) else {
+            print("Error while getting PNG representation")
+            return
         }
-
+        
+        Alamofire.upload(multipartFormData: { multipartFormData in
+            multipartFormData.append(imageData, withName: "file",
+                                     fileName: "file.png",
+                                     mimeType: "file/png")},
+                         to: RequestType.editAvatar.url,
+                         headers: getAuthorizationHeader(),
+                         encodingCompletion: { encodingResult in
+                            
+                            switch encodingResult {
+                            case .success(let upload, _, _):
+                                upload.uploadProgress { progress in
+                                    progressCompletion(Float(progress.fractionCompleted))
+                                }
+                                upload.validate()
+                                upload.responseJSON { response in
+                                    switch response.result {
+                                    case .success(_):
+                                        guard response.result.value != nil else {
+                                                print("Error while uploading file: \(String(describing: response.result.error))")
+                                                completion(false)
+                                                return
+                                        }
+                                        completion(true)
+                                    case .failure(_):
+                                        print("failure")
+                                        print(String(describing: response.result.error))
+                                        completion(false)
+                                    }
+                                }
+                            case .failure(let encodingError):
+                                print(encodingError)
+                            }
+        })
+    }
+    
+    
+    func downloadAvatarImage(name: String, completion: @escaping(UIImage?, Bool) -> Void) {
+        
+        print(RequestType.getRankingAvatarFor(username: name).url)
+        
+        Alamofire.request(RequestType.getRankingAvatarFor(username: name).url, method: .get, encoding: JSONEncoding.default)
+            .validate(statusCode: 200..<300)
+            .responseData(completionHandler: { (response) in
+                switch (response.result) {
+                case .success(_):
+                    guard let data = response.data else { print("Error while getting data from response: \(String(describing: response.result.error))"); return }
+                    let image = UIImage(data: data)
+                    completion(image, true)
+                case .failure(_):
+                    print("Failure \(String(describing: response.result.error))")
+                    completion(nil, false)
+                }
+            })
     }
     
     
