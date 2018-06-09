@@ -195,22 +195,26 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="iws-BB-sva">
-                                        <rect key="frame" x="0.0" y="33" width="343" height="29"/>
+                                        <rect key="frame" x="0.0" y="21" width="343" height="41"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3BJ-7Y-l3V">
-                                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="29"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iiR-CZ-Qud">
+                                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="41"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="25"/>
-                                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                                <state key="normal" title="11">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="showFriends:" destination="WFT-sk-Hfl" eventType="touchUpInside" id="jR4-bb-w00"/>
+                                                </connections>
+                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bES-jG-fcL">
-                                                <rect key="frame" x="114.5" y="0.0" width="114" height="29"/>
+                                                <rect key="frame" x="114.5" y="0.0" width="114" height="41"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="25"/>
                                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPX-Gr-BHX">
-                                                <rect key="frame" x="228.5" y="0.0" width="114.5" height="29"/>
+                                                <rect key="frame" x="228.5" y="0.0" width="114.5" height="41"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="25"/>
                                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -440,7 +444,7 @@
                     <tabBarItem key="tabBarItem" title="My profile" image="profile" id="PY5-mY-XcM"/>
                     <connections>
                         <outlet property="UserExperience" destination="iGT-sE-cG1" id="5iK-nx-bmV"/>
-                        <outlet property="friendsLabel" destination="3BJ-7Y-l3V" id="Xyv-cx-TeH"/>
+                        <outlet property="friendsAmount" destination="iiR-CZ-Qud" id="x2L-n3-WHA"/>
                         <outlet property="toNextLevel" destination="hKn-fq-a2p" id="HOH-u9-sjF"/>
                         <outlet property="userBoxesAmount" destination="bES-jG-fcL" id="N7h-oI-hrc"/>
                         <outlet property="userLevel" destination="bSQ-dK-Ee7" id="XGI-Hq-lnp"/>

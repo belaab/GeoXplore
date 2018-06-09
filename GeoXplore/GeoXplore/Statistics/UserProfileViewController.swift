@@ -16,7 +16,8 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var userBoxesAmount: UILabel!
     @IBOutlet weak var toNextLevel: UILabel!
     @IBOutlet weak var userLevel: UILabel!
-    @IBOutlet weak var friendsLabel: UILabel!
+    @IBOutlet weak var friendsAmount: UIButton!
+    
     var chosenPhoto = UIImage()
     var imagePicker = UIImagePickerController()
     
@@ -30,6 +31,12 @@ class UserProfileViewController: UIViewController {
     @IBAction func edtitAvatarBtn(_ sender: UIButton) {
         showImagePicker()
     }
+    
+    @IBAction func showFriends(_ sender: UIButton) {
+        let friends = StoryboardManager.friendsViewController()
+        self.present(friends, animated: true, completion: nil)
+    }
+    
     
     private func setupView() {
         userPhoto.layer.cornerRadius = self.userPhoto.frame.size.width / 2;
@@ -80,7 +87,7 @@ class UserProfileViewController: UIViewController {
                         self.toNextLevel.text = toNextLevel.toPercentages()
                         self.userExperience.text = String(describing: userExperience)
                         self.userLevel.text = String(describing: userLevel)
-                        self.friendsLabel.text = String(describing: friends)
+                        self.friendsAmount.titleLabel?.text = String(describing: friends)
                 }
             case false:
                 print("Error while initializing user profile")
