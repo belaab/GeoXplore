@@ -14,15 +14,24 @@ class FriendsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.backItem?.title = ""
+        self.navigationController?.navigationBar.backItem?.title = " "
+
+        
+        //self.navigationController?.navigationItem.backBarButtonItem?.title = ""
+       // self.navigationController?.navigationItem.backBarButtonItem?.tintColor = UIColor.white
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.navigationBar.backItem?.title = " "
+
     }
     
 //    override func viewWillDisappear(_ animated: Bool) {
-//        self.navigationController?.isNavigationBarHidden = false
+//        self.navigationController?.isNavigationBarHidden = false  
 //    }
     
     
