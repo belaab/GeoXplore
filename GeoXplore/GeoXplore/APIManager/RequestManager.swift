@@ -130,7 +130,7 @@ class RequestManager {
         })
     }
     
-    func getUserStatistics(completion: @escaping(Bool, UserProfile?, Error?) -> Void) {
+    func getUserStatistics(completion: @escaping(Bool, UserProfile?, ChestStats?, Error?) -> Void) {
         
         Alamofire.request(RequestType.getStatistics.url, method: .get, encoding: JSONEncoding.default, headers: getAuthorizationHeader())
             .validate(statusCode: 200..<300)
@@ -138,15 +138,17 @@ class RequestManager {
                 switch(response.result) {
                 case .success(_):
                     if let json = response.result.value {
-                        guard let jsonArray = json as? [String: Any] else {return}
-                        guard let userProfileModel = Mapper<UserProfile>().map(JSON: jsonArray) else {return}
-                        completion(true, userProfileModel, nil)
+                        guard let jsonArray = json as? [String: Any] else { return }
+                        guard let chestsStats = jsonArray["chestStats"] as? [String : AnyObject],
+                            let chestModel = Mapper<ChestStats>().map(JSON: chestsStats) else { return }
+                        guard let userProfileModel = Mapper<UserProfile>().map(JSON: jsonArray) else { return }
+                        completion(true, userProfileModel, chestModel, nil)
                     }
                 case .failure(_):
                     if let error = response.result.error {
                         print(error)
                         print(response.response!.statusCode)
-                        completion(false, nil, error)
+                        completion(false, nil, nil, error)
                     }
                 }
             })

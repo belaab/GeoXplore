@@ -11,6 +11,7 @@ import UIKit
 class UserProfileViewController: UIViewController {
   
     @IBOutlet weak var userNick: UILabel!
+    @IBOutlet weak var userExperienceLbl: UILabel!
     @IBOutlet weak var userPhoto: UIImageView!
     @IBOutlet weak var userBoxesAmount: UILabel!
     @IBOutlet weak var toNextLevel: UILabel!
@@ -75,7 +76,7 @@ class UserProfileViewController: UIViewController {
             }
         }
         
-        RequestManager.sharedInstance.getUserStatistics { (success, profile, error) in
+        RequestManager.sharedInstance.getUserStatistics { (success, profile, chests, error) in
             switch success {
             case true:
                 if let userProfileModel = profile {
@@ -86,15 +87,20 @@ class UserProfileViewController: UIViewController {
                         let userOpenedChests = profile?.openedOverallChests,
                         let friends = profile?.friends else { return }
                     
+                        self.userExperienceLbl.text = String(describing: userExperience)
                         self.userNick.text = userNick
                         self.userBoxesAmount.text = String(describing: userOpenedChests)
                         self.toNextLevel.text = toNextLevel.toPercentages()
-                        self.userExperience.text = String(describing: userExperience)
                         self.userLevel.text = String(describing: userLevel)
-                       // self.friendsAmount.titleLabel?.text = String(describing: friends)
-                    self.friendsAmount.setAttributedTitle(self.configureButtonTitleFor(friendsNumber: friends), for: .normal)
-                        //self.friendsAmount.setTitle(String(describing: friends), for: .normal)
+                        self.friendsAmount.setAttributedTitle(self.configureButtonTitleFor(friendsNumber: friends), for: .normal)
                 }
+                
+                if let chestsStats = chests {
+                    self.commonChestLbl.text = "x" + String(describing: chestsStats.openedOverallCommonChests)
+                    self.rareChestLbl.text = "x" + String(describing: chestsStats.openedOverallRareChests)
+                    self.epicChestLbl.text = "x" + String(describing: chestsStats.openedOverallEpicChests)
+                    self.legendaryChestLbl.text = "x" + String(describing: chestsStats.openedOverallLegendaryChests)
+                } else { return }
             case false:
                 print("Error while initializing user profile")
             break

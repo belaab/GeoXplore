@@ -25,9 +25,9 @@ class ChestStats: Mappable {
     
     func mapping(map: Map) {
         self.openedOverallCommonChests <- map["openedOverallCommonChests"]
-        self.openedOverallRareChests <- map["openedOverallCommonChests"]
-        self.openedOverallEpicChests <- map["openedOverallCommonChests"]
-        self.openedOverallLegendaryChests <- map["openedOverallCommonChests"]
+        self.openedOverallRareChests <- map["openedOverallRareChests"]
+        self.openedOverallEpicChests <- map["openedOverallEpicChests"]
+        self.openedOverallLegendaryChests <- map["openedOverallLegendaryChests"]
     }
     
     
