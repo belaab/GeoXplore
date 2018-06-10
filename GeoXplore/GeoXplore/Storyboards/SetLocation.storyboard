@@ -19,14 +19,14 @@
         <scene sceneID="HCv-5j-lLm">
             <objects>
                 <viewController storyboardIdentifier="setLocationViewController" id="kwc-OV-TAB" customClass="SetLocationViewController" customModule="GeoXplore" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="08v-BL-udf" customClass="MGLMapView">
+                    <view key="view" contentMode="scaleToFill" id="08v-BL-udf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Qt-bj-m03">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LEv-4b-Uax">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LEv-4b-Uax" customClass="MGLMapView">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fOH-dI-Yci" customClass="GradientView" customModule="GeoXplore" customModuleProvider="target">
@@ -137,9 +137,6 @@
                             <constraint firstItem="Bcl-mh-hiy" firstAttribute="bottom" secondItem="LEv-4b-Uax" secondAttribute="bottom" id="vvr-eh-riL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Bcl-mh-hiy"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="styleURL__" value="mapbox://styles/belaab/cjg4bq8vq1ir42rnyljaz229s"/>
-                        </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
                         <outlet property="blurEffectView" destination="LQ8-ot-ZUk" id="hbn-bK-Y96"/>
