@@ -56,7 +56,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IAG-a6-P4z">
-                                        <rect key="frame" x="52.5" y="160" width="270" height="50"/>
+                                        <rect key="frame" x="52.5" y="161" width="270" height="50"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="WJP-m4-irQ">
                                             <rect key="frame" x="0.0" y="0.0" width="270" height="50"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -64,7 +64,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Lk-4S-ocz">
                                                     <rect key="frame" x="0.0" y="0.0" width="270" height="50"/>
                                                     <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
-                                                    <state key="normal" title="OK, READY TO PLAY">
+                                                    <state key="normal" title="CHECK DISTANCE">
                                                         <color key="titleColor" red="1" green="0.99061489390000002" blue="0.91803278690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <userDefinedRuntimeAttributes>
@@ -72,6 +72,9 @@
                                                             <integer key="value" value="25"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="checkLocation:" destination="rQU-eb-MVY" eventType="touchUpInside" id="BEj-Ap-DUV"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -100,7 +103,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="sIe-dG-9Wk" firstAttribute="centerX" secondItem="1Db-XO-X7l" secondAttribute="centerX" id="2ps-Xs-QKE"/>
-                                    <constraint firstItem="IAG-a6-P4z" firstAttribute="bottom" secondItem="bxU-DU-rQg" secondAttribute="bottom" id="Bev-I3-6Xj"/>
+                                    <constraint firstItem="IAG-a6-P4z" firstAttribute="bottom" secondItem="bxU-DU-rQg" secondAttribute="bottom" constant="1" id="Bev-I3-6Xj"/>
                                     <constraint firstItem="IAG-a6-P4z" firstAttribute="centerX" secondItem="1Db-XO-X7l" secondAttribute="centerX" id="DfE-wn-iiU"/>
                                     <constraint firstItem="sIe-dG-9Wk" firstAttribute="top" secondItem="CMF-cb-olk" secondAttribute="bottom" constant="20" id="GtG-gF-DIv"/>
                                     <constraint firstItem="CMF-cb-olk" firstAttribute="top" secondItem="1Db-XO-X7l" secondAttribute="top" constant="50" id="IFa-Iw-cD7"/>
