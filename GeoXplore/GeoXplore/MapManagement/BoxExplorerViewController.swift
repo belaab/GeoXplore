@@ -12,6 +12,7 @@ import Mapbox
 
 class BoxExplorerViewController: UIViewController {
     
+    @IBOutlet weak var blurEffectView: UIVisualEffectView!
     @IBOutlet weak var mapView: MGLMapView!
     var boxes = [Box]()
     var userLocation = CLLocation()
@@ -107,6 +108,8 @@ class BoxExplorerViewController: UIViewController {
         mapView.delegate = self
         view.addSubview(mapView)
         mapView.showsUserLocation = true
+        blurEffectView.layer.cornerRadius = 25
+        blurEffectView.clipsToBounds = true
     }
     
     

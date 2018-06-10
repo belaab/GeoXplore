@@ -23,7 +23,7 @@ class GradientView: UIView {
         gradient.colors = [firstColor, secondColor]
         gradient.startPoint = CGPoint.zero
         gradient.endPoint = CGPoint(x: 0, y:1) //1 means 100% - to the bottom of the view
-        gradient.locations = [0.7, 1.0]
+        gradient.locations = [0.8, 1.0]
         self.layer.addSublayer(gradient)
     }
 }

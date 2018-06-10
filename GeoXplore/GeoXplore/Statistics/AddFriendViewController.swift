@@ -58,28 +58,38 @@ class AddFriendViewController: UIViewController, UITextFieldDelegate {
             switch (success) {
             case true:
                 self.usernameTextField.backgroundColor = Colors.addFriendSuccesGreen
-                self.okButton.titleLabel!.text = "Friend added"
-                self.animate(withLabel: "OK")
+                self.okButton.setTitle("Friend added", for: .normal)
+                //titleLabel!.text = "Friend added"
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.5, execute: {
+                     self.animate(withLabel: "OK")
+                })
             case false:
                 self.usernameTextField.backgroundColor = Colors.addFriendFailureRed
-                self.okButton.titleLabel!.text = "Invalid username"
-                self.animate(withLabel: "OK")
+                self.okButton.setTitle("Invalid username", for: .normal)
+
+//self.okButton.titleLabel!.text = "Invalid username"
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.5, execute: {
+                    self.animate(withLabel: "OK")
+                })
             }
             
+    }
+        
     }
     
     
     private func animate(withLabel: String) {
-        UIView.animate(withDuration: 3.0, delay: 0.0, options: [], animations: {
+        UIView.animate(withDuration: 1.7, delay: 0.0, options: [], animations: {
             self.usernameTextField.text = ""
-            // self.okButton.titleLabel!.text = "Invalid username"
+           // self.okButton.titleLabel?.text = "Invalid username"
           //  self.okButton.titleLabel!.text = withLabel
             self.usernameTextField.backgroundColor = Colors.addFriendTextField
+            self.okButton.setTitle("", for: .normal)
         }, completion: { _ in
-            //self.okButton.titleLabel!.text = "OK"
+            self.okButton.setTitle("OK", for: .normal)
         })
         
-        self.okButton.titleLabel!.text = "OK"
+        
     }
     
     
