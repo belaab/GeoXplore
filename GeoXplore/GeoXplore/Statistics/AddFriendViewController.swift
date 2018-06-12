@@ -18,8 +18,8 @@ class AddFriendViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboard()
-        self.okButton.isEnabled = false
-        self.okButton.alpha = 0.75
+        okButton.isEnabled = false
+        okButton.alpha = 0.75
         
         navigationController?.navigationBar.backItem?.title = " "
         usernameTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
@@ -42,15 +42,14 @@ class AddFriendViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = false
         navigationController?.navigationBar.backItem?.title = " "
-
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.tintColor = .white
     }
     
+    
     private func sendAddFriendRequest() {
-        
         guard let username = usernameTextField.text else { return }
         
         RequestManager.sharedInstance.addFriend(withUsername: username) { (success) in
@@ -58,28 +57,34 @@ class AddFriendViewController: UIViewController, UITextFieldDelegate {
             switch (success) {
             case true:
                 self.usernameTextField.backgroundColor = Colors.addFriendSuccesGreen
-                self.okButton.titleLabel!.text = "Friend added"
-                self.animate(withLabel: "OK")
+                self.okButton.setTitle("Friend added", for: .normal)
+                self.animate()
             case false:
                 self.usernameTextField.backgroundColor = Colors.addFriendFailureRed
-                self.okButton.titleLabel!.text = "Invalid username"
-                self.animate(withLabel: "OK")
+                self.okButton.setTitle("Invalid username", for: .normal)
+                self.animate()
             }
-            
+        }
+        
     }
     
     
-    private func animate(withLabel: String) {
-        UIView.animate(withDuration: 3.0, delay: 0.0, options: [], animations: {
-            self.usernameTextField.text = ""
-            // self.okButton.titleLabel!.text = "Invalid username"
-          //  self.okButton.titleLabel!.text = withLabel
-            self.usernameTextField.backgroundColor = Colors.addFriendTextField
-        }, completion: { _ in
-            //self.okButton.titleLabel!.text = "OK"
-        })
+    private func animate() {
         
-        self.okButton.titleLabel!.text = "OK"
+        okButton.isEnabled = false
+        usernameTextField.isEnabled = false
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.5, execute: {
+            UIView.animate(withDuration: 1.7, delay: 0.0, options: [], animations: {
+                self.usernameTextField.text = ""
+                self.usernameTextField.backgroundColor = Colors.addFriendTextField
+                self.okButton.setTitle("", for: .normal)
+            }, completion: { _ in
+                self.okButton.setTitle("OK", for: .normal)
+                self.okButton.isEnabled = true
+                self.usernameTextField.isEnabled = true
+            })
+        })
     }
     
     

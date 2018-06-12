@@ -62,7 +62,7 @@ class LoginViewController: UIViewController, NVActivityIndicatorViewable, UIText
                 let setLocationViewController = StoryboardManager.setLocationViewController()
                 self.present(setLocationViewController, animated: true, completion: nil)
             } else {
-                self.activityIndicatorView.stopAnimating()
+                self.stopAnimating()
                 let alert = UIAlertController(title: "Login failure", message: "Sorry, some error occured. Validate data and try again.", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
                     switch action.style{
