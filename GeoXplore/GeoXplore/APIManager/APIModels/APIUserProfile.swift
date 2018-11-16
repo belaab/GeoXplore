@@ -17,7 +17,6 @@ class UserProfile: Mappable {
     var toNextLevel: Double
     var friends: Int
     var openedOverallChests: Int
-
     
     init(username: String, experience: Int, level: Int, toNextLevel: Double, friends: Int, openedOverallChests: Int) {
         self.username = username

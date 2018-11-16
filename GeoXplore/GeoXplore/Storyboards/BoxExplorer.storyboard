@@ -548,6 +548,7 @@
                         <outlet property="commonChestLbl" destination="wcu-GP-lw0" id="Idy-VB-Z0L"/>
                         <outlet property="epicChestLbl" destination="jh4-Tv-1Xl" id="k9W-Tg-VWZ"/>
                         <outlet property="friendsAmount" destination="iiR-CZ-Qud" id="x2L-n3-WHA"/>
+                        <outlet property="lastWeekOpened" destination="g9y-ll-4g5" id="Og6-Dl-cj3"/>
                         <outlet property="legendaryChestLbl" destination="Dpq-PA-xJt" id="K5c-Yf-wMv"/>
                         <outlet property="rareChestLbl" destination="bEP-3i-aWG" id="7vv-5l-9Ca"/>
                         <outlet property="toNextLevel" destination="hKn-fq-a2p" id="HOH-u9-sjF"/>

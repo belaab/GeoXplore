@@ -42,7 +42,7 @@ extension RequestType: TargetType {
         case .getRanking:
             return URL(string: "https://geoxplore-api.herokuapp.com/community/ranking")!
         case .postOpenedChest(let id):
-            return URL(string: "https://geoxplore-api.herokuapp.com/user/open/chest/" + id)!
+            return URL(string: "https://geoxplore-api.herokuapp.com/user/chest/open/" + id)!
         case .getHome:
             return URL(string: "https://geoxplore-api.herokuapp.com/user/get-home")!
         case .editAvatar:
