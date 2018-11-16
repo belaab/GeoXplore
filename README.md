@@ -22,7 +22,7 @@ GeoXplore is a university project game app for mobile platforms with [provided A
 
 Make sure you have the following software installed before beginning:
 
-- Latest version of Xcode (at least 8.2.1)
+- Latest version of Xcode (at least 9)
 - Recent version of the iOS SDK (at least 10.0)
 
 You can download these from the [Apple Developer website](https://developer.apple.com/downloads/).
