@@ -3,7 +3,7 @@
 GeoXplore is a university project game app for mobile platforms with [provided API](https://github.com/djwojtas/geoxplore-api) as well.
 
 
- ###### :snail: Early stage of building - the project is still being developed :rocket: :wrench:
+ ###### The project is still being developed :rocket: :wrench:
 ![loginRegister](https://user-images.githubusercontent.com/17625089/40444526-e4e18128-5ec9-11e8-9c2e-a642f24463ea.gif)
 
 ## About
