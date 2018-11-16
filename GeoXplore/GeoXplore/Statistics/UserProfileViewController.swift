@@ -21,6 +21,7 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var rareChestLbl: UILabel!
     @IBOutlet weak var epicChestLbl: UILabel!
     @IBOutlet weak var legendaryChestLbl: UILabel!
+    @IBOutlet weak var lastWeekOpened: UILabel!
     
     
     var chosenPhoto = UIImage()
@@ -85,13 +86,15 @@ class UserProfileViewController: UIViewController {
                         let userLevel = profile?.level,
                         let toNextLevel = profile?.toNextLevel,
                         let userOpenedChests = profile?.openedOverallChests,
-                        let friends = profile?.friends else { return }
+                        let friends = profile?.friends
+                        else { return }
                     
                         self.userExperienceLbl.text = String(describing: userExperience)
                         self.userNick.text = userNick
                         self.userBoxesAmount.text = String(describing: userOpenedChests)
                         self.toNextLevel.text = toNextLevel.toPercentages()
                         self.userLevel.text = String(describing: userLevel)
+                        //self.lastWeekOpened.text = String(describing: openedLastWeekChests)
                         self.friendsAmount.setAttributedTitle(self.configureButtonTitleFor(friendsNumber: friends), for: .normal)
                 }
                 
@@ -100,6 +103,8 @@ class UserProfileViewController: UIViewController {
                     self.rareChestLbl.text = "x" + String(describing: chestsStats.openedOverallRareChests)
                     self.epicChestLbl.text = "x" + String(describing: chestsStats.openedOverallEpicChests)
                     self.legendaryChestLbl.text = "x" + String(describing: chestsStats.openedOverallLegendaryChests)
+                    self.lastWeekOpened.text = String(describing: chestsStats.openedLastWeekChests)
+                    
                 } else { return }
             case false:
                 print("Error while initializing user profile")

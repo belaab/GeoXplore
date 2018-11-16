@@ -32,17 +32,17 @@ extension RequestType: TargetType {
         case .login:
             return URL(string: "https://geoxplore-api.herokuapp.com/login")!
         case .register:
-            return URL(string: "https://geoxplore-api.herokuapp.com/user-management/create-user")!
+            return URL(string: "https://geoxplore-api.herokuapp.com/user-management/user/create")!
         case .postLocation:
-            return URL(string: "https://geoxplore-api.herokuapp.com/user/set-home")!
+            return URL(string: "https://geoxplore-api.herokuapp.com/user/home")!
         case .getBoxes:
             return URL(string: "https://geoxplore-api.herokuapp.com/user/chests")!
         case .getStatistics:
-            return URL(string: "https://geoxplore-api.herokuapp.com/user/my-statistics")!
+            return URL(string: "https://geoxplore-api.herokuapp.com/user/statistics")!
         case .getRanking:
             return URL(string: "https://geoxplore-api.herokuapp.com/community/ranking")!
         case .postOpenedChest(let id):
-            return URL(string: "https://geoxplore-api.herokuapp.com/user/open-chest/" + id)!
+            return URL(string: "https://geoxplore-api.herokuapp.com/user/chest/open/" + id)!
         case .getHome:
             return URL(string: "https://geoxplore-api.herokuapp.com/user/get-home")!
         case .editAvatar:
@@ -52,9 +52,9 @@ extension RequestType: TargetType {
         case .getRankingAvatarFor(let username):
             return URL(string: "https://geoxplore-api.herokuapp.com/community/avatar/" + username)!
         case .getFriends:
-            return URL(string: "https://geoxplore-api.herokuapp.com/community/get-friends")!
+            return URL(string: "https://geoxplore-api.herokuapp.com/community/friends")!
         case .addFriend(let username):
-            return URL(string: "https://geoxplore-api.herokuapp.com/community/add-friend/" + username)!
+            return URL(string: "https://geoxplore-api.herokuapp.com/community/friend/add/" + username)!
         }
         
     }

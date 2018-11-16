@@ -14,7 +14,7 @@ class RankingViewCell: UITableViewCell {
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var level: UILabel!
     @IBOutlet weak var openedChests: UILabel!
-    
+    @IBOutlet weak var lastWeekOpened: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
