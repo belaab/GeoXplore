@@ -22,11 +22,12 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var epicChestLbl: UILabel!
     @IBOutlet weak var legendaryChestLbl: UILabel!
     @IBOutlet weak var lastWeekOpened: UILabel!
+    @IBOutlet weak var userTitle: UIButton!
     
-    
+
     var chosenPhoto = UIImage()
     var imagePicker = UIImagePickerController()
-    
+    var a = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +42,12 @@ class UserProfileViewController: UIViewController {
     @IBAction func showFriends(_ sender: UIButton) {
         let friends = StoryboardManager.friendsViewController()
         self.present(friends, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func showUserTitles(_ sender: UIButton) {
+        let achievements = StoryboardManager.achievementsViewController(achievements: a)
+        self.present(achievements, animated: true, completion: nil)
     }
     
     
@@ -86,16 +93,20 @@ class UserProfileViewController: UIViewController {
                         let userLevel = profile?.level,
                         let toNextLevel = profile?.toNextLevel,
                         let userOpenedChests = profile?.openedOverallChests,
-                        let friends = profile?.friends
+                        let friends = profile?.friends,
+                        let title = profile?.title,
+                        let achievements = profile?.achievements
                         else { return }
                     
+                        self.a = achievements
                         self.userExperienceLbl.text = String(describing: userExperience)
                         self.userNick.text = userNick
                         self.userBoxesAmount.text = String(describing: userOpenedChests)
                         self.toNextLevel.text = toNextLevel.toPercentages()
                         self.userLevel.text = String(describing: userLevel)
-                        //self.lastWeekOpened.text = String(describing: openedLastWeekChests)
+                        self.userTitle.setTitle(title, for: .normal)
                         self.friendsAmount.setAttributedTitle(self.configureButtonTitleFor(friendsNumber: friends), for: .normal)
+                    
                 }
                 
                 if let chestsStats = chests {

@@ -61,6 +61,10 @@
 		2BFF355220C1DB8F00E3EFBF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BFF355120C1DB8F00E3EFBF /* Localizable.strings */; };
 		2BFF355420C1DED400E3EFBF /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF355320C1DED400E3EFBF /* LocalizedStrings.swift */; };
 		514D49B39D49978513EA0016 /* Pods_GeoXplore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C62D332798919C75732A4D6 /* Pods_GeoXplore.framework */; };
+		CD21645F21C31CC100AD9851 /* TitlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD21645E21C31CC100AD9851 /* TitlesViewController.swift */; };
+		CD21646121C31ED400AD9851 /* AchievementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD21646021C31ED400AD9851 /* AchievementsViewController.swift */; };
+		CD21646421C3249A00AD9851 /* StatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD21646221C3249A00AD9851 /* StatsTableViewCell.swift */; };
+		CD21646521C3249A00AD9851 /* StatsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD21646321C3249A00AD9851 /* StatsTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,6 +125,10 @@
 		2BFF355120C1DB8F00E3EFBF /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		2BFF355320C1DED400E3EFBF /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
 		B2EF8CD55388AEB04B96C030 /* Pods-GeoXplore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoXplore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoXplore/Pods-GeoXplore.debug.xcconfig"; sourceTree = "<group>"; };
+		CD21645E21C31CC100AD9851 /* TitlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlesViewController.swift; sourceTree = "<group>"; };
+		CD21646021C31ED400AD9851 /* AchievementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsViewController.swift; sourceTree = "<group>"; };
+		CD21646221C3249A00AD9851 /* StatsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsTableViewCell.swift; sourceTree = "<group>"; };
+		CD21646321C3249A00AD9851 /* StatsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatsTableViewCell.xib; sourceTree = "<group>"; };
 		D9CEC8B3CA0ED479C07F28F2 /* Pods-GeoXplore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoXplore.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeoXplore/Pods-GeoXplore.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,11 +157,15 @@
 			children = (
 				2B1DA10D20AB8C660059E7E7 /* ARBoxVIewController.swift */,
 				2B1DA0FD20AA14010059E7E7 /* UserProfileViewController.swift */,
+				CD21645E21C31CC100AD9851 /* TitlesViewController.swift */,
 				2B1DA10320AB062C0059E7E7 /* RankingViewController.swift */,
 				2B1DA10720AB07380059E7E7 /* RankingViewCell.swift */,
 				2B1DA10820AB07380059E7E7 /* RankingViewCell.xib */,
 				2B6D037C20CB255500195234 /* FriendsViewController.swift */,
 				2B6D038020CB385A00195234 /* AddFriendViewController.swift */,
+				CD21646021C31ED400AD9851 /* AchievementsViewController.swift */,
+				CD21646221C3249A00AD9851 /* StatsTableViewCell.swift */,
+				CD21646321C3249A00AD9851 /* StatsTableViewCell.xib */,
 			);
 			path = Statistics;
 			sourceTree = "<group>";
@@ -374,6 +386,7 @@
 				2BC0CC5C20784386001033B0 /* Login.storyboard in Resources */,
 				2BED38B02086B16700D734D7 /* Result.storyboard in Resources */,
 				2B6D037F20CB256B00195234 /* Friends.storyboard in Resources */,
+				CD21646521C3249A00AD9851 /* StatsTableViewCell.xib in Resources */,
 				2BED38A82086085B00D734D7 /* BoxExplorer.storyboard in Resources */,
 				2BFF355220C1DB8F00E3EFBF /* Localizable.strings in Resources */,
 				2BC0CC5B20784386001033B0 /* ChooseSignUpIn.storyboard in Resources */,
@@ -437,9 +450,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BED38AE2086B13E00D734D7 /* BoxFinderResultViewController.swift in Sources */,
+				CD21645F21C31CC100AD9851 /* TitlesViewController.swift in Sources */,
 				2B32D14020834DC700642738 /* RequestManager.swift in Sources */,
 				2BB8B7AC20C6D0AA0030BDAA /* AvatarSearchController.swift in Sources */,
 				2BED38AA20864E1700D734D7 /* BoxExplorerViewController.swift in Sources */,
+				CD21646121C31ED400AD9851 /* AchievementsViewController.swift in Sources */,
 				2B1DA10220AAE48A0059E7E7 /* DoubleToPercentages.swift in Sources */,
 				2BFF355420C1DED400E3EFBF /* LocalizedStrings.swift in Sources */,
 				2BC0CC5D20784386001033B0 /* ChooseSignUpInViewController.swift in Sources */,
@@ -453,6 +468,7 @@
 				2B1DA0FE20AA14020059E7E7 /* UserProfileViewController.swift in Sources */,
 				2BB8B7AE20C6F92B0030BDAA /* ImageWithColor.swift in Sources */,
 				2BC0CC3220778D0C001033B0 /* AppDelegate.swift in Sources */,
+				CD21646421C3249A00AD9851 /* StatsTableViewCell.swift in Sources */,
 				2B1DA10C20AB104B0059E7E7 /* APIRankingUser.swift in Sources */,
 				2B18833020B48B7100E45E1B /* CustomTabBarController.swift in Sources */,
 				2B3A03DA20A728EB00CF13A3 /* HideKeyboard.swift in Sources */,
