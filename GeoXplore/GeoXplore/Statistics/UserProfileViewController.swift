@@ -44,10 +44,16 @@ class UserProfileViewController: UIViewController {
         self.present(friends, animated: true, completion: nil)
     }
     
-    
-    @IBAction func showUserTitles(_ sender: UIButton) {
+    @IBAction func showAchievements(_ sender: UIButton) {
         let achievements = StoryboardManager.achievementsViewController(achievements: a)
         self.present(achievements, animated: true, completion: nil)
+        let titles = StoryboardManager.titlesViewController()
+        self.present(titles, animated: true, completion: nil)
+    }
+    
+    @IBAction func showUserTitles(_ sender: UIButton) {
+        let titles = StoryboardManager.titlesViewController()
+        self.present(titles, animated: true, completion: nil)
     }
     
     

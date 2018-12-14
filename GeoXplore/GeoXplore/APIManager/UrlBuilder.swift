@@ -22,6 +22,7 @@ enum RequestType {
     case getRankingAvatarFor(username: String)
     case getFriends
     case addFriend(username: String)
+    case getTitles
 }
 
 
@@ -55,6 +56,8 @@ extension RequestType: TargetType {
             return URL(string: "https://geoxplore-api.herokuapp.com/community/friends")!
         case .addFriend(let username):
             return URL(string: "https://geoxplore-api.herokuapp.com/community/friend/add/" + username)!
+        case .getTitles:
+            return URL(string: "https://geoxplore-api.herokuapp.com/user/titles")!
         }
         
     }

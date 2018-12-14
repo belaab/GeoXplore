@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -110,9 +109,20 @@
                             </stackView>
                         </subviews>
                     </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Początkujący" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3z-4j-4t2">
+                        <rect key="frame" x="108" y="45" width="105" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="105" id="6xF-jz-6Wz"/>
+                            <constraint firstAttribute="height" constant="21" id="gyU-k1-G7G"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="13"/>
+                        <color key="textColor" red="1" green="0.29307744899999999" blue="0.75088498299999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="6Fm-4U-gCq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="67" id="3Ry-kD-nQM"/>
+                    <constraint firstItem="A3z-4j-4t2" firstAttribute="top" secondItem="mMH-2s-Xd4" secondAttribute="bottom" constant="-3.5" id="5cj-Oh-Ean"/>
                     <constraint firstItem="hyw-Sf-EzP" firstAttribute="bottom" secondItem="ouf-ct-UV0" secondAttribute="bottom" constant="4" id="G1K-ho-BqE"/>
                     <constraint firstItem="hyw-Sf-EzP" firstAttribute="trailing" secondItem="ouf-ct-UV0" secondAttribute="trailing" constant="4" id="K8T-lV-pyT"/>
                     <constraint firstItem="Vrg-sV-g4r" firstAttribute="leading" secondItem="6Fm-4U-gCq" secondAttribute="trailing" id="L9e-1K-Q6y"/>
@@ -126,6 +136,7 @@
                     <constraint firstAttribute="bottom" secondItem="ouf-ct-UV0" secondAttribute="bottom" constant="16" id="uLB-1W-Don"/>
                     <constraint firstItem="mMH-2s-Xd4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="17" id="w7Y-OV-aef"/>
                     <constraint firstItem="mMH-2s-Xd4" firstAttribute="leading" secondItem="ouf-ct-UV0" secondAttribute="trailing" constant="8" id="wOK-O9-SX4"/>
+                    <constraint firstItem="A3z-4j-4t2" firstAttribute="leading" secondItem="hyw-Sf-EzP" secondAttribute="trailing" constant="4" id="wbv-JZ-Tyl"/>
                     <constraint firstItem="rK3-Q3-QaQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="xBQ-GH-baF"/>
                 </constraints>
             </tableViewCellContentView>

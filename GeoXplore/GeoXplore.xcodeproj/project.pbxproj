@@ -65,6 +65,9 @@
 		CD21646121C31ED400AD9851 /* AchievementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD21646021C31ED400AD9851 /* AchievementsViewController.swift */; };
 		CD21646421C3249A00AD9851 /* StatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD21646221C3249A00AD9851 /* StatsTableViewCell.swift */; };
 		CD21646521C3249A00AD9851 /* StatsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD21646321C3249A00AD9851 /* StatsTableViewCell.xib */; };
+		CD21646921C3C3C700AD9851 /* Titles.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD21646821C3C3C700AD9851 /* Titles.storyboard */; };
+		CD21646C21C3CCFC00AD9851 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD21646A21C3CCFC00AD9851 /* TitleTableViewCell.swift */; };
+		CD21646D21C3CCFC00AD9851 /* TitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD21646B21C3CCFC00AD9851 /* TitleTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,6 +132,9 @@
 		CD21646021C31ED400AD9851 /* AchievementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsViewController.swift; sourceTree = "<group>"; };
 		CD21646221C3249A00AD9851 /* StatsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsTableViewCell.swift; sourceTree = "<group>"; };
 		CD21646321C3249A00AD9851 /* StatsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatsTableViewCell.xib; sourceTree = "<group>"; };
+		CD21646821C3C3C700AD9851 /* Titles.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Titles.storyboard; sourceTree = "<group>"; };
+		CD21646A21C3CCFC00AD9851 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
+		CD21646B21C3CCFC00AD9851 /* TitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleTableViewCell.xib; sourceTree = "<group>"; };
 		D9CEC8B3CA0ED479C07F28F2 /* Pods-GeoXplore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoXplore.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeoXplore/Pods-GeoXplore.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,6 +172,8 @@
 				CD21646021C31ED400AD9851 /* AchievementsViewController.swift */,
 				CD21646221C3249A00AD9851 /* StatsTableViewCell.swift */,
 				CD21646321C3249A00AD9851 /* StatsTableViewCell.xib */,
+				CD21646A21C3CCFC00AD9851 /* TitleTableViewCell.swift */,
+				CD21646B21C3CCFC00AD9851 /* TitleTableViewCell.xib */,
 			);
 			path = Statistics;
 			sourceTree = "<group>";
@@ -218,6 +226,7 @@
 				2BC0CC61207B736D001033B0 /* Register.storyboard */,
 				2BC0CC5920784386001033B0 /* Login.storyboard */,
 				2B6D037E20CB256B00195234 /* Friends.storyboard */,
+				CD21646821C3C3C700AD9851 /* Titles.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -380,6 +389,7 @@
 				2B1DA11220AB950F0059E7E7 /* ARBox.storyboard in Resources */,
 				2BF567BB2084F3AA00F8E6CF /* SetLocation.storyboard in Resources */,
 				2B1DA11920ABA1540059E7E7 /* art.scnassets in Resources */,
+				CD21646D21C3CCFC00AD9851 /* TitleTableViewCell.xib in Resources */,
 				2BC0CC3C20778D0C001033B0 /* LaunchScreen.storyboard in Resources */,
 				2B1DA10A20AB07380059E7E7 /* RankingViewCell.xib in Resources */,
 				2B1DA11620ABA0990059E7E7 /* Textures in Resources */,
@@ -390,6 +400,7 @@
 				2BED38A82086085B00D734D7 /* BoxExplorer.storyboard in Resources */,
 				2BFF355220C1DB8F00E3EFBF /* Localizable.strings in Resources */,
 				2BC0CC5B20784386001033B0 /* ChooseSignUpIn.storyboard in Resources */,
+				CD21646921C3C3C700AD9851 /* Titles.storyboard in Resources */,
 				2BED38A420854FB200D734D7 /* Assets.xcassets in Resources */,
 				2BC0CC62207B736D001033B0 /* Register.storyboard in Resources */,
 			);
@@ -466,6 +477,7 @@
 				2BB8B7B220C7011E0030BDAA /* CustomTabBar.swift in Sources */,
 				2B1DA10020AA19680059E7E7 /* APIUserProfile.swift in Sources */,
 				2B1DA0FE20AA14020059E7E7 /* UserProfileViewController.swift in Sources */,
+				CD21646C21C3CCFC00AD9851 /* TitleTableViewCell.swift in Sources */,
 				2BB8B7AE20C6F92B0030BDAA /* ImageWithColor.swift in Sources */,
 				2BC0CC3220778D0C001033B0 /* AppDelegate.swift in Sources */,
 				CD21646421C3249A00AD9851 /* StatsTableViewCell.swift in Sources */,

@@ -67,6 +67,7 @@ extension RankingViewController: UITableViewDelegate, UITableViewDataSource {
         cell.level.text = String(describing: rankingUsers[row].level)
         cell.openedChests.text = String(describing: rankingUsers[row].openedChests)
         cell.lastWeekOpened.text = String(describing: rankingUsers[row].lastWeekChests)
+     //   cell.title.text = rankingUsers[row].title
         print(rankingUsers[row].username)
         RequestManager.sharedInstance.downloadAvatarImage(name: rankingUsers[row].username) { (image, result) in
             switch result {

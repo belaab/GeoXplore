@@ -30,6 +30,7 @@ struct StoryboardManager {
         let friends = FriendsViewController.self
         let nav = UINavigationController.self
         let achievements = AchievementsViewController.self
+        let titles = TitlesViewController.self
     }
     
     enum StoryboardNames: String {
@@ -41,6 +42,7 @@ struct StoryboardManager {
         case ARBox
         case Friends
         case Achievements
+        case Titles
     }
     
     enum ViewControllerIdentifiers: String {
@@ -54,6 +56,7 @@ struct StoryboardManager {
         case friendsViewController
         case navigationController
         case achievementsViewController
+        case titlesViewController
     }
     
     static func loginViewController() -> LoginViewController {
@@ -101,6 +104,13 @@ struct StoryboardManager {
             aVC.statsArray = achievements
         return aVC
     }
+    
+    static func titlesViewController() -> TitlesViewController {
+        let titlesVC = self.viewController(ViewControllerTypes().titles, withIdentifier: ViewControllerIdentifiers.titlesViewController.rawValue, fromStoryboard: StoryboardNames.BoxExplorer.rawValue)
+
+        return titlesVC
+    }
+    
     
     
     

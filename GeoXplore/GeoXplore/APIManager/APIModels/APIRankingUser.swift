@@ -15,6 +15,7 @@ class RankingUser: Mappable {
     var level: Int
     var openedChests: Int
     var lastWeekChests: Int
+    var title: String
     
     
     required init?(map: Map) {
@@ -22,6 +23,7 @@ class RankingUser: Mappable {
         self.level = 0
         self.openedChests = 0
         self.lastWeekChests = 0
+        self.title = ""
     }
     
     func mapping(map: Map) {
@@ -29,6 +31,7 @@ class RankingUser: Mappable {
         self.level <- map["level"]
         self.openedChests <- map["openedChests"]
         self.lastWeekChests <- map["lastWeekChests"]
+        self.title <- map["title"]
     }
     
 }

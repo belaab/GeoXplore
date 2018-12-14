@@ -13,6 +13,10 @@ class AchievementsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var statsArray = [String]()
     
+    @IBAction func dismiss(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "StatsTableViewCell", bundle: nil), forCellReuseIdentifier: "StatsTableViewCell")

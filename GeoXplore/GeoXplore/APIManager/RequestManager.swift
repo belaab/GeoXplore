@@ -209,6 +209,29 @@ class RequestManager {
             })
     }
     
+    func getTitles(completion: @escaping([String]) -> Void) {
+                
+        Alamofire.request(RequestType.getTitles.url, method: .get, encoding: JSONEncoding.default, headers: getAuthorizationHeader())
+            .validate(statusCode: 200..<300)
+            .responseJSON(completionHandler: { (response:DataResponse<Any>) in
+                switch(response.result) {
+                case .success(_):
+                    if let json = response.result.value {
+                        guard let jsonArray = json as? [String] else {
+                            return
+                        }
+
+                        completion(jsonArray)
+                    }
+                case .failure(_):
+                    if let error = response.result.error {
+                        print("Status error code: \(String(describing: response.response?.statusCode))")
+                        completion(["a", "b", "c"])
+                    }
+                }
+            })
+    }
+    
     func postOpenedChest(chestID: String, completion: @escaping(Bool, Int, Int) -> Void) {
         
         Alamofire.request(RequestType.postOpenedChest(id: chestID).url,  method: .post, encoding: JSONEncoding.default, headers: getAuthorizationHeader())
