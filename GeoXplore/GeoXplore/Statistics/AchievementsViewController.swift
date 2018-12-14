@@ -28,7 +28,7 @@ class AchievementsViewController: UIViewController {
 extension AchievementsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return statsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -37,6 +37,10 @@ extension AchievementsViewController: UITableViewDelegate, UITableViewDataSource
         cell.statLabel.text = statsArray[indexPath.row]
         return cell
         
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80.0
     }
 
 }

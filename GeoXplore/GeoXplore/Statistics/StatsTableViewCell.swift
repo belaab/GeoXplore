@@ -12,4 +12,7 @@ class StatsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var statLabel: UILabel!
     
+    override func awakeFromNib() {
+        contentView.backgroundColor = .clear
+    }
 }
